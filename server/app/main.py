@@ -7,8 +7,13 @@ from datetime import timedelta
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.approvals import router as approvals_router
 from app.api.auth import router as auth_router
 from app.api.cases import router as cases_router
+from app.api.evidence import router as evidence_router
+from app.api.mandates import router as mandates_router
+from app.api.notifications import router as notifications_router
+from app.api.runs import router as runs_router
 from app.config import SERVER_ROOT, Settings, get_settings
 from app.core.clock import Clock, SystemClock
 from app.core.crypto import decode_master_key
@@ -46,6 +51,11 @@ def create_app(
     install_error_handlers(app)
     app.include_router(auth_router)
     app.include_router(cases_router)
+    app.include_router(evidence_router)
+    app.include_router(mandates_router)
+    app.include_router(approvals_router)
+    app.include_router(runs_router)
+    app.include_router(notifications_router)
 
     @app.get("/health")
     def health() -> dict:
