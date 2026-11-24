@@ -9,7 +9,7 @@ export class ApiError extends Error {
   }
 }
 
-export function createApi({ fetchImpl = globalThis.fetch, storage } = {}) {
+export function createApi({ fetchImpl, storage } = {}) {
   const memory = storage || defaultStorage();
   let accessToken = null;
   let stepUp = null;
@@ -19,7 +19,7 @@ export function createApi({ fetchImpl = globalThis.fetch, storage } = {}) {
     if (body !== undefined) headers["Content-Type"] = "application/json";
     if (accessToken) headers.Authorization = `Bearer ${accessToken}`;
     const root = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
-    const response = await fetchImpl(`${root}${path}`, {
+    const response = await (fetchImpl || globalThis.fetch)(`${root}${path}`, {
       method,
       headers,
       body: body === undefined ? undefined : JSON.stringify(body),
@@ -77,7 +77,7 @@ export function createApi({ fetchImpl = globalThis.fetch, storage } = {}) {
       const headers = {};
       if (accessToken) headers.Authorization = `Bearer ${accessToken}`;
       const root = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
-      const response = await fetchImpl(`${root}${path}`, { method: "POST", headers, body: form });
+      const response = await (fetchImpl || globalThis.fetch)(`${root}${path}`, { method: "POST", headers, body: form });
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) fail(response, payload);
       return payload;
