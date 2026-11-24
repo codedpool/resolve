@@ -1,0 +1,81 @@
+roles:
+  extract:
+    model: qwen/qwen3.8-27b
+    mode: instruct
+    reasoning_effort: none
+    fallback: openai/gpt-oss-120b
+  draft:
+    model: qwen/qwen3.8-27b
+    mode: instruct
+    reasoning_effort: none
+    fallback: openai/gpt-oss-120b
+  summarize:
+    model: qwen/qwen3.8-27b
+    mode: instruct
+    reasoning_effort: none
+    fallback: openai/gpt-oss-120b
+  classify:
+    model: openai/gpt-oss-20b
+    reasoning_effort: low
+    fallback: openai/gpt-oss-120b
+  guard_policy:
+    model: openai/gpt-oss-safeguard-20b
+    reasoning_effort: low
+    fallback: openai/gpt-oss-20b
+  injection:
+    model: meta-llama/llama-prompt-guard-2-86m
+  judge_for_qwen:
+    model: openai/gpt-oss-120b
+    reasoning_effort: low
+  judge_for_gptoss:
+    model: qwen/qwen3.8-27b
+    mode: instruct
+    reasoning_effort: none
+  legal_tagger:
+    model: qwen/qwen3.8-27b
+    mode: instruct
+    reasoning_effort: none
+  legal_reviewer:
+    model: openai/gpt-oss-120b
+    reasoning_effort: low
+  simulator:
+    model: openai/gpt-oss-120b
+    reasoning_effort: low
+  stt_narration:
+    model: whisper-large-v3
+  stt_turns:
+    model: whisper-large-v3-turbo
+
+# USD per 1M tokens, except Whisper which is USD per audio hour.
+prices:
+  qwen/qwen3.8-27b:
+    input_per_million: 0.80
+    output_per_million: 4.00
+  openai/gpt-oss-120b:
+    input_per_million: 0.15
+    output_per_million: 0.60
+  openai/gpt-oss-20b:
+    input_per_million: 0.075
+    output_per_million: 0.30
+  openai/gpt-oss-safeguard-20b:
+    input_per_million: 0.075
+    output_per_million: 0.30
+  meta-llama/llama-prompt-guard-2-86m:
+    input_per_million: 0.04
+    output_per_million: 0.04
+  whisper-large-v3:
+    per_audio_hour: 0.111
+  whisper-large-v3-turbo:
+    per_audio_hour: 0.04
+
+stt:
+  language: null
+  hallucination:
+    max_no_speech_prob: 0.6
+    min_avg_logprob: -1.0
+    max_compression_ratio: 2.4
+
+tts:
+  model: mulberry
+  language: hinglish
+  speaker: null
