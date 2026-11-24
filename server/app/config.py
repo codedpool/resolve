@@ -22,7 +22,7 @@ class Settings(BaseSettings):
 
     groq_api_key: str = ""
     rumik_api_key: str = ""
-    database_url: str = "postgresql+psycopg://resolve:resolve@localhost:5432/resolve"
+    database_url: str = "postgresql+psycopg://resolve:resolve@127.0.0.1:5434/resolve"
     jwt_secret: str = "dev-only-change-me"
     master_key: str = ""
     app_env: str = "dev"
