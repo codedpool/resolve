@@ -12,8 +12,9 @@ from sqlalchemy.orm import Session
 
 from app.core.crypto import generate_key, open_text, wrap_data_key
 from app.core.errors import AppError
-from app.db.models import Approval, ApprovalStatus, Case, CaseStatus, Event, Fact, FactCertainty, FactSource, User
+from app.db.models import Approval, ApprovalStatus, Case, CaseStatus, Event, Fact, FactCertainty, FactSource, Run, User
 from app.deps import current_user, get_session, require_step_up
+from app.runtime.run_service import drop_case_checkpoints
 from app.services.access import data_key, owned_case, record_event
 from app.services.fact_service import confirm_fact, propose_fact, read_value
 
@@ -90,10 +91,12 @@ def delete_case(
     user: User = Depends(require_step_up),
 ) -> dict:
     case = owned_case(session, user, case_id)
+    thread_ids = [str(row) for row in session.scalars(select(Run.id).where(Run.case_id == case.id))]
     case.data_key_enc = None
     case.status = CaseStatus.deleted
     case.deleted_at = request.app.state.clock.now()
     request.app.state.objects.wipe(str(case.id))
+    drop_case_checkpoints(request.app.state.settings.database_url, thread_ids)
     return {"id": str(case.id), "status": case.status.value}
 
 

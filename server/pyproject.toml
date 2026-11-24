@@ -18,6 +18,7 @@ dependencies = [
     "pyyaml>=6.0",
     "pgvector>=0.3",
     "python-multipart>=0.0.18",
+    "langgraph>=1.0",
 ]
 
 [project.optional-dependencies]

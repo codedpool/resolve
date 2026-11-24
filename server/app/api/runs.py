@@ -15,6 +15,7 @@ from app.core.errors import AppError
 from app.db.models import Run, RunStatus, User
 from app.deps import current_user, get_session
 from app.services.access import data_key, owned_case, record_event
+from app.runtime.run_service import get_runner
 
 router = APIRouter(tags=["runs"])
 
@@ -49,7 +50,11 @@ def create_run(
     session.add(row)
     session.flush()
     record_event(session, case, data_key(request, case), "run_created", {"run_id": str(row.id), "graph": row.graph}, now)
-    return {"run_id": str(row.id), "status": row.status.value, "replayed": False}
+    created = {"run_id": str(row.id), "status": row.status.value, "replayed": False}
+    if body.graph == "approval":
+        session.commit()
+        get_runner(request).start(str(row.id))
+    return created
 
 
 def _owned_run(session: Session, user: User, run_id: uuid.UUID) -> Run:

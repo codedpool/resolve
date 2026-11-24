@@ -15,6 +15,7 @@ from app.core.errors import AppError
 from app.db.models import Approval, ApprovalStatus, Evidence, Notification, User
 from app.deps import current_user, get_session, require_step_up
 from app.services.access import data_key, owned_case, record_event
+from app.runtime.run_service import get_runner
 
 router = APIRouter(tags=["approvals"])
 
@@ -70,6 +71,8 @@ def decide(
         if evidence is not None:
             evidence.sent_to_vision = True
     key = data_key(request, case)
+    raw_payload = open_text(row.payload_enc, key)
+    payload = json.loads(raw_payload) if raw_payload.startswith("{") else {}
     record_event(session, case, key, "approval_decided", {"approval_id": str(row.id), "decision": body.decision}, now)
     session.add(
         Notification(
@@ -80,4 +83,7 @@ def decide(
             created_at=now,
         )
     )
+    session.commit()
+    if payload.get("run_id"):
+        get_runner(request).resume(payload["run_id"], body.decision)
     return {"id": str(row.id), "status": row.status.value}

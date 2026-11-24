@@ -342,6 +342,13 @@ class Notification(Base):
     read_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
+class SideEffect(Base):
+    __tablename__ = "side_effects"
+
+    key: Mapped[str] = mapped_column(String(128), primary_key=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
 class OutboxJob(Base):
     __tablename__ = "outbox_jobs"
     __table_args__ = (UniqueConstraint("idempotency_key", name="uq_outbox_idempotency"),)
