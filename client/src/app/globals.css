@@ -1,49 +1,108 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
+  --ink: #1b3a4b;
+  --paper: #e7eef2;
+  --field: #f8fbfc;
+  --line: #c5d2d8;
+  --stamp: #9c2f2f;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  margin: 0;
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: block;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
+.spine {
+  border-left: 12px solid var(--stamp);
+  min-height: 100vh;
+  padding: 4rem 1.5rem 3rem 2rem;
+}
+
+.case-form {
+  max-width: 28rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.case-form h1 {
   margin: 0;
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
-a {
-  color: inherit;
+.case-form p {
+  margin: 0;
+  line-height: 1.5;
+  max-width: 38rem;
+}
+
+.case-form label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.case-form input {
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+}
+
+.case-form button,
+.actions a {
+  width: fit-content;
+  background: var(--ink);
+  color: var(--field);
+  border: 0;
+  font: inherit;
+  padding: 0.7rem 1rem;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.form-error {
+  color: var(--stamp);
+}
+
+.step-up {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+  background: var(--field);
+  border: 1px solid var(--ink);
+  max-width: 18rem;
+}
+
+.step-up input,
+.step-up button {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+}
+
+@media (max-width: 640px) {
+  .spine {
+    padding: 2rem 1rem 2rem 1.25rem;
+  }
+
+  .case-form h1 {
+    font-size: 2rem;
   }
 }
