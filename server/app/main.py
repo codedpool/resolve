@@ -11,6 +11,7 @@ from app.api.approvals import router as approvals_router
 from app.api.auth import router as auth_router
 from app.api.cases import router as cases_router
 from app.api.evidence import router as evidence_router
+from app.api.intake import router as intake_router
 from app.api.mandates import router as mandates_router
 from app.api.notifications import router as notifications_router
 from app.api.runs import router as runs_router
@@ -52,6 +53,7 @@ def create_app(
     app.include_router(auth_router)
     app.include_router(cases_router)
     app.include_router(evidence_router)
+    app.include_router(intake_router)
     app.include_router(mandates_router)
     app.include_router(approvals_router)
     app.include_router(runs_router)

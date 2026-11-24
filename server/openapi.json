@@ -96,6 +96,19 @@
         "title": "HTTPValidationError",
         "type": "object"
       },
+      "IntakeMessage": {
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "IntakeMessage",
+        "type": "object"
+      },
       "LoginBody": {
         "properties": {
           "email": {
@@ -1222,6 +1235,77 @@
         ]
       }
     },
+    "/cases/{case_id}/intake/messages": {
+      "post": {
+        "operationId": "intake_message_cases__case_id__intake_messages_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "case_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IntakeMessage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Intake Message Cases  Case Id  Intake Messages Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Intake Message",
+        "tags": [
+          "intake"
+        ]
+      }
+    },
     "/cases/{case_id}/mandate": {
       "get": {
         "operationId": "get_mandate_cases__case_id__mandate_get",
@@ -1349,6 +1433,67 @@
         "summary": "Set Mandate",
         "tags": [
           "mandates"
+        ]
+      }
+    },
+    "/cases/{case_id}/narration-done": {
+      "post": {
+        "operationId": "narration_done_cases__case_id__narration_done_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "case_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Narration Done Cases  Case Id  Narration Done Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Narration Done",
+        "tags": [
+          "intake"
         ]
       }
     },

@@ -80,6 +80,7 @@ def _fact_view(fact: Fact, key: bytes) -> dict:
         "certainty": fact.certainty.value,
         "confirmation_state": fact.confirmation_state.value,
         "version": fact.version,
+        "phrase": open_text(fact.phrase_enc, key) if fact.phrase_enc else "",
     }
 
 
