@@ -18,7 +18,8 @@ export function createApi({ fetchImpl = globalThis.fetch, storage } = {}) {
     const headers = { Accept: "application/json" };
     if (body !== undefined) headers["Content-Type"] = "application/json";
     if (accessToken) headers.Authorization = `Bearer ${accessToken}`;
-    const response = await fetchImpl(path, {
+    const root = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
+    const response = await fetchImpl(`${root}${path}`, {
       method,
       headers,
       body: body === undefined ? undefined : JSON.stringify(body),
