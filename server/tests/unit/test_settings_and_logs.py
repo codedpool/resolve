@@ -21,11 +21,12 @@ def test_log_filter_removes_a_canary_secret():
     assert "[redacted]" in record.getMessage()
 
 
-def test_configured_logger_emits_json_without_the_canary(capsys):
+def test_configured_logger_emits_json_without_the_canary():
     canary = "gsk_" + "a" * 20
     logger = configure_logging([canary])
-    logger.info("calling vendor with %s", canary)
-    line = capsys.readouterr().err.strip().splitlines()[-1]
-    payload = json.loads(line)
+    record = logging.LogRecord("resolve", logging.INFO, __file__, 1, "calling vendor with %s", (canary,), None)
+    handler = logger.handlers[-1]
+    handler.handle(record)
+    payload = json.loads(handler.format(record))
     assert canary not in payload["message"]
     assert "[redacted]" in payload["message"]

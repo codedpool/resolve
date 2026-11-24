@@ -2,19 +2,28 @@
 
 from __future__ import annotations
 
+from datetime import timedelta
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.config import Settings, get_settings
+from app.api.auth import router as auth_router
+from app.api.cases import router as cases_router
+from app.config import SERVER_ROOT, Settings, get_settings
 from app.core.clock import Clock, SystemClock
+from app.core.crypto import decode_master_key
 from app.core.errors import install_error_handlers
 from app.core.idempotency import IdempotencyStore
 from app.core.logging import configure_logging
+from app.core.objects import EncryptedObjectStore
+from app.core.ratelimit import RateLimiter
+from app.core.security import make_hasher
 
 
 def create_app(
     settings: Settings | None = None,
     clock: Clock | None = None,
+    session_factory=None,
 ) -> FastAPI:
     settings = settings or get_settings()
     configure_logging(settings.secret_values())
@@ -29,7 +38,14 @@ def create_app(
     app.state.settings = settings
     app.state.clock = clock or SystemClock()
     app.state.idempotency = IdempotencyStore()
+    app.state.session_factory = session_factory
+    app.state.hasher = make_hasher(settings.app_env)
+    app.state.master_key = decode_master_key(settings.master_key) if settings.master_key else b""
+    app.state.login_limiter = RateLimiter(limit=5, window=timedelta(minutes=1), clock=app.state.clock)
+    app.state.objects = EncryptedObjectStore(SERVER_ROOT / "data" / "objects")
     install_error_handlers(app)
+    app.include_router(auth_router)
+    app.include_router(cases_router)
 
     @app.get("/health")
     def health() -> dict:
