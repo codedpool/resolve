@@ -75,8 +75,20 @@ body {
   gap: 0.75rem;
 }
 
-.form-error {
+.simulated {
   color: var(--stamp);
+}
+
+.fact-list {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.badge {
+  border: 1px solid var(--line);
+  padding: 0.1rem 0.4rem;
 }
 
 .step-up {

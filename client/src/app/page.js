@@ -18,9 +18,12 @@ export default function HomePage() {
       <h1>Your refund, in your words.</h1>
       <p>Tell the story once. Resolve keeps the case and talks to the company for you. The company call is simulated.</p>
       {signedIn ? (
-        <button type="button" onClick={logout}>
-          Sign out
-        </button>
+        <p className="actions">
+          <Link href="/cases">Cases</Link>
+          <button type="button" onClick={logout}>
+            Sign out
+          </button>
+        </p>
       ) : (
         <p className="actions">
           <Link href="/signup">Create account</Link>

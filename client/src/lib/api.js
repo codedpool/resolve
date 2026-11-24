@@ -70,6 +70,18 @@ export function createApi({ fetchImpl = globalThis.fetch, storage } = {}) {
       memory.removeItem("refresh_token");
     },
     request,
+    async upload(path, file) {
+      const form = new FormData();
+      form.append("file", file);
+      form.append("type", "document");
+      const headers = {};
+      if (accessToken) headers.Authorization = `Bearer ${accessToken}`;
+      const root = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
+      const response = await fetchImpl(`${root}${path}`, { method: "POST", headers, body: form });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) fail(response, payload);
+      return payload;
+    },
   };
 
   function remember(payload) {
