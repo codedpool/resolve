@@ -1,0 +1,293 @@
+{
+  "calls": [
+    {
+      "role": "extract",
+      "reasoning_effort": "none",
+      "model": "qwen/qwen3.8-27b",
+      "content": "ok",
+      "reasoning_present": false,
+      "usage": {
+        "queue_time": 0.080670014,
+        "prompt_tokens": 19,
+        "prompt_time": 0.001227293,
+        "completion_tokens": 2,
+        "completion_time": 0.004083212,
+        "total_tokens": 21,
+        "total_time": 0.005310505
+      }
+    },
+    {
+      "role": "draft",
+      "reasoning_effort": "none",
+      "model": "qwen/qwen3.8-27b",
+      "content": "ok",
+      "reasoning_present": false,
+      "usage": {
+        "queue_time": 0.047613114,
+        "prompt_tokens": 19,
+        "prompt_time": 0.001006516,
+        "completion_tokens": 2,
+        "completion_time": 0.004017593,
+        "total_tokens": 21,
+        "total_time": 0.005024109
+      }
+    },
+    {
+      "role": "summarize",
+      "reasoning_effort": "none",
+      "model": "qwen/qwen3.8-27b",
+      "content": "ok",
+      "reasoning_present": false,
+      "usage": {
+        "queue_time": 0.046084834,
+        "prompt_tokens": 19,
+        "prompt_time": 0.001006786,
+        "completion_tokens": 2,
+        "completion_time": 0.004041513,
+        "total_tokens": 21,
+        "total_time": 0.005048299
+      }
+    },
+    {
+      "role": "classify",
+      "reasoning_effort": "low",
+      "model": "openai/gpt-oss-20b",
+      "content": "ok",
+      "reasoning_present": true,
+      "usage": {
+        "queue_time": 0.368285048,
+        "prompt_tokens": 78,
+        "prompt_time": 0.003717231,
+        "completion_tokens": 18,
+        "completion_time": 0.018709673,
+        "total_tokens": 96,
+        "total_time": 0.022426904,
+        "completion_tokens_details": {
+          "reasoning_tokens": 8
+        }
+      }
+    },
+    {
+      "role": "judge_for_qwen",
+      "reasoning_effort": "low",
+      "model": "openai/gpt-oss-120b",
+      "content": "ok",
+      "reasoning_present": true,
+      "usage": {
+        "queue_time": 0.277720116,
+        "prompt_tokens": 78,
+        "prompt_time": 0.003817146,
+        "completion_tokens": 26,
+        "completion_time": 0.054855715,
+        "total_tokens": 104,
+        "total_time": 0.058672861,
+        "completion_tokens_details": {
+          "reasoning_tokens": 16
+        }
+      }
+    },
+    {
+      "role": "judge_for_gptoss",
+      "reasoning_effort": "none",
+      "model": "qwen/qwen3.8-27b",
+      "content": "ok",
+      "reasoning_present": false,
+      "usage": {
+        "queue_time": 0.050025136,
+        "prompt_tokens": 19,
+        "prompt_time": 0.001013432,
+        "completion_tokens": 2,
+        "completion_time": 0.004009283,
+        "total_tokens": 21,
+        "total_time": 0.005022715
+      }
+    },
+    {
+      "role": "legal_tagger",
+      "reasoning_effort": "none",
+      "model": "qwen/qwen3.8-27b",
+      "content": "ok",
+      "reasoning_present": false,
+      "usage": {
+        "queue_time": 0.049894737,
+        "prompt_tokens": 19,
+        "prompt_time": 0.001092171,
+        "completion_tokens": 2,
+        "completion_time": 0.004006423,
+        "total_tokens": 21,
+        "total_time": 0.005098594
+      }
+    },
+    {
+      "role": "legal_reviewer",
+      "reasoning_effort": "low",
+      "model": "openai/gpt-oss-120b",
+      "content": "ok",
+      "reasoning_present": true,
+      "usage": {
+        "queue_time": 0.370041062,
+        "prompt_tokens": 78,
+        "prompt_time": 0.004098914,
+        "completion_tokens": 26,
+        "completion_time": 0.055114746,
+        "total_tokens": 104,
+        "total_time": 0.05921366,
+        "completion_tokens_details": {
+          "reasoning_tokens": 16
+        }
+      }
+    },
+    {
+      "role": "simulator",
+      "reasoning_effort": "low",
+      "model": "openai/gpt-oss-120b",
+      "content": "ok",
+      "reasoning_present": true,
+      "usage": {
+        "queue_time": 0.368548215,
+        "prompt_tokens": 78,
+        "prompt_time": 0.002880994,
+        "completion_tokens": 26,
+        "completion_time": 0.055156938,
+        "total_tokens": 104,
+        "total_time": 0.058037932,
+        "completion_tokens_details": {
+          "reasoning_tokens": 16
+        }
+      }
+    }
+  ],
+  "failures": [],
+  "model_ids": [
+    "allam-2-7b",
+    "canopylabs/orpheus-arabic-saudi",
+    "canopylabs/orpheus-v1-english",
+    "meta-llama/llama-prompt-guard-2-22m",
+    "meta-llama/llama-prompt-guard-2-86m",
+    "openai/gpt-oss-120b",
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-safeguard-20b",
+    "qwen/qwen3.8-27b",
+    "whisper-large-v3",
+    "whisper-large-v3-turbo"
+  ],
+  "required_missing": [],
+  "strict_schema": {
+    "model": "qwen/qwen3.8-27b",
+    "content": "{\"certainty\": \"not_stated\", \"field\": \"order_id\", \"source_phrase\": \"\", \"value\": \"\"}",
+    "reasoning_present": false,
+    "usage": {
+      "queue_time": 0.054774522,
+      "prompt_tokens": 55,
+      "prompt_time": 0.003799236,
+      "completion_tokens": 28,
+      "completion_time": 0.055871618,
+      "total_tokens": 83,
+      "total_time": 0.059670854
+    },
+    "parsed": {
+      "certainty": "not_stated",
+      "field": "order_id",
+      "source_phrase": "",
+      "value": ""
+    },
+    "accepted_not_stated_empty": true
+  },
+  "prompt_guard": [
+    {
+      "sample": "en-benign",
+      "label": "0.0003590279084164649",
+      "usage": {
+        "queue_time": 0,
+        "prompt_tokens": 11,
+        "prompt_time": 0,
+        "completion_tokens": 0,
+        "completion_time": 0,
+        "total_tokens": 0,
+        "total_time": 0
+      }
+    },
+    {
+      "sample": "en-injection",
+      "label": "0.9995842576026917",
+      "usage": {
+        "queue_time": 0,
+        "prompt_tokens": 15,
+        "prompt_time": 0,
+        "completion_tokens": 0,
+        "completion_time": 0,
+        "total_tokens": 0,
+        "total_time": 0
+      }
+    },
+    {
+      "sample": "hi-benign",
+      "label": "0.00037501059705391526",
+      "usage": {
+        "queue_time": 0,
+        "prompt_tokens": 12,
+        "prompt_time": 0,
+        "completion_tokens": 0,
+        "completion_time": 0,
+        "total_tokens": 0,
+        "total_time": 0
+      }
+    },
+    {
+      "sample": "hi-injection",
+      "label": "0.9987924098968506",
+      "usage": {
+        "queue_time": 0,
+        "prompt_tokens": 24,
+        "prompt_time": 0,
+        "completion_tokens": 0,
+        "completion_time": 0,
+        "total_tokens": 0,
+        "total_time": 0
+      }
+    }
+  ],
+  "safeguard": {
+    "model": "openai/gpt-oss-safeguard-20b",
+    "content": "{\"violation\": true, \"categories\": [\"settlement\"], \"rationale\": \"The user states an acceptance of a partial refund, which is a settlement action not on the disclosure list.\"}",
+    "reasoning_present": true,
+    "usage": {
+      "queue_time": 0.154591071,
+      "prompt_tokens": 156,
+      "prompt_time": 0.007530518,
+      "completion_tokens": 121,
+      "completion_time": 0.121502508,
+      "total_tokens": 277,
+      "total_time": 0.129033026,
+      "completion_tokens_details": {
+        "reasoning_tokens": 69
+      }
+    }
+  },
+  "whisper": {
+    "model": "whisper-large-v3-turbo",
+    "language": "en",
+    "duration_seconds": 4.303,
+    "billed_seconds": 10.0,
+    "text": " The refund of Rs 1,200 is still pending.",
+    "segment_fields": [
+      "avg_logprob",
+      "compression_ratio",
+      "end",
+      "id",
+      "no_speech_prob",
+      "seek",
+      "start",
+      "temperature",
+      "text",
+      "tokens"
+    ],
+    "segment_count": 1,
+    "estimated_usd": 0.000111
+  },
+  "estimated_usd": 0.000527,
+  "reasoning": {
+    "qwen_instruct": "reasoning_effort=none disables reasoning tokens. default also returns no reasoning tokens on Groq. low, medium, and high enable reasoning.",
+    "gpt_oss": "reasoning_effort is low, medium, or high. none is not supported. Reasoning is returned in the reasoning field. include_reasoning can hide it. reasoning_format is not supported on gpt-oss."
+  }
+}

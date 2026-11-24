@@ -1,0 +1,262 @@
+{
+  "failures": [],
+  "voices": {
+    "models": [
+      {
+        "id": "muga",
+        "label": "Muga",
+        "disabled": false,
+        "badge": null,
+        "voices": [],
+        "languages": [
+          {
+            "id": "hinglish",
+            "label": "Hinglish",
+            "disabled": false
+          },
+          {
+            "id": "english",
+            "label": "English",
+            "disabled": false
+          }
+        ],
+        "defaultLanguage": "hinglish",
+        "multiLanguage": false,
+        "descriptions": [],
+        "phoneCalls": true
+      },
+      {
+        "id": "mulberry",
+        "label": "Mulberry",
+        "disabled": false,
+        "badge": null,
+        "voices": [
+          "Emma",
+          "Mia",
+          "Sophia",
+          "Ava",
+          "speaker_1",
+          "speaker_2",
+          "speaker_3",
+          "speaker_4",
+          "Lucas",
+          "Noah",
+          "Theo",
+          "Adam"
+        ],
+        "languages": [
+          {
+            "id": "english",
+            "label": "English (US)",
+            "disabled": false
+          },
+          {
+            "id": "hinglish",
+            "label": "Hinglish",
+            "disabled": false
+          },
+          {
+            "id": "hindi",
+            "label": "Hindi (IN)",
+            "disabled": false
+          }
+        ],
+        "defaultLanguage": "english",
+        "multiLanguage": false,
+        "descriptions": [
+          {
+            "id": "warm-support-us",
+            "label": "Warm Support",
+            "subtitle": "American · 30s · conversational",
+            "description": "a female 30s american voice, normal pitch, warm timbre, conversational pacing, calm and reassuring, professional register, like a customer support agent."
+          },
+          {
+            "id": "confident-spokesperson-us",
+            "label": "Confident Spokesperson",
+            "subtitle": "American · 40s · measured",
+            "description": "a male 40s american voice, low pitch, deep timbre, measured conversational pacing, confident, formal register, like a brand spokesperson."
+          },
+          {
+            "id": "bright-upbeat-us",
+            "label": "Bright & Upbeat",
+            "subtitle": "American · 20s · fast",
+            "description": "a female 20s american voice, high pitch, smooth timbre, fast pacing, energetic and upbeat, casual register, like a social media creator."
+          },
+          {
+            "id": "calm-narrator-us",
+            "label": "Calm Narrator",
+            "subtitle": "American · 30s · slow",
+            "description": "a male 30s american voice, low pitch, smooth timbre, slow pacing, neutral, formal register, like an e-learning instructor."
+          },
+          {
+            "id": "friendly-receptionist-us",
+            "label": "Friendly Receptionist",
+            "subtitle": "American · 30s · brisk",
+            "description": "a female 30s american voice, normal pitch, warm timbre, brisk pacing, friendly, neutral register, like a virtual receptionist."
+          },
+          {
+            "id": "easygoing-host-us",
+            "label": "Easygoing Host",
+            "subtitle": "American · 20s · conversational",
+            "description": "a male 20s american voice, normal pitch, warm timbre, conversational pacing, relaxed and friendly, casual register, like a podcast host."
+          },
+          {
+            "id": "reassuring-support-in",
+            "label": "Reassuring Support",
+            "subtitle": "Indian · 30s · conversational",
+            "description": "a female 30s indian voice, normal pitch, warm timbre, conversational pacing, calm and reassuring, professional register, like a customer support agent."
+          },
+          {
+            "id": "steady-narrator-in",
+            "label": "Steady Narrator",
+            "subtitle": "Indian · 30s · slow",
+            "description": "a male 30s indian voice, low pitch, smooth timbre, slow pacing, neutral, formal register, like a corporate training narrator."
+          },
+          {
+            "id": "lively-creator-in",
+            "label": "Lively Creator",
+            "subtitle": "Indian · 20s · brisk",
+            "description": "a female 20s indian voice, high pitch, smooth timbre, brisk pacing, energetic, casual register, like a social media creator."
+          },
+          {
+            "id": "crisp-receptionist-uk",
+            "label": "Crisp Receptionist",
+            "subtitle": "British · 30s · brisk",
+            "description": "a female 30s british voice, normal pitch, smooth timbre, brisk pacing, polite, neutral register, like a virtual receptionist."
+          },
+          {
+            "id": "dramatic-narrator-uk",
+            "label": "Dramatic Narrator",
+            "subtitle": "British · 40s · slow",
+            "description": "a male 40s british voice, low pitch, gravelly timbre, slow pacing, neutral, formal register, like a dramatic narrator."
+          }
+        ],
+        "phoneCalls": true
+      },
+      {
+        "id": "spider",
+        "label": "Spider",
+        "disabled": true,
+        "badge": "coming soon",
+        "voices": [],
+        "languages": [
+          {
+            "id": "english",
+            "label": "English",
+            "disabled": false
+          },
+          {
+            "id": "hinglish",
+            "label": "Hinglish",
+            "disabled": false
+          },
+          {
+            "id": "hindi",
+            "label": "Hindi (IN)",
+            "disabled": false
+          }
+        ],
+        "defaultLanguage": "english",
+        "multiLanguage": false,
+        "descriptions": [],
+        "phoneCalls": false
+      }
+    ],
+    "defaultModel": "muga"
+  },
+  "limits": {
+    "concurrency_limit": 4,
+    "active_requests": 0,
+    "plan": "payg"
+  },
+  "syntheses": [
+    {
+      "model": "mulberry",
+      "language": "hinglish",
+      "note": "text and language sent on mint",
+      "expires_in": 300,
+      "time_to_first_audio_ms": 303.3,
+      "elapsed_ms": 1398.9,
+      "pcm_bytes": 114688,
+      "wav": "docs/results/s0.2-audio/hinglish-mulberry.wav",
+      "frames": [
+        {
+          "type": "done",
+          "credits_used": 0
+        }
+      ]
+    },
+    {
+      "model": "mulberry",
+      "language": "hindi",
+      "note": "text and language sent on mint",
+      "expires_in": 300,
+      "time_to_first_audio_ms": 297.1,
+      "elapsed_ms": 1555.0,
+      "pcm_bytes": 139264,
+      "wav": "docs/results/s0.2-audio/hindi-mulberry.wav",
+      "frames": [
+        {
+          "type": "done",
+          "credits_used": 0
+        }
+      ]
+    },
+    {
+      "model": "muga",
+      "language": "hinglish",
+      "note": "text and language sent on mint",
+      "expires_in": 300,
+      "time_to_first_audio_ms": 284.5,
+      "elapsed_ms": 1625.9,
+      "pcm_bytes": 119040,
+      "wav": "docs/results/s0.2-audio/hinglish-muga.wav",
+      "frames": [
+        {
+          "type": "queued"
+        },
+        {
+          "type": "done",
+          "credits_used": 0
+        }
+      ]
+    },
+    {
+      "model": "muga",
+      "language": "hindi",
+      "note": "text and language sent on mint",
+      "expires_in": 300,
+      "time_to_first_audio_ms": 275.3,
+      "elapsed_ms": 2549.5,
+      "pcm_bytes": 122880,
+      "wav": "docs/results/s0.2-audio/hindi-muga.wav",
+      "frames": [
+        {
+          "type": "queued"
+        },
+        {
+          "type": "done",
+          "credits_used": 0
+        }
+      ]
+    }
+  ],
+  "barge_in": {
+    "replacement_produced_audio": true,
+    "interrupt_frames": [
+      {
+        "type": "cancelled",
+        "reason": "interrupt"
+      },
+      {
+        "type": "done"
+      }
+    ],
+    "cancel_frames": [
+      {
+        "type": "cancelled",
+        "reason": "cancel"
+      }
+    ]
+  }
+}
