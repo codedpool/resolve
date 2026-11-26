@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resolve client
 
-## Getting Started
+The web app for Resolve, a tool that helps people in India chase a refund or fix a bad online purchase. Next.js (App Router), plain JavaScript and JSX, zod for validating API replies.
 
-First, run the development server:
+## Set up and run (PowerShell)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```powershell
+cd client
+npm install
+$env:NEXT_PUBLIC_API_URL = "http://localhost:8000"   # the server; set NEXT_PUBLIC_WS_URL too if the socket host differs
+npm run dev                                          # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start the server first (see `../server/README.md`).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Test
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```powershell
+npm test                  # Vitest and React Testing Library, no server needed
+npx eslint .
+npx playwright install chromium     # once
+npm run test:e2e          # browser tests; they need the server running and skip themselves when it is not reachable
+```
 
-## Learn More
+## What is here
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app` pages: sign in, cases, a case (facts, intake chat, evidence, permission card, approvals), the voice call page, approvals, inbox.
+- `src/components` the screens' parts. A fact is confirmed only by pressing Accept on its card; no timer, no silence and no spoken "yes" confirms anything.
+- `src/lib/api.js` the API client (token handling, step-up password prompt and retry). `src/lib/audio` microphone capture, the 16 kHz resampler, the 24 kHz playback queue with an instant flush, and the voice client. `public/audio/capture-worklet.js` is the microphone worklet.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Voice
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The call page needs a microphone and works best with headphones, because the browser's echo cancellation is not perfect. Everything runs as a practice call: the person the agent talks to is played by a developer or a script, and the case shows "Simulated resolution".
