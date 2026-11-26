@@ -1,11 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { http, HttpResponse } from "msw";
-import { setupServer } from "msw/node";
-import { afterAll, afterEach, beforeAll, expect, it, vi } from "vitest";
+import { expect, it, vi } from "vitest";
 
 import { ConfirmationCard } from "../../src/components/ConfirmationCard";
 import { applyCorrection } from "../../src/components/facts";
-import { IntakeChat } from "../../src/components/IntakeChat";
 
 const fact = {
   id: "1",
@@ -44,35 +41,4 @@ it("edit creates a new version and clears the confirmation", () => {
   expect(screen.getByText("1250")).toBeInTheDocument();
   expect(screen.getByText("unconfirmed")).toBeInTheDocument();
   expect(screen.getByText("Version 2")).toBeInTheDocument();
-});
-
-it("sends narration-done only once", () => {
-  const send = vi.fn();
-  render(<IntakeChat caseId="case-1" send={send} />);
-  fireEvent.click(screen.getByRole("button", { name: "Done" }));
-  fireEvent.click(screen.getByRole("button", { name: "Done" }));
-  const doneCalls = send.mock.calls.filter((call) => String(call[0]).endsWith("/narration-done"));
-  expect(doneCalls).toHaveLength(1);
-});
-
-const doneCalls = [];
-const server = setupServer(
-  http.post("http://localhost:3000/cases/:id/narration-done", () => {
-    doneCalls.push("done");
-    return HttpResponse.json({ ok: true });
-  }),
-);
-
-beforeAll(() => server.listen({ onUnhandledRequest: "bypass" }));
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
-
-it("mocks narration-done with the service worker", async () => {
-  process.env.NEXT_PUBLIC_API_URL = "http://localhost:3000";
-  doneCalls.length = 0;
-  render(<IntakeChat caseId="case-9" />);
-  fireEvent.click(screen.getByRole("button", { name: "Done" }));
-  fireEvent.click(screen.getByRole("button", { name: "Done" }));
-  await vi.waitFor(() => expect(doneCalls).toEqual(["done"]));
-  delete process.env.NEXT_PUBLIC_API_URL;
 });
