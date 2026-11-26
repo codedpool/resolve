@@ -85,3 +85,20 @@ class CaseStore(Protocol):
     def get_undisclosable_values(self, case_id: str, mandate_version: int) -> list[str]: ...
 
     def record_event(self, case_id: str, kind: str, body: dict) -> None: ...
+
+
+class Chunk(Protocol):
+    """A retrieved legal text chunk. `review_state` is the tag review state of the chunk
+    (`unreviewed`, `llm_reviewed`, `needs_attention`, `legal_reviewed`). Optional extras the answer
+    node uses when present: `source_title`, `clause`, `fetched_at`."""
+
+    id: str
+    text: str
+    layer: str
+    source_url: str
+    section: str
+    review_state: str
+
+
+class Retriever(Protocol):
+    def search(self, query: str, entity_type: str | None = None, k: int = 5) -> list[Chunk]: ...
