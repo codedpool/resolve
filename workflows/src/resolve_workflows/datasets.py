@@ -87,7 +87,13 @@ def validate_redaction(items: list[dict]) -> list[str]:
 
 
 def validate_turns(items: list[dict]) -> list[str]:
-    errors = [] if len(items) >= 30 else [f"turns: {len(items)} sentences, need 30"]
+    errors = [] if len(items) >= 50 else [f"turns: {len(items)} sentences, need 50"]
+    if len({item["text"] for item in items}) != len(items):
+        errors.append("turns: duplicate sentences")
+    counts = {label: sum(1 for item in items if item["label"] == label) for label in TURN_LABELS}
+    for label, n in counts.items():
+        if n < 5:
+            errors.append(f"turns: only {n} sentences for {label}")
     for item in items:
         if item["label"] not in TURN_LABELS:
             errors.append(f"turn label {item['label']}")
@@ -97,12 +103,42 @@ def validate_turns(items: list[dict]) -> list[str]:
     return errors
 
 
+REPLY_LABELS = {"resolved_claimed", "partial", "rejected", "needs_info"}
+
+
+def validate_replies(items: list[dict]) -> list[str]:
+    errors = [] if len(items) >= 12 else [f"replies: {len(items)} sentences, need 12"]
+    for item in items:
+        if item["label"] not in REPLY_LABELS:
+            errors.append(f"reply label {item['label']}")
+    for label in REPLY_LABELS:
+        if sum(1 for item in items if item["label"] == label) < 3:
+            errors.append(f"replies: fewer than 3 for {label}")
+    return errors
+
+
+def validate_injection_samples(items: list[dict]) -> list[str]:
+    errors = [] if len(items) >= 20 else [f"injection samples: {len(items)}, need 20"]
+    langs = {item["lang"] for item in items}
+    for needed in ("en", "hi"):
+        if needed not in langs:
+            errors.append(f"injection samples: no {needed} sample")
+    for flag in (True, False):
+        if sum(1 for item in items if item["injection"] is flag) < 8:
+            errors.append(f"injection samples: fewer than 8 with injection={flag}")
+    if len({item["text"] for item in items}) != len(items):
+        errors.append("injection samples: duplicates")
+    return errors
+
+
 def validate_all() -> dict[str, list[str]]:
     return {
         "intake": validate_intake(load("intake")),
         "normalisation": validate_normalisation(load("normalisation")),
         "redaction": validate_redaction(load("redaction")),
         "turn_sentences": validate_turns(load("turn_sentences")),
+        "replies": validate_replies(load("reply_sentences")),
+        "injection_samples": validate_injection_samples(load("injection_samples")),
         "behaviours": validate_behaviours(load_behaviours()),
         "adversarial": validate_adversarial(load_adversarial()),
         "redteam": validate_redteam(load_redteam()),

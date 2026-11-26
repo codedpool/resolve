@@ -10,7 +10,7 @@ def test_counts_are_met():
     assert len(datasets.load("intake")) == 20
     assert len(datasets.load("normalisation")) == 60
     assert len(datasets.load("redaction")) == 150
-    assert len(datasets.load("turn_sentences")) == 30
+    assert len(datasets.load("turn_sentences")) == 52
 
 
 def test_intake_validator_catches_a_bad_certainty():
