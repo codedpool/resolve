@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
 import { api } from "@/components/StepUpDialog";
+import { ApprovalList } from "@/components/ApprovalList";
+import { MandateCard } from "@/components/MandateCard";
 import { EvidenceUploader } from "@/components/EvidenceUploader";
 import { ConfirmationCard } from "@/components/ConfirmationCard";
 import { applyCorrection, CRITICAL_FIELDS } from "@/components/facts";
@@ -11,6 +13,7 @@ import { FactList } from "@/components/FactList";
 import { IntakeChat } from "@/components/IntakeChat";
 import { StatusBadge } from "@/components/StatusBadge";
 import { Timeline } from "@/components/Timeline";
+import { rememberEvidenceName } from "@/lib/approvals";
 
 export default function CasePage() {
   const params = useParams();
@@ -32,6 +35,7 @@ export default function CasePage() {
 
   async function upload(file) {
     const saved = await api.upload(`/cases/${params.id}/evidence`, file);
+    rememberEvidenceName(saved.id, file.name);
     setEvidence((current) => [...current, saved]);
   }
 
@@ -57,7 +61,7 @@ export default function CasePage() {
   if (!detail) return <p>Loading the case.</p>;
 
   return (
-    <section className="case-form">
+    <section className="case-form wide">
       <h1>Case {String(detail.id).slice(0, 8)}</h1>
       <StatusBadge status={detail.status} simulated={detail.simulated} />
       {(detail.facts || [])
@@ -67,6 +71,9 @@ export default function CasePage() {
         ))}
       <FactList facts={detail.facts || []} />
       <Timeline events={detail.timeline || []} />
+      <MandateCard caseId={String(params.id)} />
+      <h2>Approvals</h2>
+      <ApprovalList caseId={String(params.id)} />
       <IntakeChat caseId={String(params.id)} />
       <EvidenceUploader onFile={upload} />
       <ul>

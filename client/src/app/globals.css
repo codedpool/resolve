@@ -31,6 +31,10 @@ body {
   gap: 1rem;
 }
 
+.case-form.wide {
+  max-width: 38rem;
+}
+
 .case-form h1 {
   margin: 0;
   font-family: Palatino, "Palatino Linotype", serif;
@@ -51,7 +55,12 @@ body {
   gap: 0.35rem;
 }
 
-.case-form input {
+.case-form input[type="text"],
+.case-form input[type="email"],
+.case-form input[type="password"],
+.case-form input:not([type]),
+.case-form textarea,
+.case-form select {
   border: 1px solid var(--line);
   background: var(--field);
   color: var(--ink);
@@ -60,7 +69,8 @@ body {
 }
 
 .case-form button,
-.actions a {
+.actions a,
+.step-up button {
   width: fit-content;
   background: var(--ink);
   color: var(--field);
@@ -109,7 +119,242 @@ body {
   padding: 0.55rem 0.7rem;
 }
 
+/* Shared pieces for the mandate, approval and message screens. */
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.case-form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.case-form button.quiet,
+.step-up button.quiet {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.case-form select {
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+}
+
+.case-form h2 {
+  margin: 0;
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.case-form h3 {
+  margin: 0;
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.4rem;
+  margin: -2rem 0 2.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav a {
+  color: var(--ink);
+  padding: 0.3rem 0;
+}
+
+.site-nav .brand {
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 1.3rem;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.site-nav .count {
+  display: inline-block;
+  min-width: 1.35rem;
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+  background: var(--stamp);
+  color: var(--field);
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.35rem;
+  text-align: center;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--ink);
+}
+
+.card.approval-send_image_to_llm,
+.card.unread {
+  border-left-color: var(--stamp);
+}
+
+.card.read {
+  border-left-color: var(--line);
+  color: #4b6573;
+}
+
+.card p {
+  margin: 0;
+}
+
+.card .image-name {
+  padding: 0.6rem 0.8rem;
+  background: var(--paper);
+  border: 1px dashed var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.card .quote {
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--line);
+}
+
+.hint {
+  font-size: 0.92rem;
+  color: #4b6573;
+}
+
+.subhead {
+  font-weight: 600;
+}
+
+.notice {
+  font-weight: 600;
+}
+
+.form-error {
+  color: var(--stamp);
+  font-weight: 600;
+}
+
+.plain {
+  margin: 0.3rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+  line-height: 1.45;
+}
+
+fieldset {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+}
+
+legend {
+  padding: 0 0.3rem;
+  font-weight: 600;
+}
+
+.case-form .check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.2rem;
+}
+
+.check input {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--ink);
+}
+
+.readback {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.readback div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.2rem 1rem;
+}
+
+.readback dt {
+  font-weight: 600;
+}
+
+.readback dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.readback-list,
+.inbox {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.readback-list li {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.8rem 0 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.unread-mark {
+  color: var(--stamp);
+  font-weight: 600;
+}
+
+.step-up {
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    transition: border-left-color 0.2s ease;
+  }
+}
+
 @media (max-width: 640px) {
+  .readback div {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    margin-top: -1rem;
+  }
+
+  .step-up {
+    left: 1rem;
+    max-width: none;
+  }
+
   .spine {
     padding: 2rem 1rem 2rem 1.25rem;
   }
