@@ -1,0 +1,695 @@
+[
+ {
+  "id": "in01",
+  "narration_date": "2026-11-26",
+  "text": "Maine Flipkart se 20 November ko ek phone order kiya, order id OD1234567890. 10900 rupaye kate. Box mein sirf charger tha. Mujhe poora refund chahiye.",
+  "flags": [],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "Flipkart",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "OD1234567890",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "10900",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-20",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "full refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in02",
+  "narration_date": "2026-11-26",
+  "text": "I ordered a laptop bag on Amazon around 3 weeks ago, order number 302-1112223-4445556. It cost about 5500. The zip was broken, I returned it but no refund yet. They said it would come by 30 November. I want my money back.",
+  "flags": [
+   "approximate",
+   "relative_date"
+  ],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "Amazon",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "302-1112223-4445556",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "5500",
+    "certainty": "approximate"
+   },
+   "order_date": {
+    "value": "2026-11-05",
+    "certainty": "approximate"
+   },
+   "promised_date": {
+    "value": "2026-11-30",
+    "certainty": "stated"
+   },
+   "desired_remedy": {
+    "value": "money back",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in03",
+  "narration_date": "2026-11-26",
+  "text": "Swiggy se khana mangaya tha kal raat, delivered dikha raha hai par aaya nahi. Order id SW44556677 hai, 340 rupaye pay kiye the.",
+  "flags": [
+   "relative_date",
+   "not_stated"
+  ],
+  "note": "no remedy stated",
+  "expect": {
+   "company_name": {
+    "value": "Swiggy",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "SW44556677",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "340",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-25",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "",
+    "certainty": "not_stated"
+   }
+  }
+ },
+ {
+  "id": "in04",
+  "narration_date": "2026-11-26",
+  "text": "Myntra ka order tha, do kurte, total 2500 rupaye. Wrong size the, return kiya, par Myntra bol raha hai item nahi mila. Order number MY9876543 hai. Date yaad nahi hai, shayad 10 November ke aas paas. Paisa wapas chahiye.",
+  "flags": [
+   "approximate"
+  ],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "Myntra",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "MY9876543",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "2500",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-10",
+    "certainty": "approximate"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in05",
+  "narration_date": "2026-11-26",
+  "text": "Zomato dinner order, I paid 680 rupees on the 22nd. Food was cold and items were missing. Order ID is ZM11223344. They offered 50 rupees credit but I want a full refund.",
+  "flags": [],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "Zomato",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "ZM11223344",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "680",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-22",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "full refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in06",
+  "narration_date": "2026-11-26",
+  "text": "Paytm se bijli ka bill bhara, payment failed dikha lekin paise kat gaye. 2100 rupaye. Transaction id TXN555666777. 8 tarikh ko hua tha. Paise wapas chahiye.",
+  "flags": [],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "Paytm",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "TXN555666777",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "2100",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-08",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in07",
+  "narration_date": "2026-11-26",
+  "text": "Croma se washing machine li thi 16 November ko, 25900 ki. Chalu hi nahi hui. Technician teen baar aaya. Bill number CR220011. Replacement ya refund, jo bhi mile.",
+  "flags": [
+   "ambiguity"
+  ],
+  "note": "two remedies offered by the consumer",
+  "expect": {
+   "company_name": {
+    "value": "Croma",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "CR220011",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "25900",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-16",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "replacement or refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in08",
+  "narration_date": "2026-11-26",
+  "text": "MakeMyTrip pe flight book ki thi 3 November ko, 14200 rupaye. Airline ne cancel kar di. Booking reference MMT9988. Unhone kaha 90 din mein refund aayega, mujhe abhi chahiye.",
+  "flags": [],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "MakeMyTrip",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "MMT9988",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "14200",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-03",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "immediate refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in09",
+  "narration_date": "2026-11-26",
+  "text": "Nykaa se cream mangayi, seal toota hua tha, fake lag raha hai. Order NY778899, 450 ka tha. Replacement nahi, refund chahiye. Order 20 tarikh ko kiya tha.",
+  "flags": [],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "Nykaa",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "NY778899",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "450",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-20",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in10",
+  "narration_date": "2026-11-26",
+  "text": "BigBasket grocery 12 tarikh ko order ki, 1300 rupaye. Doodh aur sabzi kharab thi. Customer care ne kaha do din mein refund aayega, ek hafta ho gaya. Order id BB1357924.",
+  "flags": [],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "BigBasket",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "BB1357924",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "1300",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-12",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in11",
+  "narration_date": "2026-11-26",
+  "text": "Maine kuch din pehle ek phone kharida online, company ka naam yaad nahi, bas itna pata hai ki 15000 ke aas paas tha. Screen kharab nikli.",
+  "flags": [
+   "not_stated",
+   "approximate"
+  ],
+  "note": "company and order id are not stated",
+  "expect": {
+   "company_name": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "order_id": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "amount": {
+    "value": "15000",
+    "certainty": "approximate"
+   },
+   "order_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "",
+    "certainty": "not_stated"
+   }
+  }
+ },
+ {
+  "id": "in12",
+  "narration_date": "2026-11-26",
+  "text": "I bought shoes from Ajio and also a bag from Myntra last week. The shoes never arrived. Order AJ556677, 2999 rupees. I want a refund.",
+  "flags": [
+   "ambiguity",
+   "relative_date"
+  ],
+  "note": "two companies named; the shoes were Ajio, ambiguity_note expected",
+  "expect": {
+   "company_name": {
+    "value": "Ajio",
+    "certainty": "inferred"
+   },
+   "order_id": {
+    "value": "AJ556677",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "2999",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-19",
+    "certainty": "approximate"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in13",
+  "narration_date": "2026-11-26",
+  "text": "Order id OD2020202020 from Flipkart, Rs 8,999. Actually no, it was Rs 9,899, sorry. Date was last Tuesday. The TV panel is cracked. Replacement within 10 days was promised.",
+  "flags": [
+   "correction",
+   "relative_date"
+  ],
+  "note": "amount corrected in the same narration; promised date is inferred from 10 days",
+  "expect": {
+   "company_name": {
+    "value": "Flipkart",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "OD2020202020",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "9899",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-24",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "2026-12-06",
+    "certainty": "inferred"
+   },
+   "desired_remedy": {
+    "value": "replacement",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in14",
+  "narration_date": "2026-11-26",
+  "text": "Meri complaint Reliance Digital ke baare mein hai. Order RD123456, amount 4,50,000 nahi... 45,000 rupaye. AC install nahi hua. 2 December tak install karne ka wada kiya tha.",
+  "flags": [
+   "correction",
+   "not_stated"
+  ],
+  "note": "no order date; amount self-corrected",
+  "expect": {
+   "company_name": {
+    "value": "Reliance Digital",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "RD123456",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "45000",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "promised_date": {
+    "value": "2026-12-02",
+    "certainty": "stated"
+   },
+   "desired_remedy": {
+    "value": "installation or refund",
+    "certainty": "inferred"
+   }
+  }
+ },
+ {
+  "id": "in15",
+  "narration_date": "2026-11-26",
+  "text": "Meesho se saree mangayi thi parso, 899 rupaye. Dusri aayi, photo se alag. Order number ME44221. Wapas lekar paisa de do.",
+  "flags": [
+   "relative_date"
+  ],
+  "note": "parso is ambiguous, approximate",
+  "expect": {
+   "company_name": {
+    "value": "Meesho",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "ME44221",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "899",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-24",
+    "certainty": "approximate"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "return and refund",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in16",
+  "narration_date": "2026-11-26",
+  "text": "Ek Samsung phone ka order tha Amazon pe, 22 tarikh ko. Seller ne alag IMEI wala phone bheja. Amount 18000. Mujhe nahi pata order id kya hai, email mein hai.",
+  "flags": [
+   "not_stated"
+  ],
+  "note": "order id and remedy not stated; Samsung is the brand, not the company",
+  "expect": {
+   "company_name": {
+    "value": "Amazon",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "amount": {
+    "value": "18000",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-22",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "",
+    "certainty": "not_stated"
+   }
+  }
+ },
+ {
+  "id": "in17",
+  "narration_date": "2026-11-26",
+  "text": "PhonePe se 5000 rupaye bhejne the, kat gaye, receiver ko nahi mile. Transaction id T2611261234567. Kal hua tha. Please reverse karo.",
+  "flags": [
+   "relative_date"
+  ],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "PhonePe",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "T2611261234567",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "5000",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-25",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "reversal",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in18",
+  "narration_date": "2026-11-26",
+  "text": "Hotel booking Goibibo se, 3 nights, 12,600 rupees, 1 December ki. Hotel ne kaha room nahi hai. Booking GB778899. Pura paisa wapas aur compensation chahiye.",
+  "flags": [
+   "not_stated"
+  ],
+  "note": "1 December is the stay date, not the order date",
+  "expect": {
+   "company_name": {
+    "value": "Goibibo",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "GB778899",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "12600",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "full refund and compensation",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in19",
+  "narration_date": "2026-11-26",
+  "text": "Shaadi ka lehenga order kiya tha Tata CLiQ se, around 30 hazaar ka. Order 10 November ko kiya, TC889900. Late aaya aur size galat. Refund de do ya size badal do.",
+  "flags": [
+   "approximate",
+   "ambiguity"
+  ],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "Tata CLiQ",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "TC889900",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "30000",
+    "certainty": "approximate"
+   },
+   "order_date": {
+    "value": "2026-11-10",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "",
+    "certainty": "not_stated"
+   },
+   "desired_remedy": {
+    "value": "refund or size exchange",
+    "certainty": "stated"
+   }
+  }
+ },
+ {
+  "id": "in20",
+  "narration_date": "2026-11-26",
+  "text": "I paid 1,299 for a mixer grinder on Snapdeal on 18 November. Order SD90909. It stopped working after 2 days. They promised a technician visit by 28 November but nobody came. I want a replacement.",
+  "flags": [],
+  "note": "",
+  "expect": {
+   "company_name": {
+    "value": "Snapdeal",
+    "certainty": "stated"
+   },
+   "order_id": {
+    "value": "SD90909",
+    "certainty": "stated"
+   },
+   "amount": {
+    "value": "1299",
+    "certainty": "stated"
+   },
+   "order_date": {
+    "value": "2026-11-18",
+    "certainty": "stated"
+   },
+   "promised_date": {
+    "value": "2026-11-28",
+    "certainty": "stated"
+   },
+   "desired_remedy": {
+    "value": "replacement",
+    "certainty": "stated"
+   }
+  }
+ }
+]
