@@ -515,3 +515,130 @@ legend {
     flex: 1 1 8rem;
   }
 }
+
+/* The voice call. Same calm look as the chat; the red stamp marks a live call and the End button. */
+
+.case-form.call-page {
+  max-width: 62rem;
+}
+
+.call,
+.call-cards {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  font-family: "Segoe UI", "Noto Sans", "Noto Sans Devanagari", "Nirmala UI", "Mangal", sans-serif;
+}
+
+.call h2,
+.call-cards h2 {
+  font-family: Palatino, "Palatino Linotype", "Noto Serif Devanagari", serif;
+}
+
+.call p,
+.call-cards p {
+  line-height: 1.65;
+}
+
+.call-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.call-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--field);
+  border: 1px solid var(--line);
+}
+
+.dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: transparent;
+  flex: none;
+}
+
+.dot-live {
+  background: var(--stamp);
+  border-color: var(--stamp);
+}
+
+.dot-connecting {
+  border-style: dashed;
+}
+
+.dot-idle,
+.dot-ended,
+.dot-error {
+  border-color: #7d939f;
+}
+
+.call-connection {
+  font-weight: 600;
+}
+
+.call-speaking {
+  margin-inline-start: auto;
+  color: #4b6573;
+}
+
+.call-speaking.on {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.call-phase,
+.call-progress {
+  padding-inline-start: 0.8rem;
+  border-inline-start: 3px solid var(--line);
+}
+
+.call-controls {
+  flex-wrap: wrap;
+}
+
+.call .actions button {
+  min-height: 2.75rem;
+  min-width: 5.5rem;
+}
+
+.case-form button.stamp {
+  background: var(--stamp);
+}
+
+.case-form button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--field);
+}
+
+.call-captions {
+  max-height: 24rem;
+}
+
+.bubble-live {
+  opacity: 0.7;
+}
+
+@media (max-width: 860px) {
+  .call-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .call-speaking {
+    margin-inline-start: 0;
+    flex-basis: 100%;
+  }
+
+  .call .actions button {
+    flex: 1 1 8rem;
+  }
+}
