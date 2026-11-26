@@ -1,3 +1,4 @@
+import os
 import uuid
 from datetime import datetime, timezone
 
@@ -11,7 +12,8 @@ from sqlalchemy.exc import IntegrityError
 from app.db.models import Base, Case, CaseStatus, Fact, FactCertainty, FactSource, User
 
 ADMIN_URL = "postgresql://resolve:resolve@127.0.0.1:5434/resolve"
-TEST_URL = "postgresql+psycopg://resolve:resolve@127.0.0.1:5434/resolve_test"
+TEST_DB = os.environ.get("TEST_DB_NAME", "resolve_test")
+TEST_URL = f"postgresql+psycopg://resolve:resolve@127.0.0.1:5434/{TEST_DB}"
 PERSONAL_TOKENS = {
     "email",
     "phone",
@@ -30,8 +32,8 @@ PERSONAL_TOKENS = {
 
 def _fresh_database():
     with psycopg.connect(ADMIN_URL, autocommit=True) as conn:
-        conn.execute("DROP DATABASE IF EXISTS resolve_test WITH (FORCE)")
-        conn.execute("CREATE DATABASE resolve_test")
+        conn.execute(f"DROP DATABASE IF EXISTS {TEST_DB} WITH (FORCE)")
+        conn.execute(f"CREATE DATABASE {TEST_DB}")
 
 
 def _alembic(direction: str) -> None:
