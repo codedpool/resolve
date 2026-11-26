@@ -15,13 +15,16 @@ roles:
     reasoning_effort: none
     fallback: openai/gpt-oss-120b
   classify:
+    model: qwen/qwen3.8-27b
+    mode: instruct
+    reasoning_effort: none
+    fallback: openai/gpt-oss-20b
+  # The safeguard model is limited to 3 requests per minute on this account, so the
+  # per-sentence policy check runs on gpt-oss-20b. Switch back when the limit is raised.
+  guard_policy:
     model: openai/gpt-oss-20b
     reasoning_effort: low
     fallback: openai/gpt-oss-120b
-  guard_policy:
-    model: openai/gpt-oss-safeguard-20b
-    reasoning_effort: low
-    fallback: openai/gpt-oss-20b
   injection:
     model: meta-llama/llama-prompt-guard-2-86m
   judge_for_qwen:
@@ -70,6 +73,8 @@ prices:
 
 stt:
   language: null
+  # Segment statistics do not separate invented text from speech (see docs/results/bakeoff-speech-and-models.md).
+  # The real defence is app/voice/gate.py (speech gate before transcription) plus a phrase list.
   hallucination:
     max_no_speech_prob: 0.6
     min_avg_logprob: -1.0

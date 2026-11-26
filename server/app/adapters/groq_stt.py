@@ -4,12 +4,14 @@ from __future__ import annotations
 
 import io
 import logging
+import wave
 
 import httpx
 
 from app.adapters.cost import audio_cost
 from app.adapters.groq_llm import GroqClient
 from app.core.errors import AppError
+from app.voice.gate import is_known_hallucination, looks_like_speech
 
 log = logging.getLogger("resolve")
 
@@ -30,6 +32,8 @@ class GroqTranscriber:
 
     def transcribe(self, role: str, audio: bytes, filename: str = "clip.wav") -> dict:
         self.client.meter.ensure_open()
+        if not self._speech(audio):
+            return {"text": "", "dropped_segments": 0, "duration_seconds": 0.0, "skipped": "no_speech"}
         spec = self.client.models["roles"][role]
         model = spec["model"]
         language = (self.client.models.get("stt") or {}).get("language")
@@ -56,5 +60,17 @@ class GroqTranscriber:
         usage_usd = audio_cost(self.client.models.get("prices") or {}, model, seconds)
         self.client.meter.add(usage_usd)
         text = "".join(kept).strip()
+        if is_known_hallucination(text):
+            text = ""
         log.info("whisper model=%s seconds=%s dropped=%s", model, seconds, dropped)
         return {"text": text, "dropped_segments": dropped, "duration_seconds": seconds}
+
+    @staticmethod
+    def _speech(audio: bytes) -> bool:
+        try:
+            with wave.open(io.BytesIO(audio)) as handle:
+                if handle.getnchannels() != 1 or handle.getsampwidth() != 2:
+                    return True
+                return looks_like_speech(handle.readframes(handle.getnframes()))
+        except (wave.Error, EOFError):
+            return True
