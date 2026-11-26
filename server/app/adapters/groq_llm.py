@@ -61,10 +61,11 @@ class GroqClient:
         return parsed["label"], float(parsed["confidence"]), usage
 
     def score(self, text: str) -> float:
-        content, _usage, _model = self._complete("injection", "injection", {"text": text})
+        """Prompt Guard's injection probability. The model reads the raw text as the only message and answers with a number."""
+        content, _usage, _model = self._complete("injection", "", {}, raw_text=text[:2000])
         return float(content.strip())
 
-    def _complete(self, role: str, prompt_id: str, variables: dict, schema: dict | None = None) -> tuple[str, dict, str]:
+    def _complete(self, role: str, prompt_id: str, variables: dict, schema: dict | None = None, raw_text: str | None = None) -> tuple[str, dict, str]:
         spec = self.models["roles"][role]
         models = [spec["model"]]
         if spec.get("fallback"):
@@ -72,7 +73,7 @@ class GroqClient:
         last_error: Exception | None = None
         for index, model in enumerate(models):
             try:
-                return self._call(model, spec, prompt_id, variables, schema)
+                return self._call(model, spec, prompt_id, variables, schema, raw_text)
             except ModelRejected as exc:
                 last_error = exc
                 if index == 0 and len(models) > 1:
@@ -81,15 +82,16 @@ class GroqClient:
                 raise
         raise last_error or ModelRejected(models[-1])
 
-    def _call(self, model: str, spec: dict, prompt_id: str, variables: dict, schema: dict | None) -> tuple[str, dict, str]:
+    def _call(self, model: str, spec: dict, prompt_id: str, variables: dict, schema: dict | None, raw_text: str | None = None) -> tuple[str, dict, str]:
         self.meter.ensure_open()
         body: dict = {
             "model": model,
             "temperature": 0,
-            "messages": [
-                {"role": "system", "content": prompt_id},
-                {"role": "user", "content": json.dumps(variables)},
-            ],
+            "messages": (
+                [{"role": "user", "content": raw_text}]
+                if raw_text is not None
+                else [{"role": "system", "content": prompt_id}, {"role": "user", "content": json.dumps(variables)}]
+            ),
         }
         if spec.get("reasoning_effort"):
             body["reasoning_effort"] = spec["reasoning_effort"]
