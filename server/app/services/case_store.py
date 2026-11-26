@@ -13,7 +13,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.config import SERVER_ROOT
-from app.db.models import Case, ConfirmationState, Fact, FactCertainty, User
+from app.db.models import Case, ConfirmationState, Fact, FactCertainty
 from app.services.access import record_event
 from app.services.fact_service import read_value
 from app.services.mandate_service import mandate_view
@@ -26,12 +26,12 @@ from resolve_workflows.mandate import ALWAYS_ALLOWED, DisclosableFact, MandateVi
 
 
 class ServerCaseStore:
-    def __init__(self, session: Session, case: Case, key: bytes, now, user: User | None = None) -> None:
+    def __init__(self, session: Session, case: Case, key: bytes, now, account_email: str = "") -> None:
         self.session = session
         self.case = case
         self.key = key
         self._now = now
-        self.user = user
+        self.account_email = account_email
 
     def _current_facts(self) -> list[Fact]:
         return list(self.session.scalars(select(Fact).where(Fact.case_id == self.case.id, Fact.superseded_by.is_(None))))
@@ -66,8 +66,8 @@ class ServerCaseStore:
             value = read_value(fact, self.key)
             if value:
                 values.append(value)
-        if self.user is not None and self.user.email:
-            values.append(self.user.email)
+        if self.account_email:
+            values.append(self.account_email)
         return values
 
     def record_event(self, case_id: str, kind: str, body: dict) -> None:
