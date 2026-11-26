@@ -111,8 +111,9 @@ class ServerIntakeStore:
         self.session.flush()
 
 
-def refresh_readiness(session: Session, case: Case) -> None:
-    """A case is ready for a mandate when every critical fact has a value and is confirmed at its current version."""
+def refresh_readiness(session: Session, case: Case, reconcile=None) -> None:
+    """A case is ready for a mandate when every critical fact has a value, is confirmed at its current version,
+    and the narration agrees with the confirmed facts (reconcile returns the open disagreements)."""
     if case.status not in {CaseStatus.confirming, CaseStatus.ready_for_mandate}:
         return
     ok = True
@@ -121,6 +122,8 @@ def refresh_readiness(session: Session, case: Case) -> None:
         if fact is None or fact.confirmed_version != fact.version:
             ok = False
             break
+    if ok and reconcile is not None and reconcile():
+        ok = False
     case.status = CaseStatus.ready_for_mandate if ok else CaseStatus.confirming
     session.flush()
 

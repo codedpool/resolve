@@ -76,3 +76,17 @@ def intake_silence(
     user: User = Depends(current_user),
 ) -> dict:
     return _run(request, session, user, case_id, "silence")
+
+
+@router.post("/{case_id}/reconcile")
+def reconcile(
+    case_id: uuid.UUID,
+    request: Request,
+    session: Session = Depends(get_session),
+    user: User = Depends(current_user),
+) -> dict:
+    from app.services.reconcile_service import reconcile_case
+
+    case = owned_case(session, user, case_id)
+    open_items = reconcile_case(request, session, user, case, data_key(request, case))
+    return {"open": open_items, "status": case.status.value}

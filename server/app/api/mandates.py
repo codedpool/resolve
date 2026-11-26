@@ -13,7 +13,7 @@ from sqlalchemy.orm import Session
 
 from app.core.crypto import open_text, seal_text
 from app.core.errors import AppError
-from app.db.models import Mandate, User
+from app.db.models import CaseStatus, Mandate, User
 from app.deps import current_user, get_session, require_step_up
 from app.services.access import data_key, owned_case, record_event
 
@@ -76,6 +76,8 @@ def set_mandate(
     key = data_key(request, case)
     now = request.app.state.clock.now()
     current = _current(session, case.id)
+    if body.action != "revoke" and case.status == CaseStatus.confirming:
+        raise AppError("confirm_details_first", "Confirm every detail, and settle any question about them, before giving permission", status_code=409)
     if body.action == "revoke":
         if current is None or current.revoked_at is not None:
             raise AppError("not_found", "Mandate was not found", status_code=404)
