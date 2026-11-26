@@ -17,6 +17,7 @@ from app.deps import current_user, get_session, require_step_up
 from app.runtime.run_service import drop_case_checkpoints
 from app.services.access import data_key, owned_case, record_event
 from app.services.fact_service import confirm_fact, propose_fact, read_value
+from app.services.intake_store import refresh_readiness
 
 router = APIRouter(prefix="/cases", tags=["cases"])
 
@@ -112,6 +113,7 @@ def add_fact(
     case = owned_case(session, user, case_id)
     key = data_key(request, case)
     fact = propose_fact(session, case.id, body.field, body.value, body.certainty, body.source, key, phrase=body.phrase)
+    refresh_readiness(session, case)
     record_event(session, case, key, "fact_proposed", {"fact_id": str(fact.id), "field": fact.field, "version": fact.version}, request.app.state.clock.now())
     return {"id": str(fact.id), "field": fact.field, "version": fact.version, "confirmation_state": fact.confirmation_state.value}
 
@@ -142,4 +144,5 @@ def confirm(
     if fact is None or fact.case_id != case.id:
         raise AppError("not_found", "Fact was not found", status_code=404)
     confirm_fact(session, fact)
+    refresh_readiness(session, case)
     return {"id": str(fact.id), "confirmed_version": fact.confirmed_version, "value": read_value(fact, data_key(request, case))}

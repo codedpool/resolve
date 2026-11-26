@@ -202,6 +202,16 @@ class Fact(Base):
     superseded_by: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("facts.id"), nullable=True)
 
 
+class IntakeState(Base):
+    """Working state of the text intake for one case, sealed with the case key."""
+
+    __tablename__ = "intake_states"
+
+    case_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("cases.id"), primary_key=True)
+    body_enc: Mapped[bytes] = mapped_column(LargeBinary)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
 class Evidence(Base):
     __tablename__ = "evidence"
 
