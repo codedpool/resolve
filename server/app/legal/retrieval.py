@@ -15,6 +15,7 @@ from sqlalchemy import Float, case, cast, func, literal, select
 from sqlalchemy.orm import Session
 
 from app.db.models import LegalChunk, TagReviewState
+from app.legal.chunker import source_titles
 from app.legal.embeddings import Embedder
 from app.legal.lexicon import english_terms
 
@@ -36,6 +37,7 @@ class RetrievedChunk:
     clause: str
     heading: str
     review_state: str
+    source_title: str = ""
     entity_type_tags: tuple[str, ...] = ()
     score: float = 0.0
     boosted: bool = False
@@ -159,6 +161,15 @@ class RetrievalService:
         )
 
 
+_TITLES: dict[str, str] = {}
+
+
+def _titles() -> dict[str, str]:
+    if not _TITLES:
+        _TITLES.update(source_titles())
+    return _TITLES
+
+
 def _result(row: LegalChunk, score: float, boosted: bool, dense_rank, text_rank) -> RetrievedChunk:
     return RetrievedChunk(
         id=str(row.id),
@@ -171,6 +182,7 @@ def _result(row: LegalChunk, score: float, boosted: bool, dense_rank, text_rank)
         clause=row.clause,
         heading=row.heading,
         review_state=row.tag_review_state.value,
+        source_title=_titles().get(row.source_id) or row.heading,
         entity_type_tags=tuple(row.entity_type_tags or ()),
         score=score,
         boosted=boosted,

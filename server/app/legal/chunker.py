@@ -264,6 +264,12 @@ def load_manifest() -> dict[str, dict]:
     return {item["id"]: item for item in raw["sources"]}
 
 
+def source_titles() -> dict[str, str]:
+    """source id -> short title, from the chunking config. Provider policies use their own heading."""
+    config = yaml.safe_load((LEGAL_DIR / "chunking.yaml").read_text(encoding="utf-8"))
+    return {sid: cfg["short_title"] for sid, cfg in config["sources"].items()}
+
+
 def build_corpus(legal_dir: Path = LEGAL_DIR) -> Corpus:
     manifest = load_manifest()
     config = yaml.safe_load((legal_dir / "chunking.yaml").read_text(encoding="utf-8"))
