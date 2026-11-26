@@ -1,0 +1,1557 @@
+[
+ {
+  "id": "rd001",
+  "class": "address",
+  "text": "mera address flat 4B, Rose Apartments, MG Road, pin code 560001 hai",
+  "redact": [
+   "flat 4B, Rose Apartments, MG Road",
+   "560001"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd002",
+  "class": "otp",
+  "text": "OTP is 877893",
+  "redact": [
+   "877893"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd003",
+  "class": "phone",
+  "text": "mera mobile number aath ek teen chhe saat chaar teen shunya aath ek hai",
+  "redact": [
+   "8136743081",
+   "aath ek teen chhe saat chaar teen shunya aath ek"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd004",
+  "class": "otp",
+  "text": "mera OTP 8347 hai",
+  "redact": [
+   "8347"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd005",
+  "class": "keep",
+  "text": "refund 30 din mein",
+  "redact": [],
+  "keep": [
+   "30 din"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd006",
+  "class": "card",
+  "text": "my credit card is 4111-4656-9777-810",
+  "redact": [
+   "411146569777810",
+   "4111-4656-9777-810"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd007",
+  "class": "identity",
+  "text": "aadhar card number saat chaar saat ek shunya paanch nau shunya teen chaar chaar paanch",
+  "redact": [
+   "747105903445",
+   "saat chaar saat ek shunya paanch nau shunya teen chaar chaar paanch"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd008",
+  "class": "card",
+  "text": "card number 4780 2345 8889 2630",
+  "redact": [
+   "4780234588892630",
+   "4780 2345 8889 2630"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd009",
+  "class": "order_id",
+  "text": "Order ID: OD1384112835 aur refund nahi aaya",
+  "redact": [
+   "OD1384112835"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd010",
+  "class": "email",
+  "text": "email id amit.verma@outlook.com",
+  "redact": [
+   "amit.verma@outlook.com"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd011",
+  "class": "keep",
+  "text": "do hazaar paanch sau rupaye kat gaye",
+  "redact": [],
+  "keep": [
+   "2500"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd012",
+  "class": "card",
+  "text": "card number 3732 0171 8513 3740",
+  "redact": [
+   "3732017185133740",
+   "3732 0171 8513 3740"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd013",
+  "class": "card",
+  "text": "maine card se 5971791894386060 se payment kiya",
+  "redact": [
+   "5971791894386060"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd014",
+  "class": "address",
+  "text": "deliver to H.No 45, Rajiv Vihar",
+  "redact": [
+   "H.No 45",
+   "Rajiv Vihar"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd015",
+  "class": "other_long",
+  "text": "yeh likha hai 848151415102163378",
+  "redact": [
+   "848151415102163378"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd016",
+  "class": "keep",
+  "text": "15th ko delivery thi",
+  "redact": [],
+  "keep": [
+   "15th"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd017",
+  "class": "keep",
+  "text": "rating 4 star di thi",
+  "redact": [],
+  "keep": [
+   "4 star"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd018",
+  "class": "keep",
+  "text": "2024 mein kharida tha",
+  "redact": [],
+  "keep": [
+   "2024"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd019",
+  "class": "otp",
+  "text": "OTP hai ek chaar chhe ek shunya shunya",
+  "redact": [
+   "146100",
+   "one four six one zero zero",
+   "ek chaar chhe ek shunya shunya"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd020",
+  "class": "order_id",
+  "text": "order id OD8300044609 hai aur refund nahi aaya",
+  "redact": [
+   "OD8300044609"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd021",
+  "class": "order_id",
+  "text": "order id OD six eight three one five five",
+  "redact": [
+   "683155",
+   "six eight three one five five"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd022",
+  "class": "order_id",
+  "text": "transaction id TXN555666777 hai",
+  "redact": [
+   "TXN555666777"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd023",
+  "class": "card",
+  "text": "maine card se 5904200323045530 se payment kiya",
+  "redact": [
+   "5904200323045530"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd024",
+  "class": "phone",
+  "text": "mera mobile number nau do teen nau ek shunya nau chhe saat ek hai",
+  "redact": [
+   "9239109671",
+   "nau do teen nau ek shunya nau chhe saat ek"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd025",
+  "class": "address",
+  "text": "mera address flat 12, Green Enclave, Civil Lines, pin code 226001 hai",
+  "redact": [
+   "flat 12, Green Enclave, Civil Lines",
+   "226001"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd026",
+  "class": "email",
+  "text": "mera email rahul.sharma92@gmail.com hai",
+  "redact": [
+   "rahul.sharma92@gmail.com"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd027",
+  "class": "address",
+  "text": "main Shanti Colony, Andheri East rehta hoon",
+  "redact": [
+   "Shanti Colony"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd028",
+  "class": "otp",
+  "text": "mera OTP 538401 hai",
+  "redact": [
+   "538401"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd029",
+  "class": "keep",
+  "text": "20/11/2026 ko order kiya",
+  "redact": [],
+  "keep": [
+   "20/11/2026"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd030",
+  "class": "address",
+  "text": "mera address door no 7, Lake View Layout, pin code 600042 hai",
+  "redact": [
+   "door no 7, Lake View Layout",
+   "600042"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd031",
+  "class": "address",
+  "text": "pincode 411045 pe deliver hona tha",
+  "redact": [
+   "411045"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd032",
+  "class": "card",
+  "text": "card number four eight zero eight six eight nine one seven one two one eight seven six zero",
+  "redact": [
+   "4808689171218760",
+   "four eight zero eight six eight nine one seven one two one eight seven six zero"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd033",
+  "class": "email",
+  "text": "mera email priya_k@yahoo.in hai",
+  "redact": [
+   "priya_k@yahoo.in"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd034",
+  "class": "phone",
+  "text": "call me on +91 9899067648",
+  "redact": [
+   "9899067648"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd035",
+  "class": "phone",
+  "text": "mera number 8584748440 hai",
+  "redact": [
+   "8584748440"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd036",
+  "class": "phone",
+  "text": "mera number 6718906267 hai",
+  "redact": [
+   "6718906267"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd037",
+  "class": "order_id",
+  "text": "order id 15551579947847533 hai",
+  "redact": [
+   "15551579947847533"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd038",
+  "class": "keep",
+  "text": "1 phone aur 2 charger mangaye",
+  "redact": [],
+  "keep": [
+   "2 charger"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd039",
+  "class": "identity",
+  "text": "my Aadhaar is 9115 6768 5639",
+  "redact": [
+   "911567685639",
+   "9115 6768 5639"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd040",
+  "class": "other_long",
+  "text": "slip par 7658173603268840 aaya",
+  "redact": [
+   "7658173603268840"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd041",
+  "class": "order_id",
+  "text": "bill number CR220011 hai",
+  "redact": [
+   "CR220011"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd042",
+  "class": "keep",
+  "text": "refund of INR 14200 chahiye",
+  "redact": [],
+  "keep": [
+   "14200"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd043",
+  "class": "identity",
+  "text": "tax id NUVGS9544D",
+  "redact": [
+   "NUVGS9544D"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd044",
+  "class": "keep",
+  "text": "refund of Rs 450 chahiye",
+  "redact": [],
+  "keep": [
+   "450"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd045",
+  "class": "card",
+  "text": "debit card 4421 7743 6687 5970 tha",
+  "redact": [
+   "4421774366875970",
+   "4421 7743 6687 5970"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd046",
+  "class": "order_id",
+  "text": "ticket reference 056963956 ka status",
+  "redact": [
+   "056963956"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd047",
+  "class": "otp",
+  "text": "OTP hai nau teen chaar paanch",
+  "redact": [
+   "9345",
+   "nine three four five",
+   "nau teen chaar paanch"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd048",
+  "class": "card",
+  "text": "maine card se 5643772567851360 se payment kiya",
+  "redact": [
+   "5643772567851360"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd049",
+  "class": "keep",
+  "text": "₹ 2,100 kat gaye mere account se",
+  "redact": [],
+  "keep": [
+   "2,100"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd050",
+  "class": "other_long",
+  "text": "slip par 075736926252482 aaya",
+  "redact": [
+   "075736926252482"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd051",
+  "class": "keep",
+  "text": "order OD1234567890 ke 450 rupaye",
+  "redact": [],
+  "keep": [
+   "450"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd052",
+  "class": "keep",
+  "text": "order March 2025 mein kiya tha",
+  "redact": [],
+  "keep": [
+   "2025"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd053",
+  "class": "keep",
+  "text": "refund of 1200 rupaye chahiye",
+  "redact": [],
+  "keep": [
+   "1200"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd054",
+  "class": "keep",
+  "text": "delivery 10 baje thi",
+  "redact": [],
+  "keep": [
+   "10 baje"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd055",
+  "class": "other_long",
+  "text": "yeh likha hai 85016623262530",
+  "redact": [
+   "85016623262530"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd056",
+  "class": "keep",
+  "text": "warranty 12 mahine ki thi",
+  "redact": [],
+  "keep": [
+   "12 mahine"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd057",
+  "class": "keep",
+  "text": "amount Rs 99 tha",
+  "redact": [],
+  "keep": [
+   "99"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd058",
+  "class": "otp",
+  "text": "mera OTP 7468 hai",
+  "redact": [
+   "7468"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd059",
+  "class": "card",
+  "text": "debit card 370917145211782 se pay kiya",
+  "redact": [
+   "370917145211782",
+   "370917145211782"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd060",
+  "class": "card",
+  "text": "card number four eight five two seven two eight eight seven seven nine one three seven eight zero",
+  "redact": [
+   "4852728877913780",
+   "four eight five two seven two eight eight seven seven nine one three seven eight zero"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd061",
+  "class": "keep",
+  "text": "quantity 3 thi",
+  "redact": [],
+  "keep": [
+   "quantity 3"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd062",
+  "class": "otp",
+  "text": "OTP number 43933283 bataya tha",
+  "redact": [
+   "43933283"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd063",
+  "class": "order_id",
+  "text": "order id OD5449993433 hai aur refund nahi aaya",
+  "redact": [
+   "OD5449993433"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd064",
+  "class": "keep",
+  "text": "20 November 2026 ko mila",
+  "redact": [],
+  "keep": [
+   "20 November 2026"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd065",
+  "class": "card",
+  "text": "card number 6011 3363 9532 2750",
+  "redact": [
+   "6011336395322750",
+   "6011 3363 9532 2750"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd066",
+  "class": "keep",
+  "text": "3 baar call kiya",
+  "redact": [],
+  "keep": [
+   "3 baar"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd067",
+  "class": "keep",
+  "text": "seat 14 booked tha",
+  "redact": [],
+  "keep": [
+   "14"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd068",
+  "class": "card",
+  "text": "card number four one zero seven five eight six four seven zero three one six zero two zero",
+  "redact": [
+   "4107586470316020",
+   "four one zero seven five eight six four seven zero three one six zero two zero"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd069",
+  "class": "keep",
+  "text": "refund of ₹12,000 chahiye",
+  "redact": [],
+  "keep": [
+   "12,000"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd070",
+  "class": "otp",
+  "text": "mera OTP 921742 hai",
+  "redact": [
+   "921742"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd071",
+  "class": "other_long",
+  "text": "woh number 19884036317308680 tha",
+  "redact": [
+   "19884036317308680"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd072",
+  "class": "other_long",
+  "text": "slip par 488029203221549817 aaya",
+  "redact": [
+   "488029203221549817"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd073",
+  "class": "phone",
+  "text": "call me on +91 9014445888",
+  "redact": [
+   "9014445888"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd074",
+  "class": "card",
+  "text": "4352595333123219 yeh number hai",
+  "redact": [
+   "4352595333123219"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd075",
+  "class": "other_long",
+  "text": "slip par 65552778190650617 aaya",
+  "redact": [
+   "65552778190650617"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd076",
+  "class": "card",
+  "text": "debit card 3543 3014 6730 026 se pay kiya",
+  "redact": [
+   "354330146730026",
+   "3543 3014 6730 026"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd077",
+  "class": "keep",
+  "text": "9 tarikh ko call kiya",
+  "redact": [],
+  "keep": [
+   "9 tarikh"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd078",
+  "class": "phone",
+  "text": "mera mobile number saat nau shunya do chhe chhe shunya paanch chhe shunya hai",
+  "redact": [
+   "7902660560",
+   "saat nau shunya do chhe chhe shunya paanch chhe shunya"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd079",
+  "class": "identity",
+  "text": "my PAN is AWYBG2675Z",
+  "redact": [
+   "AWYBG2675Z"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd080",
+  "class": "card",
+  "text": "card number four eight eight four nine seven three six eight one eight zero nine six zero zero",
+  "redact": [
+   "4884973681809600",
+   "four eight eight four nine seven three six eight one eight zero nine six zero zero"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd081",
+  "class": "otp",
+  "text": "my OTP is zero seven six six",
+  "redact": [
+   "0766",
+   "zero seven six six",
+   "shunya saat chhe chhe"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd082",
+  "class": "keep",
+  "text": "refund 7 din mein aana tha",
+  "redact": [],
+  "keep": [
+   "7 din"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd083",
+  "class": "identity",
+  "text": "tax id NGVFD8051Y",
+  "redact": [
+   "NGVFD8051Y"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd084",
+  "class": "otp",
+  "text": "jo code aaya wo 494 032 hai",
+  "redact": [
+   "494032",
+   "494 032"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd085",
+  "class": "otp",
+  "text": "OTP number 29792622 bataya tha",
+  "redact": [
+   "29792622"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd086",
+  "class": "order_id",
+  "text": "order number 529-5482659-1751816 dekhiye",
+  "redact": [
+   "529-5482659-1751816"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd087",
+  "class": "keep",
+  "text": "size 42 mangaya tha",
+  "redact": [],
+  "keep": [
+   "42"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd088",
+  "class": "keep",
+  "text": "2500 rupaye wapas chahiye",
+  "redact": [],
+  "keep": [
+   "2500"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd089",
+  "class": "other_long",
+  "text": "woh number 440741422070970513 tha",
+  "redact": [
+   "440741422070970513"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd090",
+  "class": "keep",
+  "text": "1500 ka offer tha",
+  "redact": [],
+  "keep": [
+   "1500"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd091",
+  "class": "identity",
+  "text": "aadhar card number paanch chhe nau do aath ek chhe aath saat teen ek chhe",
+  "redact": [
+   "569281687316",
+   "paanch chhe nau do aath ek chhe aath saat teen ek chhe"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd092",
+  "class": "otp",
+  "text": "the verification code is 9075 please check",
+  "redact": [
+   "9075"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd093",
+  "class": "identity",
+  "text": "UID 7518 5831 7100",
+  "redact": [
+   "751858317100",
+   "7518 5831 7100"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd094",
+  "class": "keep",
+  "text": "teen sau chaalis rupaye kat gaye",
+  "redact": [],
+  "keep": [
+   "340"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd095",
+  "class": "otp",
+  "text": "CVV code 6011 hai card ka",
+  "redact": [
+   "6011"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd096",
+  "class": "otp",
+  "text": "CVV code 6791 hai card ka",
+  "redact": [
+   "6791"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd097",
+  "class": "order_id",
+  "text": "order number 753-5572117-9376462 dekhiye",
+  "redact": [
+   "753-5572117-9376462"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd098",
+  "class": "address",
+  "text": "pincode 700091 pe deliver hona tha",
+  "redact": [
+   "700091"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd099",
+  "class": "keep",
+  "text": "year 2023 ki baat hai",
+  "redact": [],
+  "keep": [
+   "2023"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd100",
+  "class": "otp",
+  "text": "jo code aaya wo 699 102 hai",
+  "redact": [
+   "699102",
+   "699 102"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd101",
+  "class": "otp",
+  "text": "OTP hai shunya shunya saat saat",
+  "redact": [
+   "0077",
+   "zero zero seven seven",
+   "shunya shunya saat saat"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd102",
+  "class": "address",
+  "text": "pincode 560034 pe deliver hona tha",
+  "redact": [
+   "560034"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd103",
+  "class": "otp",
+  "text": "jo code aaya wo 461 113 hai",
+  "redact": [
+   "461113",
+   "461 113"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd104",
+  "class": "otp",
+  "text": "my OTP is seven eight three two",
+  "redact": [
+   "7832",
+   "seven eight three two",
+   "saat aath teen do"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd105",
+  "class": "keep",
+  "text": "paanch hazaar rupaye kat gaye",
+  "redact": [],
+  "keep": [
+   "5000"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd106",
+  "class": "keep",
+  "text": "flight 6E 204 thi",
+  "redact": [],
+  "keep": [
+   "204"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd107",
+  "class": "other_long",
+  "text": "yeh likha hai 3939798372462488",
+  "redact": [
+   "3939798372462488"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd108",
+  "class": "identity",
+  "text": "aadhar card number chaar chhe do paanch aath paanch chhe do chhe teen do ek",
+  "redact": [
+   "462585626321",
+   "chaar chhe do paanch aath paanch chhe do chhe teen do ek"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd109",
+  "class": "keep",
+  "text": "total 680 rupees ka order tha",
+  "redact": [],
+  "keep": [
+   "680"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd110",
+  "class": "address",
+  "text": "pincode 380015 pe deliver hona tha",
+  "redact": [
+   "380015"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd111",
+  "class": "keep",
+  "text": "Rs 750 ka coupon tha",
+  "redact": [],
+  "keep": [
+   "750"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd112",
+  "class": "keep",
+  "text": "bas 25 percent discount tha",
+  "redact": [],
+  "keep": [
+   "25 percent"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd113",
+  "class": "email",
+  "text": "mera email sanjay.k@example.org hai",
+  "redact": [
+   "sanjay.k@example.org"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd114",
+  "class": "keep",
+  "text": "5 din pehle order kiya",
+  "redact": [],
+  "keep": [
+   "5 din"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd115",
+  "class": "card",
+  "text": "credit card 3731 1336 1485 4050 ka expiry bhi hai",
+  "redact": [
+   "3731133614854050",
+   "3731 1336 1485 4050"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd116",
+  "class": "card",
+  "text": "card number four eight four eight two eight eight eight four four six nine three four two zero",
+  "redact": [
+   "4848288844693420",
+   "four eight four eight two eight eight eight four four six nine three four two zero"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd117",
+  "class": "otp",
+  "text": "jo code aaya wo 616 630 hai",
+  "redact": [
+   "616630",
+   "616 630"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd118",
+  "class": "order_id",
+  "text": "booking reference MMT9988 hai",
+  "redact": [
+   "MMT9988"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd119",
+  "class": "card",
+  "text": "4689283838389924 yeh number hai",
+  "redact": [
+   "4689283838389924"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd120",
+  "class": "card",
+  "text": "my credit card is 6011697482123780",
+  "redact": [
+   "6011697482123780",
+   "6011697482123780"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd121",
+  "class": "otp",
+  "text": "CVV code 0843 hai card ka",
+  "redact": [
+   "0843"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd122",
+  "class": "card",
+  "text": "my credit card is 3793 8257 7356 434",
+  "redact": [
+   "379382577356434",
+   "3793 8257 7356 434"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd123",
+  "class": "otp",
+  "text": "verification code five zero six one two three",
+  "redact": [
+   "506123",
+   "five zero six one two three",
+   "paanch shunya chhe ek do teen"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd124",
+  "class": "order_id",
+  "text": "Order ID: OD1572679496 aur refund nahi aaya",
+  "redact": [
+   "OD1572679496"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd125",
+  "class": "email",
+  "text": "send it to neha123@rediffmail.com please",
+  "redact": [
+   "neha123@rediffmail.com"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd126",
+  "class": "identity",
+  "text": "UID 6616 6823 6013",
+  "redact": [
+   "661668236013",
+   "6616 6823 6013"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd127",
+  "class": "keep",
+  "text": "5500 rupaye ka phone order OD1234567890",
+  "redact": [],
+  "keep": [
+   "5500"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd128",
+  "class": "order_id",
+  "text": "mera order number OD8242371848 tha aur refund nahi aaya",
+  "redact": [
+   "OD8242371848"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd129",
+  "class": "address",
+  "text": "mera address room 305, Shanti Colony, pin code 400012 hai",
+  "redact": [
+   "room 305, Shanti Colony",
+   "400012"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd130",
+  "class": "keep",
+  "text": "2 hafte se wait kar raha hoon",
+  "redact": [],
+  "keep": [
+   "2 hafte"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd131",
+  "class": "address",
+  "text": "mera address house no 22, Gandhi Nagar, pin code 110031 hai",
+  "redact": [
+   "house no 22, Gandhi Nagar",
+   "110031"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd132",
+  "class": "card",
+  "text": "debit card 6011 6277 3068 9850 tha",
+  "redact": [
+   "6011627730689850",
+   "6011 6277 3068 9850"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd133",
+  "class": "identity",
+  "text": "aadhaar number 9232 1322 4190 hai",
+  "redact": [
+   "923213224190",
+   "9232 1322 4190"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd134",
+  "class": "otp",
+  "text": "OTP is 9679",
+  "redact": [
+   "9679"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd135",
+  "class": "keep",
+  "text": "refund of ₹1,00,000 chahiye",
+  "redact": [],
+  "keep": [
+   "1,00,000"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd136",
+  "class": "card",
+  "text": "my credit card is 4551 7160 7909 669",
+  "redact": [
+   "455171607909669",
+   "4551 7160 7909 669"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd137",
+  "class": "address",
+  "text": "mera address plot 15, Sector 21, pin code 122001 hai",
+  "redact": [
+   "plot 15, Sector 21",
+   "122001"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd138",
+  "class": "phone",
+  "text": "mera number 6191347680 hai",
+  "redact": [
+   "6191347680"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd139",
+  "class": "keep",
+  "text": "twelve hundred rupees kat gaye",
+  "redact": [],
+  "keep": [
+   "1200"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd140",
+  "class": "order_id",
+  "text": "order number NY778899 hai",
+  "redact": [
+   "NY778899"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd141",
+  "class": "otp",
+  "text": "OTP is 8100",
+  "redact": [
+   "8100"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd142",
+  "class": "keep",
+  "text": "refund of Rs.5500 chahiye",
+  "redact": [],
+  "keep": [
+   "5500"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd143",
+  "class": "card",
+  "text": "debit card 354917031797407 se pay kiya",
+  "redact": [
+   "354917031797407",
+   "354917031797407"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd144",
+  "class": "keep",
+  "text": "barah sau rupaye kat gaye",
+  "redact": [],
+  "keep": [
+   "1200"
+  ],
+  "reversible": false
+ },
+ {
+  "id": "rd145",
+  "class": "other_long",
+  "text": "woh number 299221740380829406 tha",
+  "redact": [
+   "299221740380829406"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd146",
+  "class": "card",
+  "text": "debit card 3715-2758-9290-074 se pay kiya",
+  "redact": [
+   "371527589290074",
+   "3715-2758-9290-074"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd147",
+  "class": "card",
+  "text": "card number 4049 0495 4902 6730",
+  "redact": [
+   "4049049549026730",
+   "4049 0495 4902 6730"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd148",
+  "class": "otp",
+  "text": "OTP number 93095597 bataya tha",
+  "redact": [
+   "93095597"
+  ],
+  "keep": [],
+  "reversible": false
+ },
+ {
+  "id": "rd149",
+  "class": "order_id",
+  "text": "order number 997-7401439-1475423 dekhiye",
+  "redact": [
+   "997-7401439-1475423"
+  ],
+  "keep": [],
+  "reversible": true
+ },
+ {
+  "id": "rd150",
+  "class": "otp",
+  "text": "jo code aaya wo 374 095 hai",
+  "redact": [
+   "374095",
+   "374 095"
+  ],
+  "keep": [],
+  "reversible": false
+ }
+]
