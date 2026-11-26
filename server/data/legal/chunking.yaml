@@ -1,0 +1,73 @@
+# How each fetched source is cut into chunks. Chunks are exact slices of the source text
+# (checked by app/legal/quotecheck.py), so navigation noise is excluded with start and end
+# markers, never by editing text. `start` and `end` are regular expressions over the extracted
+# text; the span from the first `start` match up to the first `end` match after it is chunked.
+#
+# mode numbered:   the text is cut at sequentially numbered sections ("12. ..."), and long
+#                  sections at sequentially numbered sub-clauses ("(3) ...").
+# mode paragraphs: blank-line separated blocks packed up to the size target (web pages).
+sources:
+  cpa2019_egazette:
+    layer: statute
+    short_title: Consumer Protection Act, 2019
+    mode: numbered
+    start: '(?m)^1\. \(1\) This Act may be called'
+    end: '\n40 THE GAZETTE OF INDIA EXTRAORDINARY'
+    first_number: 1
+    heading: chapter
+    tail_cut: ['\nMINISTRY OF LAW AND JUSTICE\n']
+  ecom_rules_2020_egazette:
+    layer: rules
+    short_title: Consumer Protection (E-Commerce) Rules, 2020
+    mode: numbered
+    start: '(?m)^1\. Short title and commencement\.'
+    end: '\n \[ F\. No\. J-10/3/2018-CPU\]'
+    first_number: 1
+    heading: rule_title
+  rbi_ios_2021_notification:
+    layer: regulator
+    short_title: RBI Integrated Ombudsman Scheme notification, 12 Nov 2021
+    mode: numbered
+    start: 'In exercise of the powers conferred by Section 35A of the Banking Regulation Act'
+    end: '\(M\. K\. Jain\)'
+    first_number: 2
+    implicit_first: true
+  rbi_ios_2022_amendment_notification:
+    layer: regulator
+    short_title: RBI Integrated Ombudsman Scheme amendment notification, 5 Aug 2022
+    mode: numbered
+    start: 'In exercise of the powers conferred by sub section \(1\) of Section 11'
+    end: '\(Anil Kumar Sharma\)'
+    first_number: 2
+    implicit_first: true
+  rbi_pr1184:
+    layer: regulator
+    short_title: RBI press release on the Integrated Ombudsman Scheme, 12 Nov 2021
+    mode: numbered
+    start: 'The Reserve Bank - Integrated Ombudsman Scheme, 2021 \(the Scheme\) was'
+    end: '\(Yogesh Dayal\)'
+    first_number: 2
+    implicit_first: true
+  nch_home:
+    layer: escalation
+    short_title: National Consumer Helpline home page
+    mode: paragraphs
+    start: 'WhatsApp\s+\+918800001915'
+    end: 'Provide Feedback to National Consumer Helpline'
+  nch_about:
+    layer: escalation
+    short_title: National Consumer Helpline about page
+    mode: numbered
+    start: '(?m)^1\. What is NCH'
+    end: '\nCyber Crime FAQs'
+    first_number: 1
+  pib_ejagriti_2269994:
+    layer: escalation
+    short_title: PIB release on the e-Jagriti platform, 7 Jun 2026
+    mode: paragraphs
+    start: 'e-Jagriti Wins Silver Award at National Awards for e-Governance 2026'
+    end: '\nDelighted that e-Jagriti'
+# ejagriti_home has no readable text (client-rendered shell) and is not chunked.
+
+target_chars: 1200
+max_chars: 1800

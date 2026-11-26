@@ -9,6 +9,8 @@ from datetime import datetime
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import (
     Boolean,
+    CheckConstraint,
+    Computed,
     DateTime,
     Enum,
     Float,
@@ -20,6 +22,7 @@ from sqlalchemy import (
     UniqueConstraint,
     Uuid,
 )
+from sqlalchemy.dialects.postgresql import ARRAY, TSVECTOR
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
@@ -373,23 +376,44 @@ class OutboxJob(Base):
     user_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
+LEGAL_LAYERS = ("statute", "rules", "regulator", "provider_policy", "escalation")
+EMBEDDING_DIM = 384  # multilingual-e5-small; see docs/results/retrieval.md
+
+
 class LegalChunk(Base):
+    """A public legal text chunk. Nothing personal is stored here, so the text is plain and indexable."""
+
     __tablename__ = "legal_chunks"
+    __table_args__ = (
+        CheckConstraint("layer in ('statute', 'rules', 'regulator', 'provider_policy', 'escalation')", name="legal_chunks_layer"),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
+    content_hash: Mapped[str] = mapped_column(String(64), unique=True)
+    source_id: Mapped[str] = mapped_column(String(64), index=True)
     layer: Mapped[str] = mapped_column(String(64))
     source_url: Mapped[str] = mapped_column(Text)
     fetched_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     section: Mapped[str] = mapped_column(String(128))
-    chunk_enc: Mapped[bytes] = mapped_column(LargeBinary)
-    embedding: Mapped[list[float] | None] = mapped_column(Vector(1024), nullable=True)
-    entity_tags_enc: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True)
+    clause: Mapped[str] = mapped_column(String(64), default="", server_default="")
+    heading: Mapped[str] = mapped_column(Text, default="", server_default="")
+    ordinal: Mapped[int] = mapped_column(Integer)
+    text: Mapped[str] = mapped_column(Text)
+    search_text: Mapped[str] = mapped_column(Text)
+    embedding: Mapped[list[float] | None] = mapped_column(Vector(EMBEDDING_DIM), nullable=True)
+    embedding_model: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    tsv: Mapped[str | None] = mapped_column(
+        TSVECTOR, Computed("to_tsvector('english', search_text)", persisted=True), nullable=True
+    )
+    entity_type_tags: Mapped[list[str]] = mapped_column(ARRAY(String(32)), default=list, server_default="{}")
     tag_review_state: Mapped[TagReviewState] = mapped_column(
         _enum(TagReviewState, "tag_review_state"), default=TagReviewState.unreviewed
     )
-    rationale_enc: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True)
+    review_rationale: Mapped[str | None] = mapped_column(Text, nullable=True)
+    tagger_model: Mapped[str | None] = mapped_column(String(128), nullable=True)
     reviewer_model: Mapped[str | None] = mapped_column(String(128), nullable=True)
     reviewer_confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    prompt_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)
 
 
 class EvalRun(Base):

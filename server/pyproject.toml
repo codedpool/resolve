@@ -20,6 +20,7 @@ dependencies = [
     "python-multipart>=0.0.18",
     "langgraph>=1.0",
     "pypdf>=5.0",
+    "fastembed>=0.5",
 ]
 
 [project.optional-dependencies]
