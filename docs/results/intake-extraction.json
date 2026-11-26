@@ -1,8 +1,8 @@
 {
- "runs": 60,
- "critical_field_accuracy": 0.8166666666666667,
- "fabricated_rate": 0.08,
- "approximate_accuracy": 0.875,
+ "runs": 20,
+ "critical_field_accuracy": 0.975,
+ "fabricated_rate": 0.0,
+ "approximate_accuracy": 0.9583333333333334,
  "rows": [
   {
    "id": "in01",
@@ -16,9 +16,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "OD1234567890",
-      "got": "[NUM_1]",
+      "got": "OD1234567890",
       "certainty": "stated"
      },
      "amount": {
@@ -46,139 +46,21 @@
       "certainty": "stated"
      }
     },
-    "correct": 5,
+    "correct": 6,
     "total": 6,
     "fabricated": 0,
     "not_stated_total": 1
    },
    "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.062141099,
-    "prompt_tokens": 831,
-    "prompt_time": 0.057150951,
+    "queue_time": 0.062770283,
+    "prompt_tokens": 979,
+    "prompt_time": 0.092986346,
     "completion_tokens": 475,
-    "completion_time": 0.931000061,
-    "total_tokens": 1306,
-    "total_time": 0.988151012
-   }
-  },
-  {
-   "id": "in01",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Flipkart",
-      "got": "Flipkart",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "OD1234567890",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "10900",
-      "got": "10900",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-20",
-      "got": "2026-11-20",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "full refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.053565225,
-    "prompt_tokens": 831,
-    "prompt_time": 0.059039294,
-    "completion_tokens": 475,
-    "completion_time": 0.940102919,
-    "total_tokens": 1306,
-    "total_time": 0.999142213
-   }
-  },
-  {
-   "id": "in01",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Flipkart",
-      "got": "Flipkart",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "OD1234567890",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "10900",
-      "got": "10900",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-20",
-      "got": "2026-11-20",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "full refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.061009041,
-    "prompt_tokens": 831,
-    "prompt_time": 0.056943125,
-    "completion_tokens": 475,
-    "completion_time": 0.963774986,
-    "total_tokens": 1306,
-    "total_time": 1.020718111
+    "completion_time": 1.839556449,
+    "total_tokens": 1454,
+    "total_time": 1.932542795
    }
   },
   {
@@ -193,9 +75,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "302-1112223-4445556",
-      "got": "[NUM_1]",
+      "got": "302-1112223-4445556",
       "certainty": "stated"
      },
      "amount": {
@@ -223,7 +105,7 @@
       "certainty": "stated"
      }
     },
-    "correct": 4,
+    "correct": 5,
     "total": 6,
     "fabricated": 0,
     "not_stated_total": 0
@@ -232,139 +114,15 @@
     "approximate",
     "relative_date"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.059141003,
-    "prompt_tokens": 840,
-    "prompt_time": 0.057789204,
+    "queue_time": 0.061592134,
+    "prompt_tokens": 988,
+    "prompt_time": 0.067842562,
     "completion_tokens": 520,
-    "completion_time": 1.060275135,
-    "total_tokens": 1360,
-    "total_time": 1.118064339
-   }
-  },
-  {
-   "id": "in02",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Amazon",
-      "got": "Amazon",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "302-1112223-4445556",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "5500",
-      "got": "5500",
-      "certainty": "approximate"
-     },
-     "order_date": {
-      "ok": false,
-      "expected": "2026-11-05",
-      "got": "2026-10-19",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "2026-11-30",
-      "got": "2026-11-30",
-      "certainty": "stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "money back",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 0
-   },
-   "flags": [
-    "approximate",
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.061729825,
-    "prompt_tokens": 840,
-    "prompt_time": 0.059366915,
-    "completion_tokens": 520,
-    "completion_time": 1.054922659,
-    "total_tokens": 1360,
-    "total_time": 1.114289574
-   }
-  },
-  {
-   "id": "in02",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Amazon",
-      "got": "Amazon",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "302-1112223-4445556",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "5500",
-      "got": "5500",
-      "certainty": "approximate"
-     },
-     "order_date": {
-      "ok": false,
-      "expected": "2026-11-05",
-      "got": "2026-10-19",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "2026-11-30",
-      "got": "2026-11-30",
-      "certainty": "stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "money back",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 0
-   },
-   "flags": [
-    "approximate",
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.058471616,
-    "prompt_tokens": 840,
-    "prompt_time": 0.05959918,
-    "completion_tokens": 520,
-    "completion_time": 1.01826996,
-    "total_tokens": 1360,
-    "total_time": 1.07786914
+    "completion_time": 1.044059222,
+    "total_tokens": 1508,
+    "total_time": 1.111901784
    }
   },
   {
@@ -379,9 +137,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "SW44556677",
-      "got": "[NUM_1]",
+      "got": "SW44556677",
       "certainty": "stated"
      },
      "amount": {
@@ -394,7 +152,7 @@
       "ok": true,
       "expected": "2026-11-25",
       "got": "2026-11-25",
-      "certainty": "stated"
+      "certainty": "approximate"
      },
      "promised_date": {
       "ok": true,
@@ -409,7 +167,7 @@
       "certainty": "not_stated"
      }
     },
-    "correct": 5,
+    "correct": 6,
     "total": 6,
     "fabricated": 0,
     "not_stated_total": 2
@@ -418,139 +176,15 @@
     "relative_date",
     "not_stated"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.055325066,
-    "prompt_tokens": 825,
-    "prompt_time": 0.058455041,
-    "completion_tokens": 487,
-    "completion_time": 1.054743536,
-    "total_tokens": 1312,
-    "total_time": 1.113198577
-   }
-  },
-  {
-   "id": "in03",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Swiggy",
-      "got": "Swiggy",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "SW44556677",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "340",
-      "got": "340",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-25",
-      "got": "2026-11-25",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 2
-   },
-   "flags": [
-    "relative_date",
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.06409177,
-    "prompt_tokens": 825,
-    "prompt_time": 0.081670756,
-    "completion_tokens": 487,
-    "completion_time": 2.091038908,
-    "total_tokens": 1312,
-    "total_time": 2.172709664
-   }
-  },
-  {
-   "id": "in03",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Swiggy",
-      "got": "Swiggy",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "SW44556677",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "340",
-      "got": "340",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-25",
-      "got": "2026-11-25",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 2
-   },
-   "flags": [
-    "relative_date",
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.059878787,
-    "prompt_tokens": 825,
-    "prompt_time": 0.058756603,
-    "completion_tokens": 487,
-    "completion_time": 0.980906334,
-    "total_tokens": 1312,
-    "total_time": 1.039662937
+    "queue_time": 0.063382033,
+    "prompt_tokens": 973,
+    "prompt_time": 0.092005896,
+    "completion_tokens": 486,
+    "completion_time": 1.796169607,
+    "total_tokens": 1459,
+    "total_time": 1.888175503
    }
   },
   {
@@ -565,9 +199,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "MY9876543",
-      "got": "[NUM_1]",
+      "got": "MY9876543",
       "certainty": "stated"
      },
      "amount": {
@@ -595,7 +229,7 @@
       "certainty": "stated"
      }
     },
-    "correct": 5,
+    "correct": 6,
     "total": 6,
     "fabricated": 0,
     "not_stated_total": 1
@@ -603,137 +237,15 @@
    "flags": [
     "approximate"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.055434772,
-    "prompt_tokens": 858,
-    "prompt_time": 0.058726387,
+    "queue_time": 0.760731903,
+    "prompt_tokens": 1006,
+    "prompt_time": 0.074078532,
     "completion_tokens": 531,
-    "completion_time": 1.052274074,
-    "total_tokens": 1389,
-    "total_time": 1.111000461
-   }
-  },
-  {
-   "id": "in04",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Myntra",
-      "got": "Myntra",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "MY9876543",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "2500",
-      "got": "2500",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-10",
-      "got": "2026-11-10",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "approximate"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.065334335,
-    "prompt_tokens": 858,
-    "prompt_time": 0.082264828,
-    "completion_tokens": 531,
-    "completion_time": 1.990643767,
-    "total_tokens": 1389,
-    "total_time": 2.072908595
-   }
-  },
-  {
-   "id": "in04",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Myntra",
-      "got": "Myntra",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "MY9876543",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "2500",
-      "got": "2500",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-10",
-      "got": "2026-11-10",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "approximate"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.059322794,
-    "prompt_tokens": 858,
-    "prompt_time": 0.060886785,
-    "completion_tokens": 531,
-    "completion_time": 1.050153351,
-    "total_tokens": 1389,
-    "total_time": 1.111040136
+    "completion_time": 1.0447846140000001,
+    "total_tokens": 1537,
+    "total_time": 1.118863146
    }
   },
   {
@@ -784,44 +296,44 @@
     "not_stated_total": 1
    },
    "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.057424318,
-    "prompt_tokens": 839,
-    "prompt_time": 0.057446302,
+    "queue_time": 0.063465071,
+    "prompt_tokens": 987,
+    "prompt_time": 0.098782745,
     "completion_tokens": 519,
-    "completion_time": 1.037438229,
-    "total_tokens": 1358,
-    "total_time": 1.094884531
+    "completion_time": 1.79245053,
+    "total_tokens": 1506,
+    "total_time": 1.891233275
    }
   },
   {
-   "id": "in05",
-   "run": 1,
+   "id": "in06",
+   "run": 0,
    "score": {
     "fields": {
      "company_name": {
       "ok": true,
-      "expected": "Zomato",
-      "got": "Zomato",
+      "expected": "Paytm",
+      "got": "Paytm",
       "certainty": "stated"
      },
      "order_id": {
       "ok": true,
-      "expected": "ZM11223344",
-      "got": "ZM11223344",
+      "expected": "TXN555666777",
+      "got": "TXN555666777",
       "certainty": "stated"
      },
      "amount": {
       "ok": true,
-      "expected": "680",
-      "got": "680",
+      "expected": "2100",
+      "got": "2100",
       "certainty": "stated"
      },
      "order_date": {
       "ok": true,
-      "expected": "2026-11-22",
-      "got": "2026-11-22",
+      "expected": "2026-11-08",
+      "got": "2026-11-08",
       "certainty": "stated"
      },
      "promised_date": {
@@ -832,8 +344,8 @@
      },
      "desired_remedy": {
       "ok": true,
-      "expected": "full refund",
-      "got": "full refund",
+      "expected": "refund",
+      "got": "refund",
       "certainty": "stated"
      }
     },
@@ -843,44 +355,44 @@
     "not_stated_total": 1
    },
    "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.059598639,
-    "prompt_tokens": 839,
-    "prompt_time": 0.05761667,
-    "completion_tokens": 519,
-    "completion_time": 1.021941861,
-    "total_tokens": 1358,
-    "total_time": 1.079558531
+    "queue_time": 0.056463166,
+    "prompt_tokens": 983,
+    "prompt_time": 0.067544843,
+    "completion_tokens": 486,
+    "completion_time": 0.984275771,
+    "total_tokens": 1469,
+    "total_time": 1.051820614
    }
   },
   {
-   "id": "in05",
-   "run": 2,
+   "id": "in07",
+   "run": 0,
    "score": {
     "fields": {
      "company_name": {
       "ok": true,
-      "expected": "Zomato",
-      "got": "Zomato",
+      "expected": "Croma",
+      "got": "Croma",
       "certainty": "stated"
      },
      "order_id": {
       "ok": true,
-      "expected": "ZM11223344",
-      "got": "ZM11223344",
+      "expected": "CR220011",
+      "got": "CR220011",
       "certainty": "stated"
      },
      "amount": {
       "ok": true,
-      "expected": "680",
-      "got": "680",
+      "expected": "25900",
+      "got": "25900",
       "certainty": "stated"
      },
      "order_date": {
       "ok": true,
-      "expected": "2026-11-22",
-      "got": "2026-11-22",
+      "expected": "2026-11-16",
+      "got": "2026-11-16",
       "certainty": "stated"
      },
      "promised_date": {
@@ -891,8 +403,8 @@
      },
      "desired_remedy": {
       "ok": true,
-      "expected": "full refund",
-      "got": "full refund",
+      "expected": "replacement or refund",
+      "got": "Replacement or refund",
       "certainty": "stated"
      }
     },
@@ -901,376 +413,18 @@
     "fabricated": 0,
     "not_stated_total": 1
    },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.056947279,
-    "prompt_tokens": 839,
-    "prompt_time": 0.059430168,
-    "completion_tokens": 519,
-    "completion_time": 1.028691586,
-    "total_tokens": 1358,
-    "total_time": 1.0881217539999999
-   }
-  },
-  {
-   "id": "in06",
-   "run": 0,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Paytm",
-      "got": "Paytm",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "TXN555666777",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "2100",
-      "got": "2100",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-08",
-      "got": "2026-11-08",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.066682093,
-    "prompt_tokens": 835,
-    "prompt_time": 0.077948217,
-    "completion_tokens": 486,
-    "completion_time": 2.378086198,
-    "total_tokens": 1321,
-    "total_time": 2.456034415
-   }
-  },
-  {
-   "id": "in06",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Paytm",
-      "got": "Paytm",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "TXN555666777",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "2100",
-      "got": "2100",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-08",
-      "got": "2026-11-08",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.073224516,
-    "prompt_tokens": 835,
-    "prompt_time": 0.05984261,
-    "completion_tokens": 486,
-    "completion_time": 0.982469187,
-    "total_tokens": 1321,
-    "total_time": 1.042311797
-   }
-  },
-  {
-   "id": "in06",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Paytm",
-      "got": "Paytm",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "TXN555666777",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "2100",
-      "got": "2100",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-08",
-      "got": "2026-11-08",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.063618837,
-    "prompt_tokens": 835,
-    "prompt_time": 0.057863172,
-    "completion_tokens": 486,
-    "completion_time": 0.961413214,
-    "total_tokens": 1321,
-    "total_time": 1.019276386
-   }
-  },
-  {
-   "id": "in07",
-   "run": 0,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Croma",
-      "got": "Croma",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "CR220011",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "25900",
-      "got": "25900",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-16",
-      "got": "2026-11-16",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "replacement or refund",
-      "got": "Replacement, Refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
    "flags": [
     "ambiguity"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.068372859,
-    "prompt_tokens": 833,
-    "prompt_time": 0.07172197,
-    "completion_tokens": 497,
-    "completion_time": 1.8993414579999999,
-    "total_tokens": 1330,
-    "total_time": 1.971063428
-   }
-  },
-  {
-   "id": "in07",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Croma",
-      "got": "Croma",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "CR220011",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "25900",
-      "got": "25900",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-16",
-      "got": "2026-11-16",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "replacement or refund",
-      "got": "Replacement, Refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "ambiguity"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.095397193,
-    "prompt_tokens": 833,
-    "prompt_time": 0.088261941,
-    "completion_tokens": 497,
-    "completion_time": 1.8168877270000001,
-    "total_tokens": 1330,
-    "total_time": 1.905149668
-   }
-  },
-  {
-   "id": "in07",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Croma",
-      "got": "Croma",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "CR220011",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "25900",
-      "got": "25900",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-16",
-      "got": "2026-11-16",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "replacement or refund",
-      "got": "Replacement, Refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "ambiguity"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.062156109,
-    "prompt_tokens": 833,
-    "prompt_time": 0.05903582,
-    "completion_tokens": 497,
-    "completion_time": 0.988338029,
-    "total_tokens": 1330,
-    "total_time": 1.047373849
+    "queue_time": 0.066047579,
+    "prompt_tokens": 981,
+    "prompt_time": 0.094594429,
+    "completion_tokens": 495,
+    "completion_time": 1.702672224,
+    "total_tokens": 1476,
+    "total_time": 1.7972666529999999
    }
   },
   {
@@ -1285,9 +439,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "MMT9988",
-      "got": "[NUM_1]",
+      "got": "MMT9988",
       "certainty": "stated"
      },
      "amount": {
@@ -1303,128 +457,10 @@
       "certainty": "stated"
      },
      "promised_date": {
-      "ok": false,
+      "ok": true,
       "expected": "",
-      "got": "2027-02-24",
-      "certainty": "approximate"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "immediate refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 1,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.065667891,
-    "prompt_tokens": 839,
-    "prompt_time": 0.079141388,
-    "completion_tokens": 511,
-    "completion_time": 1.818727186,
-    "total_tokens": 1350,
-    "total_time": 1.8978685739999999
-   }
-  },
-  {
-   "id": "in08",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "MakeMyTrip",
-      "got": "MakeMyTrip",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "MMT9988",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "14200",
-      "got": "14200",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-03",
-      "got": "2026-11-03",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": false,
-      "expected": "",
-      "got": "2027-02-24",
-      "certainty": "approximate"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "immediate refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 1,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.062095594,
-    "prompt_tokens": 839,
-    "prompt_time": 0.078362152,
-    "completion_tokens": 504,
-    "completion_time": 1.962457225,
-    "total_tokens": 1343,
-    "total_time": 2.040819377
-   }
-  },
-  {
-   "id": "in08",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "MakeMyTrip",
-      "got": "MakeMyTrip",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "MMT9988",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "14200",
-      "got": "14200",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-03",
-      "got": "2026-11-03",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": false,
-      "expected": "",
-      "got": "2027-02-24",
-      "certainty": "approximate"
+      "got": "",
+      "certainty": "not_stated"
      },
      "desired_remedy": {
       "ok": true,
@@ -1433,21 +469,21 @@
       "certainty": "stated"
      }
     },
-    "correct": 4,
+    "correct": 6,
     "total": 6,
-    "fabricated": 1,
+    "fabricated": 0,
     "not_stated_total": 1
    },
    "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.061402605,
-    "prompt_tokens": 839,
-    "prompt_time": 0.059338661,
-    "completion_tokens": 512,
-    "completion_time": 0.996196155,
-    "total_tokens": 1351,
-    "total_time": 1.055534816
+    "queue_time": 0.065677382,
+    "prompt_tokens": 987,
+    "prompt_time": 0.093877777,
+    "completion_tokens": 502,
+    "completion_time": 1.721365139,
+    "total_tokens": 1489,
+    "total_time": 1.8152429159999999
    }
   },
   {
@@ -1462,9 +498,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "NY778899",
-      "got": "[NUM_1]",
+      "got": "NY778899",
       "certainty": "stated"
      },
      "amount": {
@@ -1492,139 +528,21 @@
       "certainty": "stated"
      }
     },
-    "correct": 5,
+    "correct": 6,
     "total": 6,
     "fabricated": 0,
     "not_stated_total": 1
    },
    "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.062935935,
-    "prompt_tokens": 833,
-    "prompt_time": 0.057394265,
+    "queue_time": 0.064772077,
+    "prompt_tokens": 981,
+    "prompt_time": 0.090411563,
     "completion_tokens": 482,
-    "completion_time": 0.980093458,
-    "total_tokens": 1315,
-    "total_time": 1.037487723
-   }
-  },
-  {
-   "id": "in09",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Nykaa",
-      "got": "Nykaa",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "NY778899",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "450",
-      "got": "450",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-20",
-      "got": "2026-11-20",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.061121691,
-    "prompt_tokens": 833,
-    "prompt_time": 0.057138638,
-    "completion_tokens": 482,
-    "completion_time": 1.006720619,
-    "total_tokens": 1315,
-    "total_time": 1.063859257
-   }
-  },
-  {
-   "id": "in09",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Nykaa",
-      "got": "Nykaa",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "NY778899",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "450",
-      "got": "450",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-20",
-      "got": "2026-11-20",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.058966921,
-    "prompt_tokens": 833,
-    "prompt_time": 0.058890289,
-    "completion_tokens": 482,
-    "completion_time": 0.973105729,
-    "total_tokens": 1315,
-    "total_time": 1.031996018
+    "completion_time": 1.912916206,
+    "total_tokens": 1463,
+    "total_time": 2.003327769
    }
   },
   {
@@ -1639,9 +557,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "BB1357924",
-      "got": "[NUM_1]",
+      "got": "BB1357924",
       "certainty": "stated"
      },
      "amount": {
@@ -1657,151 +575,33 @@
       "certainty": "stated"
      },
      "promised_date": {
-      "ok": false,
+      "ok": true,
       "expected": "",
-      "got": "2026-11-14",
-      "certainty": "approximate"
+      "got": "",
+      "certainty": "not_stated"
      },
      "desired_remedy": {
       "ok": true,
       "expected": "refund",
-      "got": "refund",
+      "got": "Refund",
       "certainty": "inferred"
      }
     },
-    "correct": 4,
+    "correct": 6,
     "total": 6,
-    "fabricated": 1,
+    "fabricated": 0,
     "not_stated_total": 1
    },
    "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.061664466,
-    "prompt_tokens": 837,
-    "prompt_time": 0.072986043,
-    "completion_tokens": 498,
-    "completion_time": 2.296983699,
-    "total_tokens": 1335,
-    "total_time": 2.369969742
-   }
-  },
-  {
-   "id": "in10",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "BigBasket",
-      "got": "BigBasket",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "BB1357924",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "1300",
-      "got": "1300",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-12",
-      "got": "2026-11-12",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": false,
-      "expected": "",
-      "got": "2026-11-14",
-      "certainty": "approximate"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "inferred"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 1,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.052627503,
-    "prompt_tokens": 837,
-    "prompt_time": 0.057529376,
-    "completion_tokens": 499,
-    "completion_time": 1.004308008,
-    "total_tokens": 1336,
-    "total_time": 1.061837384
-   }
-  },
-  {
-   "id": "in10",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "BigBasket",
-      "got": "BigBasket",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "BB1357924",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "1300",
-      "got": "1300",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-12",
-      "got": "2026-11-12",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": false,
-      "expected": "",
-      "got": "2026-11-14",
-      "certainty": "approximate"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "inferred"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 1,
-    "not_stated_total": 1
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.063420258,
-    "prompt_tokens": 837,
-    "prompt_time": 0.061405621,
-    "completion_tokens": 499,
-    "completion_time": 1.019983459,
-    "total_tokens": 1336,
-    "total_time": 1.0813890800000001
+    "queue_time": 0.068135715,
+    "prompt_tokens": 985,
+    "prompt_time": 0.09454054,
+    "completion_tokens": 487,
+    "completion_time": 1.7229050670000001,
+    "total_tokens": 1472,
+    "total_time": 1.817445607
    }
   },
   {
@@ -1855,39 +655,164 @@
     "not_stated",
     "approximate"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.162474867,
-    "prompt_tokens": 829,
-    "prompt_time": 0.058382912,
-    "completion_tokens": 443,
-    "completion_time": 0.909199255,
-    "total_tokens": 1272,
-    "total_time": 0.967582167
+    "queue_time": 0.068043906,
+    "prompt_tokens": 977,
+    "prompt_time": 0.080148713,
+    "completion_tokens": 456,
+    "completion_time": 1.6444756649999999,
+    "total_tokens": 1433,
+    "total_time": 1.7246243780000001
    }
   },
   {
-   "id": "in11",
-   "run": 1,
+   "id": "in12",
+   "run": 0,
    "score": {
     "fields": {
      "company_name": {
       "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
+      "expected": "Ajio",
+      "got": "Ajio",
+      "certainty": "inferred"
      },
      "order_id": {
       "ok": true,
+      "expected": "AJ556677",
+      "got": "AJ556677",
+      "certainty": "stated"
+     },
+     "amount": {
+      "ok": true,
+      "expected": "2999",
+      "got": "2999",
+      "certainty": "stated"
+     },
+     "order_date": {
+      "ok": true,
+      "expected": "2026-11-19",
+      "got": "2026-11-19",
+      "certainty": "approximate"
+     },
+     "promised_date": {
+      "ok": true,
       "expected": "",
       "got": "",
       "certainty": "not_stated"
      },
+     "desired_remedy": {
+      "ok": true,
+      "expected": "refund",
+      "got": "refund",
+      "certainty": "stated"
+     }
+    },
+    "correct": 6,
+    "total": 6,
+    "fabricated": 0,
+    "not_stated_total": 1
+   },
+   "flags": [
+    "ambiguity",
+    "relative_date"
+   ],
+   "prompt": "extract_facts@2:a900e0ba9583",
+   "tokens": {
+    "queue_time": 0.063817956,
+    "prompt_tokens": 970,
+    "prompt_time": 0.09312021,
+    "completion_tokens": 496,
+    "completion_time": 1.849898397,
+    "total_tokens": 1466,
+    "total_time": 1.943018607
+   }
+  },
+  {
+   "id": "in13",
+   "run": 0,
+   "score": {
+    "fields": {
+     "company_name": {
+      "ok": true,
+      "expected": "Flipkart",
+      "got": "Flipkart",
+      "certainty": "stated"
+     },
+     "order_id": {
+      "ok": true,
+      "expected": "OD2020202020",
+      "got": "OD2020202020",
+      "certainty": "stated"
+     },
      "amount": {
       "ok": true,
-      "expected": "15000",
-      "got": "15000",
+      "expected": "9899",
+      "got": "9899",
+      "certainty": "stated"
+     },
+     "order_date": {
+      "ok": false,
+      "expected": "2026-11-24",
+      "got": "2026-11-17",
       "certainty": "approximate"
+     },
+     "promised_date": {
+      "ok": true,
+      "expected": "",
+      "got": "",
+      "certainty": "not_stated"
+     },
+     "desired_remedy": {
+      "ok": false,
+      "expected": "replacement",
+      "got": "",
+      "certainty": "not_stated"
+     }
+    },
+    "correct": 4,
+    "total": 6,
+    "fabricated": 0,
+    "not_stated_total": 1
+   },
+   "flags": [
+    "correction",
+    "relative_date",
+    "not_stated"
+   ],
+   "prompt": "extract_facts@2:a900e0ba9583",
+   "tokens": {
+    "queue_time": 0.063146964,
+    "prompt_tokens": 983,
+    "prompt_time": 0.067321412,
+    "completion_tokens": 503,
+    "completion_time": 1.01506976,
+    "total_tokens": 1486,
+    "total_time": 1.082391172
+   }
+  },
+  {
+   "id": "in14",
+   "run": 0,
+   "score": {
+    "fields": {
+     "company_name": {
+      "ok": true,
+      "expected": "Reliance Digital",
+      "got": "Reliance Digital",
+      "certainty": "stated"
+     },
+     "order_id": {
+      "ok": true,
+      "expected": "RD123456",
+      "got": "RD123456",
+      "certainty": "stated"
+     },
+     "amount": {
+      "ok": true,
+      "expected": "45000",
+      "got": "45000",
+      "certainty": "stated"
      },
      "order_date": {
       "ok": true,
@@ -1897,9 +822,9 @@
      },
      "promised_date": {
       "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
+      "expected": "2026-12-02",
+      "got": "2026-12-02",
+      "certainty": "stated"
      },
      "desired_remedy": {
       "ok": true,
@@ -1911,51 +836,51 @@
     "correct": 6,
     "total": 6,
     "fabricated": 0,
-    "not_stated_total": 5
+    "not_stated_total": 2
    },
    "flags": [
-    "not_stated",
-    "approximate"
+    "correction",
+    "not_stated"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.060912101,
-    "prompt_tokens": 829,
-    "prompt_time": 0.056828337,
-    "completion_tokens": 443,
-    "completion_time": 0.877376104,
-    "total_tokens": 1272,
-    "total_time": 0.934204441
+    "queue_time": 0.063512939,
+    "prompt_tokens": 991,
+    "prompt_time": 0.070064321,
+    "completion_tokens": 514,
+    "completion_time": 1.031649101,
+    "total_tokens": 1505,
+    "total_time": 1.101713422
    }
   },
   {
-   "id": "in11",
-   "run": 2,
+   "id": "in15",
+   "run": 0,
    "score": {
     "fields": {
      "company_name": {
       "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
+      "expected": "Meesho",
+      "got": "Meesho",
+      "certainty": "stated"
      },
      "order_id": {
       "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
+      "expected": "ME44221",
+      "got": "ME44221",
+      "certainty": "stated"
      },
      "amount": {
       "ok": true,
-      "expected": "15000",
-      "got": "15000",
-      "certainty": "approximate"
+      "expected": "899",
+      "got": "899",
+      "certainty": "stated"
      },
      "order_date": {
       "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
+      "expected": "2026-11-24",
+      "got": "2026-11-24",
+      "certainty": "approximate"
      },
      "promised_date": {
       "ok": true,
@@ -1965,770 +890,28 @@
      },
      "desired_remedy": {
       "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
+      "expected": "return and refund",
+      "got": "refund",
+      "certainty": "stated"
      }
     },
     "correct": 6,
     "total": 6,
     "fabricated": 0,
-    "not_stated_total": 5
-   },
-   "flags": [
-    "not_stated",
-    "approximate"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.08584155,
-    "prompt_tokens": 829,
-    "prompt_time": 0.058634199,
-    "completion_tokens": 443,
-    "completion_time": 0.893501989,
-    "total_tokens": 1272,
-    "total_time": 0.952136188
-   }
-  },
-  {
-   "id": "in12",
-   "run": 0,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Ajio",
-      "got": "Ajio",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "AJ556677",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "2999",
-      "got": "2999",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": false,
-      "expected": "2026-11-19",
-      "got": "2026-11-16",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "ambiguity",
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.06175868,
-    "prompt_tokens": 822,
-    "prompt_time": 0.07746329,
-    "completion_tokens": 493,
-    "completion_time": 1.7823399850000001,
-    "total_tokens": 1315,
-    "total_time": 1.859803275
-   }
-  },
-  {
-   "id": "in12",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Ajio",
-      "got": "Ajio",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "AJ556677",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "2999",
-      "got": "2999",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": false,
-      "expected": "2026-11-19",
-      "got": "2026-11-16",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "ambiguity",
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.063958255,
-    "prompt_tokens": 822,
-    "prompt_time": 0.056857843,
-    "completion_tokens": 493,
-    "completion_time": 0.961223347,
-    "total_tokens": 1315,
-    "total_time": 1.01808119
-   }
-  },
-  {
-   "id": "in12",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Ajio",
-      "got": "Ajio",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "AJ556677",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "2999",
-      "got": "2999",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": false,
-      "expected": "2026-11-19",
-      "got": "2026-11-16",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "ambiguity",
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.063015303,
-    "prompt_tokens": 822,
-    "prompt_time": 0.056383547,
-    "completion_tokens": 493,
-    "completion_time": 0.962387755,
-    "total_tokens": 1315,
-    "total_time": 1.018771302
-   }
-  },
-  {
-   "id": "in13",
-   "run": 0,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Flipkart",
-      "got": "Flipkart",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "OD2020202020",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "9899",
-      "got": "9899",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-24",
-      "got": "2026-11-24",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": false,
-      "expected": "2026-12-06",
-      "got": "2026-12-04",
-      "certainty": "inferred"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "replacement",
-      "got": "replacement",
-      "certainty": "inferred"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 0
-   },
-   "flags": [
-    "correction",
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.067477346,
-    "prompt_tokens": 835,
-    "prompt_time": 0.079289962,
-    "completion_tokens": 578,
-    "completion_time": 2.22178022,
-    "total_tokens": 1413,
-    "total_time": 2.301070182
-   }
-  },
-  {
-   "id": "in13",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Flipkart",
-      "got": "Flipkart",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "OD2020202020",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "9899",
-      "got": "9899",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-24",
-      "got": "2026-11-24",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": false,
-      "expected": "2026-12-06",
-      "got": "2026-12-04",
-      "certainty": "inferred"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "replacement",
-      "got": "replacement",
-      "certainty": "inferred"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 0
-   },
-   "flags": [
-    "correction",
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.063936584,
-    "prompt_tokens": 835,
-    "prompt_time": 0.071774512,
-    "completion_tokens": 578,
-    "completion_time": 2.209797663,
-    "total_tokens": 1413,
-    "total_time": 2.281572175
-   }
-  },
-  {
-   "id": "in13",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Flipkart",
-      "got": "Flipkart",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "OD2020202020",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "9899",
-      "got": "9899",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-24",
-      "got": "2026-11-24",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": false,
-      "expected": "2026-12-06",
-      "got": "2026-12-04",
-      "certainty": "inferred"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "replacement",
-      "got": "replacement",
-      "certainty": "inferred"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 0
-   },
-   "flags": [
-    "correction",
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.065583352,
-    "prompt_tokens": 835,
-    "prompt_time": 0.081049055,
-    "completion_tokens": 578,
-    "completion_time": 2.106367399,
-    "total_tokens": 1413,
-    "total_time": 2.187416454
-   }
-  },
-  {
-   "id": "in14",
-   "run": 0,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Reliance Digital",
-      "got": "Reliance Digital",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "RD123456",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "45000",
-      "got": "45000",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "2026-12-02",
-      "got": "2026-12-02",
-      "certainty": "stated"
-     },
-     "desired_remedy": {
-      "ok": false,
-      "expected": "installation or refund",
-      "got": "",
-      "certainty": "not_stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "correction",
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.065807553,
-    "prompt_tokens": 843,
-    "prompt_time": 0.078198606,
-    "completion_tokens": 514,
-    "completion_time": 1.9906048429999998,
-    "total_tokens": 1357,
-    "total_time": 2.068803449
-   }
-  },
-  {
-   "id": "in14",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Reliance Digital",
-      "got": "Reliance Digital",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "RD123456",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "45000",
-      "got": "45000",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "2026-12-02",
-      "got": "2026-12-02",
-      "certainty": "stated"
-     },
-     "desired_remedy": {
-      "ok": false,
-      "expected": "installation or refund",
-      "got": "",
-      "certainty": "not_stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "correction",
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.060010516,
-    "prompt_tokens": 843,
-    "prompt_time": 0.058324403,
-    "completion_tokens": 514,
-    "completion_time": 1.023099499,
-    "total_tokens": 1357,
-    "total_time": 1.081423902
-   }
-  },
-  {
-   "id": "in14",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Reliance Digital",
-      "got": "Reliance Digital",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "RD123456",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "45000",
-      "got": "45000",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "2026-12-02",
-      "got": "2026-12-02",
-      "certainty": "stated"
-     },
-     "desired_remedy": {
-      "ok": false,
-      "expected": "installation or refund",
-      "got": "",
-      "certainty": "not_stated"
-     }
-    },
-    "correct": 4,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "correction",
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.263749423,
-    "prompt_tokens": 843,
-    "prompt_time": 0.087259375,
-    "completion_tokens": 514,
-    "completion_time": 1.955682265,
-    "total_tokens": 1357,
-    "total_time": 2.04294164
-   }
-  },
-  {
-   "id": "in15",
-   "run": 0,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Meesho",
-      "got": "Meesho",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "ME44221",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "899",
-      "got": "899",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-24",
-      "got": "2026-11-24",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "return and refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
     "not_stated_total": 1
    },
    "flags": [
     "relative_date"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.061834412,
-    "prompt_tokens": 825,
-    "prompt_time": 0.079228956,
+    "queue_time": 0.063936592,
+    "prompt_tokens": 973,
+    "prompt_time": 0.098309057,
     "completion_tokens": 474,
-    "completion_time": 2.345541146,
-    "total_tokens": 1299,
-    "total_time": 2.424770102
-   }
-  },
-  {
-   "id": "in15",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Meesho",
-      "got": "Meesho",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "ME44221",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "899",
-      "got": "899",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-24",
-      "got": "2026-11-24",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "return and refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.055272346,
-    "prompt_tokens": 825,
-    "prompt_time": 0.062780471,
-    "completion_tokens": 474,
-    "completion_time": 0.994704229,
-    "total_tokens": 1299,
-    "total_time": 1.0574847
-   }
-  },
-  {
-   "id": "in15",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Meesho",
-      "got": "Meesho",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "ME44221",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "899",
-      "got": "899",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-24",
-      "got": "2026-11-24",
-      "certainty": "approximate"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "return and refund",
-      "got": "refund",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.064271684,
-    "prompt_tokens": 825,
-    "prompt_time": 0.085041115,
-    "completion_tokens": 474,
-    "completion_time": 1.864747862,
-    "total_tokens": 1299,
-    "total_time": 1.9497889769999999
+    "completion_time": 1.844606621,
+    "total_tokens": 1447,
+    "total_time": 1.9429156779999999
    }
   },
   {
@@ -2781,137 +964,15 @@
    "flags": [
     "not_stated"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.065500179,
-    "prompt_tokens": 834,
-    "prompt_time": 0.078343286,
+    "queue_time": 0.06559504,
+    "prompt_tokens": 982,
+    "prompt_time": 0.093622738,
     "completion_tokens": 492,
-    "completion_time": 2.363454445,
-    "total_tokens": 1326,
-    "total_time": 2.441797731
-   }
-  },
-  {
-   "id": "in16",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Amazon",
-      "got": "Amazon",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "18000",
-      "got": "18000",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-22",
-      "got": "2026-11-22",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     }
-    },
-    "correct": 6,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 3
-   },
-   "flags": [
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.060609326,
-    "prompt_tokens": 834,
-    "prompt_time": 0.062992064,
-    "completion_tokens": 492,
-    "completion_time": 1.001578584,
-    "total_tokens": 1326,
-    "total_time": 1.064570648
-   }
-  },
-  {
-   "id": "in16",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Amazon",
-      "got": "Amazon",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "18000",
-      "got": "18000",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-22",
-      "got": "2026-11-22",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     }
-    },
-    "correct": 6,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 3
-   },
-   "flags": [
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.062653574,
-    "prompt_tokens": 834,
-    "prompt_time": 0.086070135,
-    "completion_tokens": 492,
-    "completion_time": 2.804299287,
-    "total_tokens": 1326,
-    "total_time": 2.890369422
+    "completion_time": 2.144023822,
+    "total_tokens": 1474,
+    "total_time": 2.23764656
    }
   },
   {
@@ -2926,9 +987,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "T2611261234567",
-      "got": "[NUM_1]",
+      "got": "T2611261234567",
       "certainty": "stated"
      },
      "amount": {
@@ -2941,7 +1002,7 @@
       "ok": true,
       "expected": "2026-11-25",
       "got": "2026-11-25",
-      "certainty": "stated"
+      "certainty": "approximate"
      },
      "promised_date": {
       "ok": true,
@@ -2956,7 +1017,7 @@
       "certainty": "stated"
      }
     },
-    "correct": 5,
+    "correct": 6,
     "total": 6,
     "fabricated": 0,
     "not_stated_total": 1
@@ -2964,137 +1025,15 @@
    "flags": [
     "relative_date"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.06079034,
-    "prompt_tokens": 823,
-    "prompt_time": 0.080997579,
-    "completion_tokens": 500,
-    "completion_time": 1.916038678,
-    "total_tokens": 1323,
-    "total_time": 1.997036257
-   }
-  },
-  {
-   "id": "in17",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "PhonePe",
-      "got": "PhonePe",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "T2611261234567",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "5000",
-      "got": "5000",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-25",
-      "got": "2026-11-25",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "reversal",
-      "got": "reversal",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 1.8248574180000001,
-    "prompt_tokens": 823,
-    "prompt_time": 0.060858189,
-    "completion_tokens": 472,
-    "completion_time": 0.971776227,
-    "total_tokens": 1295,
-    "total_time": 1.032634416
-   }
-  },
-  {
-   "id": "in17",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "PhonePe",
-      "got": "PhonePe",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "T2611261234567",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "5000",
-      "got": "5000",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-25",
-      "got": "2026-11-25",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "reversal",
-      "got": "reversal",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "relative_date"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.069017447,
-    "prompt_tokens": 823,
-    "prompt_time": 0.081421872,
-    "completion_tokens": 500,
-    "completion_time": 1.908257901,
-    "total_tokens": 1323,
-    "total_time": 1.989679773
+    "queue_time": 0.068761145,
+    "prompt_tokens": 971,
+    "prompt_time": 0.095593934,
+    "completion_tokens": 507,
+    "completion_time": 1.9341297769999999,
+    "total_tokens": 1478,
+    "total_time": 2.029723711
    }
   },
   {
@@ -3109,9 +1048,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "GB778899",
-      "got": "[NUM_1]",
+      "got": "GB778899",
       "certainty": "stated"
      },
      "amount": {
@@ -3135,11 +1074,11 @@
      "desired_remedy": {
       "ok": true,
       "expected": "full refund and compensation",
-      "got": "refund, compensation",
+      "got": "Full refund and compensation",
       "certainty": "stated"
      }
     },
-    "correct": 5,
+    "correct": 6,
     "total": 6,
     "fabricated": 0,
     "not_stated_total": 2
@@ -3147,137 +1086,15 @@
    "flags": [
     "not_stated"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.062404086,
-    "prompt_tokens": 834,
-    "prompt_time": 0.059039133,
-    "completion_tokens": 531,
-    "completion_time": 1.080511127,
-    "total_tokens": 1365,
-    "total_time": 1.13955026
-   }
-  },
-  {
-   "id": "in18",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Goibibo",
-      "got": "Goibibo",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "GB778899",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "12600",
-      "got": "12600",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "full refund and compensation",
-      "got": "refund, compensation",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 2
-   },
-   "flags": [
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.063652751,
-    "prompt_tokens": 834,
-    "prompt_time": 0.079181759,
+    "queue_time": 0.066482481,
+    "prompt_tokens": 982,
+    "prompt_time": 0.093055235,
     "completion_tokens": 533,
-    "completion_time": 2.201394406,
-    "total_tokens": 1367,
-    "total_time": 2.280576165
-   }
-  },
-  {
-   "id": "in18",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Goibibo",
-      "got": "Goibibo",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "GB778899",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "12600",
-      "got": "12600",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "full refund and compensation",
-      "got": "refund, compensation",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 2
-   },
-   "flags": [
-    "not_stated"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.062994402,
-    "prompt_tokens": 834,
-    "prompt_time": 0.059044324,
-    "completion_tokens": 531,
-    "completion_time": 1.052956836,
-    "total_tokens": 1365,
-    "total_time": 1.11200116
+    "completion_time": 1.959807424,
+    "total_tokens": 1515,
+    "total_time": 2.052862659
    }
   },
   {
@@ -3331,139 +1148,15 @@
     "approximate",
     "ambiguity"
    ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.060887057,
-    "prompt_tokens": 840,
-    "prompt_time": 0.059762009,
+    "queue_time": 0.063774181,
+    "prompt_tokens": 988,
+    "prompt_time": 0.070196909,
     "completion_tokens": 505,
-    "completion_time": 0.991676298,
-    "total_tokens": 1345,
-    "total_time": 1.051438307
-   }
-  },
-  {
-   "id": "in19",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Tata CLiQ",
-      "got": "Tata CLiQ",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": true,
-      "expected": "TC889900",
-      "got": "TC889900",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "30000",
-      "got": "30000",
-      "certainty": "approximate"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-10",
-      "got": "2026-11-10",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund or size exchange",
-      "got": "refund, replacement",
-      "certainty": "stated"
-     }
-    },
-    "correct": 6,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "approximate",
-    "ambiguity"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.063405996,
-    "prompt_tokens": 840,
-    "prompt_time": 0.079011381,
-    "completion_tokens": 505,
-    "completion_time": 2.284977715,
-    "total_tokens": 1345,
-    "total_time": 2.363989096
-   }
-  },
-  {
-   "id": "in19",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Tata CLiQ",
-      "got": "Tata CLiQ",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": true,
-      "expected": "TC889900",
-      "got": "TC889900",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "30000",
-      "got": "30000",
-      "certainty": "approximate"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-10",
-      "got": "2026-11-10",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "",
-      "got": "",
-      "certainty": "not_stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "refund or size exchange",
-      "got": "refund, replacement",
-      "certainty": "stated"
-     }
-    },
-    "correct": 6,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 1
-   },
-   "flags": [
-    "approximate",
-    "ambiguity"
-   ],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.065208064,
-    "prompt_tokens": 840,
-    "prompt_time": 0.078038062,
-    "completion_tokens": 505,
-    "completion_time": 1.7949874970000002,
-    "total_tokens": 1345,
-    "total_time": 1.873025559
+    "completion_time": 0.999266373,
+    "total_tokens": 1493,
+    "total_time": 1.069463282
    }
   },
   {
@@ -3478,9 +1171,9 @@
       "certainty": "stated"
      },
      "order_id": {
-      "ok": false,
+      "ok": true,
       "expected": "SD90909",
-      "got": "[NUM_1]",
+      "got": "SD90909",
       "certainty": "stated"
      },
      "amount": {
@@ -3508,139 +1201,21 @@
       "certainty": "stated"
      }
     },
-    "correct": 5,
+    "correct": 6,
     "total": 6,
     "fabricated": 0,
     "not_stated_total": 0
    },
    "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
+   "prompt": "extract_facts@2:a900e0ba9583",
    "tokens": {
-    "queue_time": 0.064440888,
-    "prompt_tokens": 835,
-    "prompt_time": 0.091441361,
+    "queue_time": 0.063702893,
+    "prompt_tokens": 983,
+    "prompt_time": 0.071891116,
     "completion_tokens": 533,
-    "completion_time": 2.5230125279999998,
-    "total_tokens": 1368,
-    "total_time": 2.614453889
-   }
-  },
-  {
-   "id": "in20",
-   "run": 1,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Snapdeal",
-      "got": "Snapdeal",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "SD90909",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "1299",
-      "got": "1299",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-18",
-      "got": "2026-11-18",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "2026-11-28",
-      "got": "2026-11-28",
-      "certainty": "stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "replacement",
-      "got": "replacement",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 0
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.056460607,
-    "prompt_tokens": 835,
-    "prompt_time": 0.074943029,
-    "completion_tokens": 533,
-    "completion_time": 1.15716426,
-    "total_tokens": 1368,
-    "total_time": 1.232107289
-   }
-  },
-  {
-   "id": "in20",
-   "run": 2,
-   "score": {
-    "fields": {
-     "company_name": {
-      "ok": true,
-      "expected": "Snapdeal",
-      "got": "Snapdeal",
-      "certainty": "stated"
-     },
-     "order_id": {
-      "ok": false,
-      "expected": "SD90909",
-      "got": "[NUM_1]",
-      "certainty": "stated"
-     },
-     "amount": {
-      "ok": true,
-      "expected": "1299",
-      "got": "1299",
-      "certainty": "stated"
-     },
-     "order_date": {
-      "ok": true,
-      "expected": "2026-11-18",
-      "got": "2026-11-18",
-      "certainty": "stated"
-     },
-     "promised_date": {
-      "ok": true,
-      "expected": "2026-11-28",
-      "got": "2026-11-28",
-      "certainty": "stated"
-     },
-     "desired_remedy": {
-      "ok": true,
-      "expected": "replacement",
-      "got": "replacement",
-      "certainty": "stated"
-     }
-    },
-    "correct": 5,
-    "total": 6,
-    "fabricated": 0,
-    "not_stated_total": 0
-   },
-   "flags": [],
-   "prompt": "extract_facts@1:f85bb0ab0ff2",
-   "tokens": {
-    "queue_time": 0.065172774,
-    "prompt_tokens": 835,
-    "prompt_time": 0.077824274,
-    "completion_tokens": 533,
-    "completion_time": 1.818276923,
-    "total_tokens": 1368,
-    "total_time": 1.8961011970000001
+    "completion_time": 1.097664625,
+    "total_tokens": 1516,
+    "total_time": 1.169555741
    }
   }
  ]
