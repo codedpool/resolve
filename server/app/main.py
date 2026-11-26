@@ -48,6 +48,8 @@ def create_app(
     app.state.session_factory = session_factory
     app.state.hasher = make_hasher(settings.app_env)
     app.state.master_key = decode_master_key(settings.master_key) if settings.master_key else b""
+    if settings.app_env in {"dev", "prod"} and not app.state.master_key:
+        raise RuntimeError("MASTER_KEY is not set. Run scripts/init_env.py to create one in .env.")
     app.state.login_limiter = RateLimiter(limit=5, window=timedelta(minutes=1), clock=app.state.clock)
     app.state.objects = EncryptedObjectStore(SERVER_ROOT / "data" / "objects")
     install_error_handlers(app)
