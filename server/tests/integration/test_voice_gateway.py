@@ -269,3 +269,30 @@ def test_ending_a_call_is_recorded(client):
         ws.send_json({"type": "end"})
         collect(ws, lambda f: f.get("type") == "closed")
     assert client.post(f"/calls/{call['call_id']}/end", headers=headers).json()["state"] == "closed"
+
+
+def test_a_call_over_its_speech_budget_is_closed(client):
+    stt = ScriptedSTT("Amazon order AB1 five hundred refund since 20 November", "marketplace")
+    model = ScriptedModel(_extraction(company_name="Amazon", amount="500", order_id="AB1", order_date="2026-11-20", desired_remedy="refund"))
+    _, _, call = setup(client, "v15@example.com", stt, FakeTTS(), model)
+    client.app.state.settings.voice_daily_tts_chars = 100  # the provider-type question alone is longer than this
+    with client.websocket_connect(url(call)) as ws:
+        ws.receive_json()
+        stream(ws, speech(2.5) + silence(2.0))
+        collect(ws, lambda f: f.get("who") == "user")
+        ws.send_json({"type": "done_narration"})
+        collect(ws, lambda f: f.get("who") == "agent")
+        take_chunks(ws, 3)
+        stream(ws, speech(2.0) + silence(1.0))
+        frames, _ = collect(ws, lambda f: f.get("type") == "closed", limit=600)
+        assert frames[-1] == {"type": "closed", "reason": "speech_budget"}
+
+
+def test_a_user_over_their_daily_voice_time_cannot_start_a_call(client):
+    from sqlalchemy import text
+
+    headers, case_id, _ = setup(client, "v16@example.com")
+    with client.db_engine.begin() as conn:
+        conn.execute(text("UPDATE voice_sessions SET stt_seconds = 999999"))
+    blocked = client.post("/calls", json={"case_id": case_id}, headers=headers)
+    assert blocked.status_code == 429 and blocked.json()["error"]["code"] == "daily_voice_limit"
