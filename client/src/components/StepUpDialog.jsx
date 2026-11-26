@@ -13,8 +13,8 @@ export function StepUpDialog() {
   useEffect(() => {
     api.setStepUp(
       () =>
-        new Promise((resolve) => {
-          setPending(() => resolve);
+        new Promise((resolve, reject) => {
+          setPending({ resolve, reject });
         }),
     );
   }, []);
@@ -24,9 +24,11 @@ export function StepUpDialog() {
   return (
     <form
       className="step-up"
+      role="dialog"
+      aria-label="Confirm your password"
       onSubmit={(event) => {
         event.preventDefault();
-        const resolve = pending;
+        const { resolve } = pending;
         setPending(null);
         resolve(password);
         setPassword("");
@@ -41,6 +43,18 @@ export function StepUpDialog() {
         aria-label="Password"
       />
       <button type="submit">Continue</button>
+      <button
+        type="button"
+        className="quiet"
+        onClick={() => {
+          const { reject } = pending;
+          setPending(null);
+          setPassword("");
+          reject(new Error("You did not enter your password"));
+        }}
+      >
+        Cancel
+      </button>
     </form>
   );
 }
