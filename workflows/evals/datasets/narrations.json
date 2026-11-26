@@ -1,0 +1,102 @@
+[
+ {
+  "id": "n01",
+  "text": "Namaste, meri problem Flipkart se hai. Maine pichhle mahine ki bees tarikh ko ek phone order kiya tha, order number OD one two three four five six seven eight nine zero. Phone ke 10900 rupaye kat gaye the, lekin box mein sirf charger aaya, phone nahi. Maine customer care ko do baar likha, par koi jawab nahi mila. Mujhe poora refund chahiye.",
+  "facts": {
+   "merchant": "Flipkart",
+   "amount": "10900",
+   "order_id": "OD1234567890",
+   "issue": "phone missing from box"
+  }
+ },
+ {
+  "id": "n02",
+  "text": "Hello, main Swiggy ke baare mein complaint karna chahta hoon. Pandrah tarikh ko maine khana order kiya, order id SW four four five five six six seven seven. 340 rupaye pay kiye the, par delivery kabhi hui hi nahi. App mein dikha delivered, lekin mere paas kuch nahi aaya. Mujhe paise wapas chahiye.",
+  "facts": {
+   "merchant": "Swiggy",
+   "amount": "340",
+   "order_id": "SW44556677",
+   "issue": "order marked delivered but not received"
+  }
+ },
+ {
+  "id": "n03",
+  "text": "Meri shikayat Amazon ke khilaf hai. Maine ek laptop bag mangwaya tha, order number three zero two dash one one one two two two three dash four four four five five five six. 5500 rupaye ka tha. Bag aaya to zip tooti hui thi, maine saat din ke andar return request daali, lekin teen hafte ho gaye, refund nahi mila.",
+  "facts": {
+   "merchant": "Amazon",
+   "amount": "5500",
+   "order_id": "302-1112223-4445556",
+   "issue": "damaged item, return done, refund not received"
+  }
+ },
+ {
+  "id": "n04",
+  "text": "Main Myntra se pareshaan hoon. Das tarikh ko do kurte mangaye, order number MY nine eight seven six five four three. Total 2500 rupaye. Dono kurte size mein galat the, maine return kiya, courier ne utha bhi liya, par Myntra kehta hai item wapas nahi mila. Mujhe mera paisa chahiye.",
+  "facts": {
+   "merchant": "Myntra",
+   "amount": "2500",
+   "order_id": "MY9876543",
+   "issue": "wrong size returned, refund denied"
+  }
+ },
+ {
+  "id": "n05",
+  "text": "Hi, my complaint is about Zomato. On the twenty second I ordered dinner, order id ZM one one two two three three four four, and paid 680 rupees. The food arrived cold and half the items were missing. Support only offered me fifty rupees credit. I want a full refund of the 680.",
+  "facts": {
+   "merchant": "Zomato",
+   "amount": "680",
+   "order_id": "ZM11223344",
+   "issue": "missing items, cold food, only small credit offered"
+  }
+ },
+ {
+  "id": "n06",
+  "text": "Main Paytm ke through ek payment kar raha tha. Aath tarikh ko meri bijli ki payment, transaction id TXN five five five six six six seven seven seven, 2100 rupaye ki, fail dikhayi gayi lekin mere bank se paise kat gaye. Das din ho gaye, paisa wapas nahi aaya. Mujhe paise wapas chahiye aur bill bhi pay hona chahiye.",
+  "facts": {
+   "merchant": "Paytm",
+   "amount": "2100",
+   "order_id": "TXN555666777",
+   "issue": "payment failed but debited, no reversal"
+  }
+ },
+ {
+  "id": "n07",
+  "text": "Meri complaint Croma ke baare mein hai. Maine solah tarikh ko ek washing machine kharidi, bill number CR two two zero zero one one, 25900 rupaye ki. Delivery ke baad machine chalu hi nahi hui. Technician teen baar aaya, theek nahi hui. Main replacement ya poora refund chahta hoon.",
+  "facts": {
+   "merchant": "Croma",
+   "amount": "25900",
+   "order_id": "CR220011",
+   "issue": "washing machine defective, repairs failed"
+  }
+ },
+ {
+  "id": "n08",
+  "text": "This is about MakeMyTrip. I booked a flight on the third, booking reference MMT nine nine eight eight, 14200 rupees. The airline cancelled the flight, but MakeMyTrip says refund will take ninety days. It has been forty days. I want my 14200 back now.",
+  "facts": {
+   "merchant": "MakeMyTrip",
+   "amount": "14200",
+   "order_id": "MMT9988",
+   "issue": "airline cancelled, refund delayed"
+  }
+ },
+ {
+  "id": "n09",
+  "text": "Main Nykaa se complaint karna chahti hoon. Bees tarikh ko skincare ka order, order number NY seven seven eight eight nine nine, 450 rupaye. Cream ka seal khula hua tha aur lagta hai duplicate product hai. Maine photo bhi bheji hai. Mujhe replacement nahi, refund chahiye.",
+  "facts": {
+   "merchant": "Nykaa",
+   "amount": "450",
+   "order_id": "NY778899",
+   "issue": "seal broken, suspected fake product"
+  }
+ },
+ {
+  "id": "n10",
+  "text": "Hello, mera issue BigBasket ke saath hai. Pichhle hafte ki baarah tarikh ko grocery order kiya, order id BB one three five seven nine two four, 1300 rupaye. Doodh aur sabzi kharab nikli. Customer care ne kaha refund do din mein aayega, lekin ek hafta ho gaya. Please mera refund dilwaiye.",
+  "facts": {
+   "merchant": "BigBasket",
+   "amount": "1300",
+   "order_id": "BB1357924",
+   "issue": "spoiled items, promised refund not received"
+  }
+ }
+]
