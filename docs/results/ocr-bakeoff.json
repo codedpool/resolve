@@ -1,0 +1,360 @@
+[
+ {
+  "engine": "tesseract eng+hin",
+  "accuracy": 0.9,
+  "per_field": {
+   "company_name": 27,
+   "order_id": 27,
+   "amount": 28,
+   "order_date": 26
+  },
+  "by_language": {
+   "en": 0.95,
+   "hi": 0.714,
+   "mixed": 1.0
+  },
+  "seconds": 7.3,
+  "misses": [
+   {
+    "doc": "ev06",
+    "kind": "order_en",
+    "field": "amount",
+    "expected": "450",
+    "got": "7450"
+   },
+   {
+    "doc": "ev11",
+    "kind": "invoice_en",
+    "field": "amount",
+    "expected": "10900",
+    "got": "710900"
+   },
+   {
+    "doc": "ev19",
+    "kind": "order_hi",
+    "field": "order_id",
+    "expected": "TC595343955",
+    "got": "10595343955"
+   },
+   {
+    "doc": "ev20",
+    "kind": "order_hi",
+    "field": "order_date",
+    "expected": "2026-03-21",
+    "got": ""
+   },
+   {
+    "doc": "ev21",
+    "kind": "order_hi",
+    "field": "order_date",
+    "expected": "2026-10-03",
+    "got": ""
+   },
+   {
+    "doc": "ev22",
+    "kind": "order_hi",
+    "field": "order_id",
+    "expected": "OD264838238",
+    "got": ""
+   },
+   {
+    "doc": "ev23",
+    "kind": "order_hi",
+    "field": "order_date",
+    "expected": "2026-08-26",
+    "got": ""
+   },
+   {
+    "doc": "ev27",
+    "kind": "noisy_en",
+    "field": "company_name",
+    "expected": "BigBasket",
+    "got": "- BigBasket"
+   },
+   {
+    "doc": "ev28",
+    "kind": "noisy_en",
+    "field": "company_name",
+    "expected": "Nykaa",
+    "got": "Item: Cotton kurta ;"
+   },
+   {
+    "doc": "ev29",
+    "kind": "noisy_hi",
+    "field": "order_id",
+    "expected": "SD546143398",
+    "got": "50546143398"
+   },
+   {
+    "doc": "ev30",
+    "kind": "noisy_hi",
+    "field": "company_name",
+    "expected": "Meesho",
+    "got": "Meesho mee"
+   },
+   {
+    "doc": "ev30",
+    "kind": "noisy_hi",
+    "field": "order_date",
+    "expected": "2026-09-28",
+    "got": ""
+   }
+  ]
+ },
+ {
+  "engine": "rapidocr (english and chinese models)",
+  "accuracy": 0.717,
+  "per_field": {
+   "company_name": 28,
+   "order_id": 23,
+   "amount": 18,
+   "order_date": 17
+  },
+  "by_language": {
+   "en": 0.863,
+   "hi": 0.25,
+   "mixed": 0.833
+  },
+  "seconds": 121.9,
+  "misses": [
+   {
+    "doc": "ev01",
+    "kind": "order_en",
+    "field": "order_date",
+    "expected": "2026-11-26",
+    "got": ""
+   },
+   {
+    "doc": "ev08",
+    "kind": "order_en",
+    "field": "amount",
+    "expected": "1299",
+    "got": ""
+   },
+   {
+    "doc": "ev15",
+    "kind": "upi_en",
+    "field": "amount",
+    "expected": "680",
+    "got": ""
+   },
+   {
+    "doc": "ev15",
+    "kind": "upi_en",
+    "field": "order_date",
+    "expected": "2026-04-25",
+    "got": ""
+   },
+   {
+    "doc": "ev16",
+    "kind": "upi_en",
+    "field": "company_name",
+    "expected": "Meesho",
+    "got": "Paid toMeesho"
+   },
+   {
+    "doc": "ev17",
+    "kind": "upi_en",
+    "field": "amount",
+    "expected": "2500",
+    "got": "32500"
+   },
+   {
+    "doc": "ev17",
+    "kind": "upi_en",
+    "field": "order_date",
+    "expected": "2026-05-28",
+    "got": ""
+   },
+   {
+    "doc": "ev18",
+    "kind": "upi_en",
+    "field": "company_name",
+    "expected": "Amazon",
+    "got": "Paid toAmazon"
+   },
+   {
+    "doc": "ev18",
+    "kind": "upi_en",
+    "field": "amount",
+    "expected": "25900",
+    "got": ""
+   },
+   {
+    "doc": "ev18",
+    "kind": "upi_en",
+    "field": "order_date",
+    "expected": "2026-03-12",
+    "got": ""
+   },
+   {
+    "doc": "ev19",
+    "kind": "order_hi",
+    "field": "order_id",
+    "expected": "TC595343955",
+    "got": ""
+   },
+   {
+    "doc": "ev19",
+    "kind": "order_hi",
+    "field": "amount",
+    "expected": "680",
+    "got": ""
+   },
+   {
+    "doc": "ev19",
+    "kind": "order_hi",
+    "field": "order_date",
+    "expected": "2026-11-10",
+    "got": ""
+   },
+   {
+    "doc": "ev20",
+    "kind": "order_hi",
+    "field": "order_id",
+    "expected": "MY867676640",
+    "got": ""
+   },
+   {
+    "doc": "ev20",
+    "kind": "order_hi",
+    "field": "amount",
+    "expected": "680",
+    "got": ""
+   },
+   {
+    "doc": "ev20",
+    "kind": "order_hi",
+    "field": "order_date",
+    "expected": "2026-03-21",
+    "got": ""
+   },
+   {
+    "doc": "ev21",
+    "kind": "order_hi",
+    "field": "order_id",
+    "expected": "BB183440936",
+    "got": ""
+   },
+   {
+    "doc": "ev21",
+    "kind": "order_hi",
+    "field": "amount",
+    "expected": "450",
+    "got": ""
+   },
+   {
+    "doc": "ev21",
+    "kind": "order_hi",
+    "field": "order_date",
+    "expected": "2026-10-03",
+    "got": ""
+   },
+   {
+    "doc": "ev22",
+    "kind": "order_hi",
+    "field": "order_id",
+    "expected": "OD264838238",
+    "got": ""
+   },
+   {
+    "doc": "ev22",
+    "kind": "order_hi",
+    "field": "amount",
+    "expected": "25900",
+    "got": ""
+   },
+   {
+    "doc": "ev22",
+    "kind": "order_hi",
+    "field": "order_date",
+    "expected": "2026-05-12",
+    "got": ""
+   },
+   {
+    "doc": "ev23",
+    "kind": "order_hi",
+    "field": "order_id",
+    "expected": "MY69815183",
+    "got": ""
+   },
+   {
+    "doc": "ev23",
+    "kind": "order_hi",
+    "field": "amount",
+    "expected": "450",
+    "got": ""
+   },
+   {
+    "doc": "ev23",
+    "kind": "order_hi",
+    "field": "order_date",
+    "expected": "2026-08-26",
+    "got": ""
+   },
+   {
+    "doc": "ev25",
+    "kind": "order_mixed",
+    "field": "order_date",
+    "expected": "2026-01-05",
+    "got": ""
+   },
+   {
+    "doc": "ev26",
+    "kind": "order_mixed",
+    "field": "order_date",
+    "expected": "2026-03-28",
+    "got": ""
+   },
+   {
+    "doc": "ev27",
+    "kind": "noisy_en",
+    "field": "amount",
+    "expected": "2500",
+    "got": ""
+   },
+   {
+    "doc": "ev29",
+    "kind": "noisy_hi",
+    "field": "order_id",
+    "expected": "SD546143398",
+    "got": ""
+   },
+   {
+    "doc": "ev29",
+    "kind": "noisy_hi",
+    "field": "amount",
+    "expected": "2500",
+    "got": ""
+   },
+   {
+    "doc": "ev29",
+    "kind": "noisy_hi",
+    "field": "order_date",
+    "expected": "2026-02-06",
+    "got": ""
+   },
+   {
+    "doc": "ev30",
+    "kind": "noisy_hi",
+    "field": "order_id",
+    "expected": "ME849686475",
+    "got": ""
+   },
+   {
+    "doc": "ev30",
+    "kind": "noisy_hi",
+    "field": "amount",
+    "expected": "14200",
+    "got": ""
+   },
+   {
+    "doc": "ev30",
+    "kind": "noisy_hi",
+    "field": "order_date",
+    "expected": "2026-09-28",
+    "got": ""
+   }
+  ]
+ }
+]
