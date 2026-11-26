@@ -4,12 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { api } from "@/components/StepUpDialog";
+import { announceUnread } from "@/lib/notifications";
 
 export default function HomePage() {
   const [signedIn, setSignedIn] = useState(Boolean(api.accessToken()));
 
   function logout() {
     api.logout();
+    announceUnread(null);
     setSignedIn(false);
   }
 
