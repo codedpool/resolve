@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 
 import { api } from "@/components/StepUpDialog";
@@ -96,6 +97,9 @@ export default function CasePage() {
     <section className="case-form wide">
       <h1>Case {String(detail.id).slice(0, 8)}</h1>
       <StatusBadge status={detail.status} simulated={detail.simulated} />
+      <p className="actions">
+        <Link href={`/cases/${params.id}/call`}>Tell us by voice instead</Link>
+      </p>
       <IntakeChat caseId={String(params.id)} onFactsChanged={reload} onEditDetails={showDetails} />
       {notice ? (
         <p className="form-error" role="alert">
