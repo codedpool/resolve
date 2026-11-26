@@ -417,9 +417,10 @@
   "text": "Order id OD2020202020 from Flipkart, Rs 8,999. Actually no, it was Rs 9,899, sorry. Date was last Tuesday. The TV panel is cracked. Replacement within 10 days was promised.",
   "flags": [
    "correction",
-   "relative_date"
+   "relative_date",
+   "not_stated"
   ],
-  "note": "amount corrected in the same narration; promised date is inferred from 10 days",
+  "note": "amount corrected in the same narration; a promised period is not a date",
   "expect": {
    "company_name": {
     "value": "Flipkart",
@@ -438,8 +439,8 @@
     "certainty": "stated"
    },
    "promised_date": {
-    "value": "2026-12-06",
-    "certainty": "inferred"
+    "value": "",
+    "certainty": "not_stated"
    },
    "desired_remedy": {
     "value": "replacement",
@@ -455,7 +456,7 @@
    "correction",
    "not_stated"
   ],
-  "note": "no order date; amount self-corrected",
+  "note": "no order date, no remedy said; amount self-corrected",
   "expect": {
    "company_name": {
     "value": "Reliance Digital",
@@ -478,8 +479,8 @@
     "certainty": "stated"
    },
    "desired_remedy": {
-    "value": "installation or refund",
-    "certainty": "inferred"
+    "value": "",
+    "certainty": "not_stated"
    }
   }
  },

@@ -43,12 +43,17 @@ def run_intake(llm, repeats: int, cost_of, max_cost: float, redact=None) -> dict
     rows = []
     for scenario in scenarios:
         text = scenario["text"]
+        tokens: dict[str, str] = {}
         if redact is not None:
-            text = redact.redact_or_withhold(text).text
+            outcome = redact.redact_or_withhold(text)
+            text, tokens = outcome.text, outcome.tokens
         for run in range(repeats):
             if cost_of() > max_cost:
                 raise CostCapReached(f"cost cap {max_cost} reached")
             result, usage, prompt = extract_facts(llm, text, scenario["narration_date"])
+            for name in type(result).model_fields:  # the real value is restored from the case store before anything is compared
+                fact = getattr(result, name)
+                fact.value = redact.restore(fact.value, tokens) if redact is not None else fact.value
             score = score_scenario(scenario["expect"], result)
             rows.append({"id": scenario["id"], "run": run, "score": score, "flags": scenario["flags"], "prompt": f"{prompt.name}@{prompt.version}:{prompt.sha}",
                          "tokens": usage})

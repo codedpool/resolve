@@ -86,6 +86,8 @@ def build_intake_graph(ports: IntakePorts):
     store = ports.store
 
     def route(state: IntakeState) -> str:
+        if state["event"] == "done" and store.phase(state["case_id"]).get("phase", "narrating") != "narrating":
+            return "end"  # a second Done changes nothing
         return {"message": "screen", "done": "extract", "silence": "silence"}[state["event"]]
 
     def screen(state: IntakeState) -> dict:
@@ -198,7 +200,7 @@ def build_intake_graph(ports: IntakePorts):
     for name, fn in (("screen", screen), ("capture", capture), ("check_done", check_done), ("extract", extract),
                      ("answer", answer), ("next_step", next_step), ("silence", silence)):
         builder.add_node(name, fn)
-    builder.add_conditional_edges(START, route, {"screen": "screen", "extract": "extract", "silence": "silence"})
+    builder.add_conditional_edges(START, route, {"screen": "screen", "extract": "extract", "silence": "silence", "end": END})
     builder.add_edge("screen", "capture")
     builder.add_conditional_edges("capture", after_capture, {"end": END, "answer": "answer", "check_done": "check_done"})
     builder.add_conditional_edges("check_done", after_check, {"extract": "extract", "end": END})

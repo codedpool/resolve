@@ -38,7 +38,7 @@ def test_schema_is_strict_compatible():
 
 def test_prompt_is_versioned_and_hashed():
     p = prompts.load("extract_facts")
-    assert p.version == 1 and len(p.sha) == 12 and "not_stated" in p.text
+    assert p.version == 2 and len(p.sha) == 12 and "not_stated" in p.text
 
 
 def test_node_passes_date_and_text_and_returns_checked_result():
