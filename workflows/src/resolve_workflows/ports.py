@@ -69,3 +69,19 @@ class IntakeStore(Protocol):
     def flag_injection(self, case_id: str, score: float) -> None: ...
 
     def set_status(self, case_id: str, status: str) -> None: ...
+
+
+class CaseStore(Protocol):
+    """What the outreach graph reads from the case. Implemented by the server.
+
+    The mandate methods are the only way the graph sees case data on a provider call: the context it builds comes
+    from `get_disclosable_facts`, and `get_undisclosable_values` feeds the output guard and the masking step.
+    """
+
+    def get_mandate(self, case_id: str, version: int | None = None): ...  # -> MandateView | None; None version means the latest
+
+    def get_disclosable_facts(self, case_id: str, mandate_version: int): ...  # -> list[DisclosableFact]
+
+    def get_undisclosable_values(self, case_id: str, mandate_version: int) -> list[str]: ...
+
+    def record_event(self, case_id: str, kind: str, body: dict) -> None: ...
