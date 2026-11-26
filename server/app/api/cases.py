@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 
 from app.core.crypto import generate_key, open_text, wrap_data_key
 from app.core.errors import AppError
-from app.db.models import Approval, ApprovalStatus, Case, CaseStatus, Event, Fact, FactCertainty, FactSource, Run, User
+from app.db.models import Approval, ApprovalStatus, Case, CaseStatus, Event, Fact, FactCertainty, FactSource, Notification, Run, User
 from app.deps import current_user, get_session, require_step_up
 from app.runtime.run_service import drop_case_checkpoints
 from app.services.access import data_key, owned_case, record_event
@@ -86,6 +86,17 @@ def _fact_view(fact: Fact, key: bytes) -> dict:
     }
 
 
+def _remove_case_notifications(session: Session, user: User, case: Case, master_key: bytes) -> None:
+    """Notifications are sealed with the master key, not the case key, so crypto-shredding the case does not reach them."""
+    for note in session.scalars(select(Notification).where(Notification.user_id == user.id)).all():
+        try:
+            body = json.loads(open_text(note.payload_enc, master_key))
+        except Exception:  # noqa: BLE001 - an unreadable row is not about this case
+            continue
+        if isinstance(body, dict) and body.get("case_id") == str(case.id):
+            session.delete(note)
+
+
 @router.delete("/{case_id}")
 def delete_case(
     case_id: uuid.UUID,
@@ -95,6 +106,7 @@ def delete_case(
 ) -> dict:
     case = owned_case(session, user, case_id)
     thread_ids = [str(row) for row in session.scalars(select(Run.id).where(Run.case_id == case.id))]
+    _remove_case_notifications(session, user, case, request.app.state.master_key)
     case.data_key_enc = None
     case.status = CaseStatus.deleted
     case.deleted_at = request.app.state.clock.now()
