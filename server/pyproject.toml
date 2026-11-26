@@ -19,6 +19,7 @@ dependencies = [
     "pgvector>=0.3",
     "python-multipart>=0.0.18",
     "langgraph>=1.0",
+    "pypdf>=5.0",
 ]
 
 [project.optional-dependencies]

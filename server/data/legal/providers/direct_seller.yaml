@@ -1,0 +1,53 @@
+# FICTIONAL demo provider for Resolve tests. Nothing here describes a real business.
+slug: demo_gadgets_direct
+name: "FICTIONAL Demo Gadgets Direct (fictional direct seller)"
+fictional: true
+entity_type: direct_seller
+entity_type_source: fixture_authored
+known_order_id_formats:
+  - "DGD-########"
+policy:
+  title: Demo Gadgets Direct Return and Refund Policy (fictional)
+  fictional_label: "FICTIONAL demo policy authored for Resolve test fixtures; not a real company's policy."
+  text: >-
+    FICTIONAL POLICY. Demo Gadgets Direct sells electronics from its own website. Products can be
+    returned within 7 days of delivery if sealed or defective. Refunds are made to the original
+    payment method within 7 working days after the returned product passes inspection. Shipping
+    charges are not refunded unless the product was faulty. A defective product is repaired,
+    replaced or refunded at our discretion. Write to the grievance contact below with your order
+    id and photos.
+contact_candidates:
+  - kind: grievance_officer
+    value: "Mr. Fictional Officer Gadgets (FICTIONAL, not a real person)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: email
+    value: "grievance@demo-gadgets-direct.example.invalid"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: customer_care
+    value: "+91 00000 00000 (FICTIONAL)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: postal_address
+    value: "0 Fictional Lane, Nowhere City 000000 (FICTIONAL)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+escalation_targets:
+  - kind: national_consumer_helpline
+    name: National Consumer Helpline (NCH)
+    source_url: https://consumerhelpline.gov.in/public/
+    url: https://consumerhelpline.gov.in/user/index.php
+    contact: "Toll free 1915 or 1800114000; WhatsApp and SMS +918800001915"
+  - kind: consumer_commission_portal
+    name: e-Jagriti (online filing before the consumer commissions; replaces e-Daakhil)
+    source_url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2269994
+    url: https://e-jagriti.gov.in/

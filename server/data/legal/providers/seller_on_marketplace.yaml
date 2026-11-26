@@ -1,0 +1,57 @@
+# FICTIONAL demo provider for Resolve tests. Nothing here describes a real business.
+slug: kalpana_demo_crafts
+name: "FICTIONAL Kalpana Demo Crafts (fictional seller on a marketplace)"
+fictional: true
+entity_type: seller_on_marketplace
+entity_type_source: fixture_authored
+known_order_id_formats:
+  - "KDC-######"
+  - "BZR-######"
+policy:
+  title: Kalpana Demo Crafts Return Policy (fictional)
+  fictional_label: "FICTIONAL demo policy authored for Resolve test fixtures; not a real company's policy."
+  text: >-
+    FICTIONAL POLICY. Kalpana Demo Crafts sells handmade items through the fictional Demo Bazaar
+    marketplace. Unused items may be returned within 5 days of delivery; the buyer pays return
+    shipping unless the item arrived damaged or was not as described. Refunds are issued through
+    the marketplace to the original payment method after we receive and inspect the item.
+    Custom-made items cannot be returned unless defective. Complaints can be sent to the seller
+    contact below, and to the marketplace grievance officer.
+contact_candidates:
+  - kind: grievance_officer
+    value: "Ms. Fictional Seller Kalpana (FICTIONAL, not a real person)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: email
+    value: "grievance@kalpana-demo-crafts.example.invalid"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: customer_care
+    value: "+91 00000 00000 (FICTIONAL)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: postal_address
+    value: "0 Fictional Lane, Nowhere City 000000 (FICTIONAL)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+escalation_targets:
+  - kind: marketplace_grievance
+    name: Grievance officer of the marketplace e-commerce entity (displayed on its platform under the E-Commerce Rules)
+    source_url: https://egazette.gov.in/WriteReadData/2020/220661.pdf
+  - kind: national_consumer_helpline
+    name: National Consumer Helpline (NCH)
+    source_url: https://consumerhelpline.gov.in/public/
+    url: https://consumerhelpline.gov.in/user/index.php
+    contact: "Toll free 1915 or 1800114000; WhatsApp and SMS +918800001915"
+  - kind: consumer_commission_portal
+    name: e-Jagriti (online filing before the consumer commissions; replaces e-Daakhil)
+    source_url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2269994
+    url: https://e-jagriti.gov.in/
