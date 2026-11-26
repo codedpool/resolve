@@ -1,0 +1,16 @@
+.env
+.env.*
+**/__pycache__
+**/.venv
+**/node_modules
+**/.next
+server/data/audio
+server/data/evidence_docs
+server/data/objects
+server/data/tessdata
+server/data/models
+client/test-results
+docs
+.git
+**/.git
+!.env.example

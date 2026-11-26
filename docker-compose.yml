@@ -1,0 +1,46 @@
+# The whole stack on one machine: database, API (with local OCR) and the web app.
+#   docker compose up --build
+# Keys come from .env next to this file (see .env.example). Open http://localhost:3000
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: resolve
+      POSTGRES_PASSWORD: resolve
+      POSTGRES_DB: resolve
+    volumes:
+      - resolve_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U resolve -d resolve"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://resolve:resolve@db:5432/resolve
+      APP_ENV: dev
+      CORS_ORIGINS: http://localhost:3000
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+  client:
+    build:
+      context: ./client
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+        NEXT_PUBLIC_WS_URL: ws://localhost:8000
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+
+volumes:
+  resolve_pgdata:
