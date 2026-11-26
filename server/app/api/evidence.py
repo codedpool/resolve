@@ -2,17 +2,19 @@
 
 from __future__ import annotations
 
+import json
 import uuid
 
 from fastapi import APIRouter, Depends, File, Form, Request, UploadFile
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.core.crypto import seal_text
+from app.core.crypto import open_text, seal_text
 from app.core.errors import AppError
 from app.db.models import Approval, ApprovalKind, ApprovalStatus, Evidence, User
 from app.deps import current_user, get_session
 from app.services.access import data_key, owned_case, record_event
+from app.services.evidence_store import run_evidence
 
 router = APIRouter(prefix="/cases", tags=["evidence"])
 
@@ -41,10 +43,12 @@ async def upload_evidence(
 @router.get("/{case_id}/evidence")
 def list_evidence(
     case_id: uuid.UUID,
+    request: Request,
     session: Session = Depends(get_session),
     user: User = Depends(current_user),
 ) -> dict:
     case = owned_case(session, user, case_id)
+    key = data_key(request, case)
     rows = session.scalars(select(Evidence).where(Evidence.case_id == case.id)).all()
     return {
         "evidence": [
@@ -54,6 +58,7 @@ def list_evidence(
                 "file_ref": row.file_ref,
                 "sent_to_vision": row.sent_to_vision,
                 "vision_approval_id": str(row.vision_approval_id) if row.vision_approval_id else None,
+                "read": json.loads(open_text(row.fields_enc, key)) if row.fields_enc else None,
             }
             for row in rows
         ]
@@ -83,3 +88,18 @@ def request_vision(
     session.flush()
     row.vision_approval_id = approval.id
     return {"approval_id": str(approval.id), "status": approval.status.value, "sent_to_vision": row.sent_to_vision}
+
+
+@router.post("/{case_id}/evidence/{evidence_id}/process")
+def process_evidence(
+    case_id: uuid.UUID,
+    evidence_id: uuid.UUID,
+    request: Request,
+    session: Session = Depends(get_session),
+    user: User = Depends(current_user),
+) -> dict:
+    case = owned_case(session, user, case_id)
+    row = session.get(Evidence, evidence_id)
+    if row is None or row.case_id != case.id:
+        raise AppError("not_found", "Evidence was not found", status_code=404)
+    return run_evidence(request, session, user, case, row, data_key(request, case), "process")

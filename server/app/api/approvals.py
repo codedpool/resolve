@@ -16,6 +16,7 @@ from app.db.models import Approval, ApprovalStatus, Evidence, Notification, User
 from app.deps import current_user, get_session, require_step_up
 from app.services.access import data_key, owned_case, record_event
 from app.runtime.run_service import get_runner
+from app.services.evidence_store import safe_run_evidence
 
 router = APIRouter(tags=["approvals"])
 
@@ -66,10 +67,6 @@ def decide(
     now = request.app.state.clock.now()
     row.status = ApprovalStatus.approved if body.decision == "approve" else ApprovalStatus.rejected
     row.decided_at = now
-    if row.status == ApprovalStatus.approved:
-        evidence = session.scalar(select(Evidence).where(Evidence.vision_approval_id == row.id))
-        if evidence is not None:
-            evidence.sent_to_vision = True
     key = data_key(request, case)
     raw_payload = open_text(row.payload_enc, key)
     payload = json.loads(raw_payload) if raw_payload.startswith("{") else {}
@@ -84,6 +81,10 @@ def decide(
         )
     )
     session.commit()
+    evidence = session.scalar(select(Evidence).where(Evidence.vision_approval_id == row.id))
+    if evidence is not None:
+        safe_run_evidence(request, session, user, case, evidence, key, "approval_decided")
+        session.commit()
     if payload.get("run_id"):
         get_runner(request).resume(payload["run_id"], body.decision)
     return {"id": str(row.id), "status": row.status.value}

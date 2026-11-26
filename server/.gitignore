@@ -12,3 +12,5 @@ dist/
 build/
 data/objects/
 data/audio/
+data/tessdata/
+data/evidence_docs/

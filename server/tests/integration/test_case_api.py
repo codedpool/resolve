@@ -60,6 +60,12 @@ def test_approval_decision_needs_step_up_and_notifies(client):
     blocked = client.post(f"/approvals/{approval_id}/decision", json={"decision": "approve"}, headers=headers)
     assert blocked.status_code == 403
     client.post("/auth/step-up", json={"password": "correct-horse"}, headers=headers)
+
+    class _Vision:
+        def read_text(self, image):
+            return "Flipkart" + chr(10) + "Order ID: OD1234567890" + chr(10) + "Order total: Rs. 450" + chr(10) + "Order date: 20 Nov 2025"
+
+    client.app.state.evidence_vision = _Vision()
     decided = client.post(f"/approvals/{approval_id}/decision", json={"decision": "approve"}, headers=headers)
     assert decided.status_code == 200
     assert decided.json()["status"] == "approved"
