@@ -21,6 +21,7 @@ from sqlalchemy.orm import Session
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 os.chdir(ROOT)
 
 from app.db.models import EMBEDDING_DIM, LegalChunk  # noqa: E402
@@ -57,6 +58,7 @@ def main() -> None:
     parser.add_argument("--text-weight", type=float, default=1.0)
     parser.add_argument("--boost", type=float, default=0.25)
     parser.add_argument("--detail", action="store_true")
+    parser.add_argument("--reviews", type=Path, default=None, help="apply saved legal check results (tags and review state)")
     args = parser.parse_args()
 
     url = prepare(args.db)
@@ -68,6 +70,10 @@ def main() -> None:
         LegalChunk.__table__.c.embedding.type.dim = embedder.dim
     with Session(create_engine(url)) as session:
         report = ingest(session, build_corpus(), embedder)
+        if args.reviews:
+            from load_legal_corpus import apply_saved_reviews
+
+            report.reviewed = apply_saved_reviews(session, args.reviews)
         session.commit()
         dense, text = args.dense_weight, args.text_weight
         if args.mode == "dense":
@@ -77,7 +83,7 @@ def main() -> None:
         service = RetrievalService(session, embedder, dense_weight=dense, text_weight=text, boost=args.boost)
         questions = load_questions(subset=None if args.subset == "all" else args.subset)
         summary, detail = run_eval(lambda q: service.search(q["question"], q["entity_type"], k=3), questions)
-    out = {"model": args.model, "mode": args.mode, "subset": args.subset, "ingest": report.__dict__, "summary": summary}
+    out = {"model": args.model, "mode": args.mode, "subset": args.subset, "ingest": {**report.__dict__, "reviewed": getattr(report, "reviewed", 0)}, "summary": summary}
     if args.detail:
         out["misses"] = [d for d in detail if not d["hit"]]
     print("RESULT " + json.dumps(out, ensure_ascii=False))
