@@ -1,0 +1,289 @@
+{
+ "prompt_version": 1,
+ "right": 39,
+ "total": 40,
+ "false_done": 0,
+ "missed_done": 1,
+ "rows": [
+  {
+   "text": "I think that is everything.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "No, nothing else from me.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "That covers it, thanks.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "Okay, you can go ahead now.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "That's the whole story.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "I'm finished, please proceed.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.99,
+   "decided": "done"
+  },
+  {
+   "text": "Yes, that's all of it.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.98,
+   "decided": "done"
+  },
+  {
+   "text": "Nothing more to add.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.99,
+   "decided": "done"
+  },
+  {
+   "text": "Alright, let's move on then.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "Bas, itna hi tha.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.99,
+   "decided": "done"
+  },
+  {
+   "text": "Haan ab aap shuru kijiye.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "Mujhe aur kuch nahi kehna.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "Itna kaafi hai, aage dekhiye.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "Ho gaya, ab check karo.",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "बस इतना ही है।",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.99,
+   "decided": "done"
+  },
+  {
+   "text": "मुझे और कुछ नहीं कहना।",
+   "expected": "done",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "हो गया, अब आगे बढ़िए।",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.99,
+   "decided": "done"
+  },
+  {
+   "text": "यही पूरी बात है।",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "ठीक है, अब आप शुरू करें।",
+   "expected": "done",
+   "model": "done",
+   "confidence": 0.95,
+   "decided": "done"
+  },
+  {
+   "text": "And then they stopped replying.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "Also, the box was damaged.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.98,
+   "decided": "more"
+  },
+  {
+   "text": "Wait, one more thing about the date.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.98,
+   "decided": "more"
+  },
+  {
+   "text": "Actually the amount was eight hundred.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.98,
+   "decided": "more"
+  },
+  {
+   "text": "So basically I paid by card.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "Sorry, let me think.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "The order id is AB1234.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "That's not all, there's more.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 1.0,
+   "decided": "more"
+  },
+  {
+   "text": "Is that enough detail?",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "No, not yet, I'm not finished.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 1.0,
+   "decided": "more"
+  },
+  {
+   "text": "Uske baad unhone phone nahi uthaya.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "Haan aur ek baat hai.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.98,
+   "decided": "more"
+  },
+  {
+   "text": "Rukiye, amount galat bola maine.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.98,
+   "decided": "more"
+  },
+  {
+   "text": "Pehle toh delivery late thi.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "Matlab paisa kat gaya tha.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "Abhi nahi hua, aur batana hai.",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.99,
+   "decided": "more"
+  },
+  {
+   "text": "और फिर उन्होंने मना कर दिया।",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "रुकिए, एक बात और है।",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "ऑर्डर पंद्रह तारीख को किया था।",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "पैसे कार्ड से कटे थे।",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  },
+  {
+   "text": "अरे हाँ, सामान टूटा हुआ था।",
+   "expected": "more",
+   "model": "more",
+   "confidence": 0.95,
+   "decided": "more"
+  }
+ ]
+}

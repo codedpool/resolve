@@ -1,0 +1,162 @@
+[
+ {
+  "text": "I think that is everything.",
+  "label": "done"
+ },
+ {
+  "text": "No, nothing else from me.",
+  "label": "done"
+ },
+ {
+  "text": "That covers it, thanks.",
+  "label": "done"
+ },
+ {
+  "text": "Okay, you can go ahead now.",
+  "label": "done"
+ },
+ {
+  "text": "That's the whole story.",
+  "label": "done"
+ },
+ {
+  "text": "I'm finished, please proceed.",
+  "label": "done"
+ },
+ {
+  "text": "Yes, that's all of it.",
+  "label": "done"
+ },
+ {
+  "text": "Nothing more to add.",
+  "label": "done"
+ },
+ {
+  "text": "Alright, let's move on then.",
+  "label": "done"
+ },
+ {
+  "text": "Bas, itna hi tha.",
+  "label": "done"
+ },
+ {
+  "text": "Haan ab aap shuru kijiye.",
+  "label": "done"
+ },
+ {
+  "text": "Mujhe aur kuch nahi kehna.",
+  "label": "done"
+ },
+ {
+  "text": "Itna kaafi hai, aage dekhiye.",
+  "label": "done"
+ },
+ {
+  "text": "Ho gaya, ab check karo.",
+  "label": "done"
+ },
+ {
+  "text": "बस इतना ही है।",
+  "label": "done"
+ },
+ {
+  "text": "मुझे और कुछ नहीं कहना।",
+  "label": "done"
+ },
+ {
+  "text": "हो गया, अब आगे बढ़िए।",
+  "label": "done"
+ },
+ {
+  "text": "यही पूरी बात है।",
+  "label": "done"
+ },
+ {
+  "text": "ठीक है, अब आप शुरू करें।",
+  "label": "done"
+ },
+ {
+  "text": "And then they stopped replying.",
+  "label": "more"
+ },
+ {
+  "text": "Also, the box was damaged.",
+  "label": "more"
+ },
+ {
+  "text": "Wait, one more thing about the date.",
+  "label": "more"
+ },
+ {
+  "text": "Actually the amount was eight hundred.",
+  "label": "more"
+ },
+ {
+  "text": "So basically I paid by card.",
+  "label": "more"
+ },
+ {
+  "text": "Sorry, let me think.",
+  "label": "more"
+ },
+ {
+  "text": "The order id is AB1234.",
+  "label": "more"
+ },
+ {
+  "text": "That's not all, there's more.",
+  "label": "more"
+ },
+ {
+  "text": "Is that enough detail?",
+  "label": "more"
+ },
+ {
+  "text": "No, not yet, I'm not finished.",
+  "label": "more"
+ },
+ {
+  "text": "Uske baad unhone phone nahi uthaya.",
+  "label": "more"
+ },
+ {
+  "text": "Haan aur ek baat hai.",
+  "label": "more"
+ },
+ {
+  "text": "Rukiye, amount galat bola maine.",
+  "label": "more"
+ },
+ {
+  "text": "Pehle toh delivery late thi.",
+  "label": "more"
+ },
+ {
+  "text": "Matlab paisa kat gaya tha.",
+  "label": "more"
+ },
+ {
+  "text": "Abhi nahi hua, aur batana hai.",
+  "label": "more"
+ },
+ {
+  "text": "और फिर उन्होंने मना कर दिया।",
+  "label": "more"
+ },
+ {
+  "text": "रुकिए, एक बात और है।",
+  "label": "more"
+ },
+ {
+  "text": "ऑर्डर पंद्रह तारीख को किया था।",
+  "label": "more"
+ },
+ {
+  "text": "पैसे कार्ड से कटे थे।",
+  "label": "more"
+ },
+ {
+  "text": "अरे हाँ, सामान टूटा हुआ था।",
+  "label": "more"
+ }
+]

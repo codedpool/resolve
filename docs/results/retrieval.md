@@ -58,3 +58,17 @@ After the numbers above two code changes were made for other reasons and the mai
 
 - Hindi words in the word list are now matched longest first and consumed, so "शिकायत अधिकारी" (grievance officer) no longer also adds "rights" through the shorter stem "अधिकार".
 - Provider policy capture. Each fictional provider's policy text is chunked by sentence group (about 380 characters; 8 chunks over 4 providers) with layer `provider_policy`, the policy title as heading, the entity type of the provider as its tag, the fetched date and the `fixture://fictional#<slug>` url taken from the provider fixture's first contact candidate. The policy fixtures carry no url of their own. A provider's policy is a retrieval candidate only when the question names the provider (the words of its slug, for example "Demo Bazaar") or the caller passes the source in `prefer_sources`, which also boosts it. Without this rule the four policies, which talk about returns and refunds, pushed the statute out of the top 3 for generic refund questions (main set 27/30 with the policies unscoped, 28/30 with the scope). Tests: a refund question naming each provider returns that provider's policy first; another provider's policy and the provider policies in general do not answer a statute question.
+
+## A second held-out set of Hindi questions (27 Nov 2026)
+
+The first held-out set had only three Hindi questions, so "one short of the bar" was mostly small-sample noise. Twelve fresh questions were added as `set: heldout2` in `retrieval.json` (six Devanagari, six Hinglish; the same six topics asked in both scripts: manufacturer liability, mediation cells, appeal from a State Commission, electronic filing, unfair contract, State Commission jurisdiction). They were written by reading the source text and scored once, with nothing tuned afterwards: `python scripts/eval_retrieval.py --db resolve_test_legal --subset heldout2 --detail`.
+
+| Subset | Right chunk in top 3 |
+|---|---|
+| All 12 | 8 of 12 (67%) |
+| Hinglish | 5 of 6 |
+| Devanagari | 3 of 6 |
+
+Hindi and Hinglish pooled across the main, held-out and second held-out sets: 19 of 25 (76%), above the 70% bar. Devanagari alone is weaker (3 of 6 on this set), and this set alone is below the bar.
+
+The four misses: a mediation question that returned other sections of the same mediation chapter (74 was expected, 79, 76 and 80 came back), an appeal-to-the-National-Commission question that returned unrelated sections, and the electronic-filing question in both scripts, where the answer is one clause inside a long section 35 chunk and neither half of the search finds it. The Hindi word list already contains the relevant words (mediation, appeal, national, state), so a longer list would not have fixed these. They are ranking misses. I did not tune on them. A reader of these answers should treat Hindi legal citations as less reliable than English ones; every citation carries "AI-checked, not legal advice" and is shown with its source text.
