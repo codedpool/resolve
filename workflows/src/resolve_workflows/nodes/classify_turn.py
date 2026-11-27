@@ -80,6 +80,8 @@ def _keyword_turn_label(text: str) -> str:
     return "claim"
 
 
+keyword_turn_label = _keyword_turn_label  # the outreach graph cross-checks the model with it on the dangerous labels
+
 _REPLY_RULES = (
     ("needs_info", re.compile(r"(?i)please (?:share|send|provide)|we need|kripya|bhejiye|भेजिए|screenshot|proof|photo")),
     ("rejected", re.compile(r"(?i)unable to|declined|not eligible|no refund|cannot be|can't be|स्वीकार नहीं|nahi kar sakte|outside the")),

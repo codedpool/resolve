@@ -271,18 +271,23 @@ def normalise_reference(value: str) -> str:
     return re.sub(r"[^A-Z0-9]", "", to_ascii_digits(value).upper())
 
 
-def references_in(text: str, normalise: Callable[[str], str] | None = None) -> list[str]:
-    """Reference and ticket numbers, normalised (upper case, no separators). Order ids are returned too: the caller
-    tells them apart by comparing with the stored order id."""
+def reference_pairs(text: str) -> list[tuple[str, str]]:
+    """(as written, normalised) for each reference and ticket number. Order ids are returned too: the caller tells
+    them apart by comparing with the stored order id."""
     prepared = to_ascii_digits(text)
-    found: list[str] = []
+    found: list[tuple[str, str]] = []
     for pattern in (_HYPHEN_CODE, _ALNUM_CODE, _CUE_THEN_CODE):
         for m in pattern.finditer(prepared):
             token = normalise_reference(m.group(1))
-            if len(token) >= 5 and any(c.isdigit() for c in token) and token not in found:
-                found.append(token)
-    # a run of words that was "hyphenated" by the pattern but is only words ("follow-up") is dropped by the digit rule
+            # a "hyphenated" run of plain words ("follow-up") has no digit and is dropped here
+            if len(token) >= 5 and any(c.isdigit() for c in token) and all(token != n for _, n in found):
+                found.append((m.group(1).upper(), token))
     return found
+
+
+def references_in(text: str, normalise: Callable[[str], str] | None = None) -> list[str]:
+    """Reference and ticket numbers, normalised (upper case, no separators)."""
+    return [norm for _, norm in reference_pairs(text)]
 
 
 # -- the check -------------------------------------------------------------------------------------------------------

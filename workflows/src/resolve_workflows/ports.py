@@ -102,3 +102,36 @@ class Chunk(Protocol):
 
 class Retriever(Protocol):
     def search(self, query: str, entity_type: str | None = None, k: int = 5) -> list[Chunk]: ...
+
+
+class OutreachStore(Protocol):
+    """What one provider call keeps between turns, and the case records it writes. Implemented by the server.
+
+    Everything that must survive a restart lives here (`load_call` and `save_call` hold the call's working state as
+    one JSON-serialisable dict), never in process memory. Writes that make a record carry a key, so running the same
+    step twice makes it once.
+    """
+
+    def load_call(self, call_id: str) -> dict | None: ...
+
+    def save_call(self, call_id: str, state: dict) -> None: ...
+
+    def language(self, case_id: str) -> str: ...
+
+    def provider(self, case_id: str) -> dict: ...  # {"name": str, "entity_type": str}
+
+    def case_evidence(self, case_id: str): ...  # -> nodes.evidence_check.CaseEvidence
+
+    def save_promise(self, case_id: str, call_id: str, who: str, what: str, by_when: str, reference: str, key: str) -> str: ...
+
+    def record_offer(self, case_id: str, call_id: str, offer: dict, key: str) -> None: ...
+
+    def set_status(self, case_id: str, status: str) -> None: ...
+
+    def save_summary(self, case_id: str, call_id: str, summary: dict) -> None: ...
+
+
+class ApprovalPort(Protocol):
+    """Creates an Approval row the owner decides in the app. The graph never decides one."""
+
+    def create(self, case_id: str, kind: str, payload: dict, key: str) -> str: ...  # -> approval id
