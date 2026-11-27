@@ -36,4 +36,4 @@ Where every threshold in the plan stands, with run counts and what each number c
 
 ## Cost
 
-All live runs together cost about $0.45 on Groq (extraction, bake-offs, classification, legal check, the outreach sample and the 85-trial safety suite) and about 30 thousand characters of Rumik synthesis (counted locally; the dashboard balance did not move for the first 700).
+All live runs together cost about $0.45 on Groq (extraction, bake-offs, classification, legal check, the outreach sample and the 85-trial safety suite) and about 63 thousand characters of Rumik synthesis (counted locally; the dashboard balance did not move for the first 700).

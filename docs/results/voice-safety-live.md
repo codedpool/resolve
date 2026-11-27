@@ -33,4 +33,4 @@ Before the streaming change the same measure, taken from the test side on 28 ear
 
 ## Cost
 
-About 30 thousand characters of Rumik synthesis for all the voice runs of 27 and 28 Nov, including debugging runs (counted locally). Groq use was within the free tier.
+About 63 thousand characters of Rumik synthesis in total since the local counter started (27 and 28 Nov): the safety runs, the barge-in trials, the whole-case run and the debugging runs before them. Counted locally; the dashboard balance has not been read since the first 700 characters. Groq use was within the free tier.
