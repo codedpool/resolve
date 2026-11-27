@@ -107,11 +107,16 @@ HINGLISH = {
 
 
 def english_terms(query: str) -> list[str]:
-    """English words to add to the full-text query for a Hindi or Hinglish question."""
+    """English words to add to the full-text query for a Hindi or Hinglish question.
+
+    Longer stems are matched first and consumed, so "शिकायत अधिकारी" (grievance officer) does not also
+    match the shorter stem "अधिकार" (rights)."""
     found: list[str] = []
-    for stem, english in DEVANAGARI.items():
-        if stem in query:
-            found.extend(english.split())
+    remaining = query
+    for stem in sorted(DEVANAGARI, key=len, reverse=True):
+        if stem in remaining:
+            found.extend(DEVANAGARI[stem].split())
+            remaining = remaining.replace(stem, " ")
     for word in re.findall(r"[a-z]+", query.lower()):
         if word in HINGLISH:
             found.extend(HINGLISH[word].split())

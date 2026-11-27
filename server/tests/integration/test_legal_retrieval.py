@@ -23,7 +23,7 @@ def _row(session, source_id, section, clause_contains=""):
 def test_or_query_keeps_latin_words_and_expands_known_hindi_words():
     assert or_query("Refund ka order, kya hai?", expand=False) == "refund | order | kya | hai"
     assert or_query("उपभोक्ता शिकायत", expand=False) == ""
-    assert or_query("उपभोक्ता शिकायत") == "complaint | consumer"
+    assert or_query("उपभोक्ता शिकायत") == "consumer | complaint"
     assert or_query("kharab saman ka refund") == "kharab | saman | refund | defective | defect | goods"
     assert or_query("मौसम कैसा है?") == ""
 

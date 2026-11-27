@@ -11,7 +11,7 @@ from typing import Callable, Iterable
 
 import math
 
-from sqlalchemy import Float, case, cast, func, literal, select
+from sqlalchemy import Float, case, cast, func, literal, or_, select
 from sqlalchemy.orm import Session
 
 from app.db.models import LegalChunk, TagReviewState
@@ -94,33 +94,45 @@ class RetrievalService:
         k: int = 5,
         prefer_sources: Iterable[str] = (),
     ) -> list[RetrievedChunk]:
-        """Top k chunks for the query. `entity_type` and `prefer_sources` only raise a chunk's score."""
+        """Top k chunks for the query. `entity_type` and `prefer_sources` only raise a chunk's score.
+
+        A provider's own policy (layer `provider_policy`) is a candidate only when the caller names its
+        source in `prefer_sources` or the question mentions the provider by name, so one company's
+        policy never answers a question about the law or about another company."""
         vector = self.embedder.embed_query(query)
         tsq = or_query(query)
         with self._use_session() as session:
+            preferred = set(prefer_sources)
+            scope = or_(
+                LegalChunk.layer != "provider_policy",
+                LegalChunk.source_id.in_(self._policy_sources(session, query) | preferred),
+            )
             dense_ids = session.scalars(
                 select(LegalChunk.id)
-                .where(LegalChunk.embedding.is_not(None))
+                .where(LegalChunk.embedding.is_not(None), scope)
                 .order_by(LegalChunk.embedding.cosine_distance(vector))
                 .limit(self.pool)
             ).all()
-            text_ids = self._full_text_ids(session, tsq)
+            text_ids = self._full_text_ids(session, tsq, scope)
             scores: dict = {}
             for rank, chunk_id in enumerate(dense_ids, start=1):
                 scores[chunk_id] = scores.get(chunk_id, 0.0) + self.dense_weight / (self.rrf_k + rank)
             for rank, chunk_id in enumerate(text_ids, start=1):
                 scores[chunk_id] = scores.get(chunk_id, 0.0) + self.text_weight / (self.rrf_k + rank)
             rows = {r.id: r for r in session.scalars(select(LegalChunk).where(LegalChunk.id.in_(list(scores))))}
-            preferred = set(prefer_sources)
             ranked = []
             for chunk_id, base in scores.items():
                 row = rows[chunk_id]
                 score, boosted = base, False
-                if row.tag_review_state is not TagReviewState.needs_attention:
-                    if entity_type and entity_type != "unknown" and entity_type in (row.entity_type_tags or []):
-                        score, boosted = score * (1 + self.boost), True
-                    if row.source_id in preferred:
-                        score, boosted = score * (1 + self.boost), True
+                if (
+                    row.tag_review_state is not TagReviewState.needs_attention
+                    and entity_type
+                    and entity_type != "unknown"
+                    and entity_type in (row.entity_type_tags or [])
+                ):
+                    score, boosted = score * (1 + self.boost), True
+                if row.source_id in preferred:
+                    score, boosted = score * (1 + self.boost), True
                 ranked.append((score, boosted, chunk_id))
             ranked.sort(key=lambda item: (-item[0], rows[item[2]].ordinal))
             dense_pos = {cid: i for i, cid in enumerate(dense_ids, start=1)}
@@ -130,7 +142,13 @@ class RetrievalService:
                 for score, boosted, cid in ranked[:k]
             ]
 
-    def _full_text_ids(self, session: Session, tsq: str) -> list:
+    def _policy_sources(self, session: Session, query: str) -> set[str]:
+        """Provider policy sources whose provider is named in the question (slug words, any case)."""
+        lowered = query.lower()
+        sources = session.scalars(select(LegalChunk.source_id).where(LegalChunk.layer == "provider_policy").distinct())
+        return {sid for sid in sources if sid.removeprefix("provider_").replace("_", " ") in lowered}
+
+    def _full_text_ids(self, session: Session, tsq: str, scope) -> list:
         """Chunks matching any query word, ranked by the summed inverse document frequency of the words
         they contain, so a word found in every chunk ("complaint") counts for less than a rare one
         ("forty-eight"). Ties fall back to ts_rank_cd of the whole query."""
@@ -154,7 +172,7 @@ class RetrievalService:
         return list(
             session.scalars(
                 select(LegalChunk.id)
-                .where(LegalChunk.tsv.op("@@")(full))
+                .where(LegalChunk.tsv.op("@@")(full), scope)
                 .order_by(cast(score, Float).desc(), func.ts_rank_cd(LegalChunk.tsv, full).desc(), LegalChunk.ordinal)
                 .limit(self.pool)
             ).all()
