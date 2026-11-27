@@ -14,6 +14,7 @@ from app.api.evidence import router as evidence_router
 from app.api.intake import router as intake_router
 from app.api.mandates import router as mandates_router
 from app.api.notifications import router as notifications_router
+from app.api.outreach import router as outreach_router
 from app.api.runs import router as runs_router
 from app.api.voice import router as voice_router
 from app.config import SERVER_ROOT, Settings, get_settings
@@ -62,6 +63,7 @@ def create_app(
     app.include_router(runs_router)
     app.include_router(notifications_router)
     app.include_router(voice_router)
+    app.include_router(outreach_router)
 
     @app.get("/health")
     def health() -> dict:

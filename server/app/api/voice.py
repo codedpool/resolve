@@ -20,7 +20,7 @@ from app.adapters.factory import get_llm
 from app.adapters.fakes import FakeTranscriber
 from app.adapters.groq_stt import GroqTranscriber
 from app.core.errors import AppError
-from app.db.models import CallRole, Fact, User, VoiceSession, VoiceState
+from app.db.models import Call, CallMode, CallRole, Fact, User, VoiceSession, VoiceState
 from app.deps import current_user, get_session
 from app.privacy.redact import Redactor
 from app.services.access import owned_case
@@ -70,6 +70,11 @@ def start_call(body: CallBody, request: Request, session: Session = Depends(get_
 
 @router.post("/calls/{call_id}/end")
 def end_call(call_id: uuid.UUID, request: Request, session: Session = Depends(get_session), user: User = Depends(current_user)) -> dict:
+    existing = session.get(Call, call_id)
+    if existing is not None and existing.mode == CallMode.text:  # a text provider call has no voice session
+        from app.api.outreach import end_text_call
+
+        return end_text_call(request, session, user, call_id)
     voice = session.scalar(select(VoiceSession).where(VoiceSession.call_id == call_id, VoiceSession.user_id == user.id))
     if voice is None:
         raise AppError("not_found", "Call was not found", status_code=404)
