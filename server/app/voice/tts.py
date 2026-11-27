@@ -15,6 +15,8 @@ from typing import Protocol
 import httpx
 import websockets
 
+from app.voice import ledger
+
 RUMIK_BASE = "https://silk-api.rumik.ai"
 
 
@@ -60,6 +62,8 @@ class RumikTTS:
                 return
 
     async def speak(self, text: str) -> AsyncIterator[bytes]:
+        if self._connect_fn == self._real_connect:  # only real synthesis is counted, never a test double
+            ledger.record(len(text))
         for attempt in range(2):
             ws = await self._ensure()
             try:

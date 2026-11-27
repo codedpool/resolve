@@ -7,6 +7,7 @@ import io
 import json
 import os
 import re
+import sys
 import time
 import wave
 from pathlib import Path
@@ -121,6 +122,10 @@ async def rumik_session(http: httpx.AsyncClient, model: str, language: str, text
 async def synthesize_pcm(text: str, model: str = "mulberry", language: str = "hinglish") -> tuple[bytes, float | None]:
     """One text frame to PCM int16 24 kHz. Returns (pcm, ms to first audio)."""
     load_env()
+    sys.path.insert(0, str(ROOT / "server"))
+    from app.voice import ledger
+
+    ledger.record(len(text), "script")
     async with httpx.AsyncClient(base_url=RUMIK, headers={"Authorization": f"Bearer {os.environ['RUMIK_API_KEY']}"}, timeout=60) as http:
         s = await rumik_session(http, model, language, text)
     pcm = bytearray()
