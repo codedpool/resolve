@@ -1,15 +1,10 @@
-# Root meta repo tracks docs and examples only.
-# Kept locally and never committed.
+# Working documents kept locally and never committed.
 plan.md
 progress.md
 
 .env
 .env.*
 !.env.example
-
-client/
-server/
-workflows/
 
 __pycache__/
 .venv/
