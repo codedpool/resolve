@@ -1,0 +1,1095 @@
+{
+ "chunks": {
+  "0fc49f854ade0f16634875614c88fa9c66d6e86c16ef1c55d647d2ad867e1ba7": {
+   "locator": "cpa2019_egazette:2(7)",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk provides the general definition of a 'consumer' and explicitly states that the term includes transactions through electronic means, teleshopping, direct selling, or multi-level marketing, but does not assign specific duties or rights to any particular type of provider such as marketplaces, sellers, or payment intermediaries. | reviewer: The clause defines consumer and mentions transaction methods but does not single out any provider type.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t16",
+   "expected_tags": []
+  },
+  "2636480cb47e519c58ed497cf1296d63fb53d209af43a8ab398628c81be55bab": {
+   "locator": "cpa2019_egazette:2(10)-(11)",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk provides general definitions for 'defect' and 'deficiency' that apply to goods and services in general, without specifying duties or procedures for any particular type of provider. | reviewer: The clause only defines terms and does not refer to any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t17",
+   "expected_tags": []
+  },
+  "ffc6e22fd1e0f2cd99e017da521ff616d30a536a6ef2aa8d83879f1b3937d364": {
+   "locator": "cpa2019_egazette:34(1)",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk defines the jurisdiction of the District Commission based on the value of goods or services, which is a general procedural rule applicable to all consumer complaints without specifying a particular type of provider. | reviewer: The clause only defines jurisdiction limits and does not mention any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t18",
+   "expected_tags": []
+  },
+  "1c8217d8452fc54a94ccfec0f174bfbc2fa0e9ab066b768ddacb997fd2443228": {
+   "locator": "cpa2019_egazette:39(1) part 1",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk outlines the orders a District Commission can issue to an 'opposite party' regarding goods, services, and trade practices, which are general duties applicable to any business entity (seller or service provider) without distinguishing between marketplaces, direct sellers, or payment intermediaries. | reviewer: The clause lists remedial orders without mentioning any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t19",
+   "expected_tags": []
+  },
+  "97691e4968b368b460ef02383cf9a58665751a23a538d3cec62d068789dbcef8": {
+   "locator": "cpa2019_egazette:41",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk outlines the procedural rules for appealing orders from the District Commission to the State Commission, which is a general legal procedure applicable to any aggrieved person and does not specify duties or rights for specific provider types. | reviewer: The clause discusses procedural appeal rules and does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t20",
+   "expected_tags": []
+  },
+  "a3a587ab588d16f2bca1a25fdf0d2718e20af9ac415f551a2f50a8284a4e2e18": {
+   "locator": "cpa2019_egazette:69",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 1.0,
+   "rationale": "tagger: The chunk outlines the time limit for filing complaints before the District, State, or National Commission, which is a procedural rule applicable to all consumer disputes regardless of the specific type of provider involved. | reviewer: The clause only sets time limits for complaints and does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t21",
+   "expected_tags": []
+  },
+  "870511b920eae0ad9c3e1335bde64529ca1cd6de2905c94d538ed75e4f1462d5": {
+   "locator": "cpa2019_egazette:72",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk outlines the criminal penalties and trial procedures for failing to comply with orders made by the District, State, or National Consumer Disputes Redressal Commissions, which constitutes a general procedural provision rather than a specific duty of a particular provider type. | reviewer: The clause discusses penalties for non‑compliance with commission orders and does not mention any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t22",
+   "expected_tags": []
+  },
+  "0c36ef8f4990ad7d89240e5c1620895f97ac882401b9d8b6394174d988ad20f9": {
+   "locator": "ecom_rules_2020_egazette:7(1)",
+   "tags": [
+    "direct_seller"
+   ],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The section explicitly states 'Duties and liabilities of inventory e-commerce entities' and mandates that 'Every inventory e-commerce entity' provide specific information, which corresponds to the definition of a direct seller. | reviewer: The text specifies duties of inventory e‑commerce entities, which are direct sellers.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t12",
+   "expected_tags": [
+    "direct_seller"
+   ]
+  },
+  "1d7dc2e88d6cc5b4c2d0e8a53b02f65e08294f79f59937beec93bcc1aa58b369": {
+   "locator": "ecom_rules_2020_egazette:1",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 1.0,
+   "rationale": "tagger: The chunk is a standard short title and commencement clause that does not specify duties or rights for any specific type of provider. | reviewer: The text only defines the title and commencement date and does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t01",
+   "expected_tags": []
+  },
+  "fb6ddfe12d18270713ada835965a10ea25ff5e4c4118c902bf8a4f3c198afb0b": {
+   "locator": "ecom_rules_2020_egazette:3(2)",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk is a standard cross-reference clause stating that undefined terms take their meaning from the Act or the Information Technology Act, without specifying any particular type of provider. | reviewer: The clause only refers to definitions and does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t02",
+   "expected_tags": []
+  },
+  "01a8c4098b54ab48869999408ad3bf6c772149e13624f81f28ad57d6012015f4": {
+   "locator": "ecom_rules_2020_egazette:4(1)-(2)",
+   "tags": [
+    "marketplace",
+    "direct_seller"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.97,
+   "rationale": "tagger: The chunk explicitly imposes duties on 'e-commerce entities' to be incorporated companies and to display specific information on their 'platform', which aligns with the definition of a marketplace or direct seller operating an e-commerce platform. | reviewer: The clause refers generically to any e‑commerce entity without distinguishing between marketplace or direct seller. | reviewer verdict disagree; reviewer would assign different tags",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t03",
+   "expected_tags": [
+    "marketplace",
+    "direct_seller"
+   ]
+  },
+  "0cec12508c3ab88b081389a9a86b89b2e2999fa02e30c6303891f97e318f0c17": {
+   "locator": "ecom_rules_2020_egazette:4(8)-(10)",
+   "tags": [
+    "marketplace",
+    "direct_seller"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.97,
+   "rationale": "tagger: The text explicitly imposes duties on 'e-commerce entities' regarding cancellation charges, consent recording, and refunds, which applies to both marketplaces and direct sellers as defined in the source. | reviewer: The clause mentions e‑commerce entities in general without specifying marketplace or direct seller. | reviewer verdict disagree; reviewer would assign different tags",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t04",
+   "expected_tags": [
+    "marketplace",
+    "direct_seller"
+   ]
+  },
+  "119d8fc91998746423171446320d18e23480df91a44081cef51fe24f5d0c5c9f": {
+   "locator": "ecom_rules_2020_egazette:4(11)",
+   "tags": [
+    "marketplace"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly prohibits 'e-commerce entity' from manipulating prices or discriminating against consumers on its 'platform', which aligns with the definition of a marketplace. | reviewer: The clause refers to any e‑commerce entity, which includes both marketplace platforms and direct sellers. [evidence is not a quote from the source text] | reviewer verdict disagree; reviewer would assign different tags; low confidence",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t05",
+   "expected_tags": [
+    "marketplace",
+    "direct_seller"
+   ]
+  },
+  "350f01d87fde44e6d2aa5f9b7af31b0949dee6cfd3d5238df6d32ee321643f95": {
+   "locator": "ecom_rules_2020_egazette:5(1)-(2)",
+   "tags": [
+    "marketplace",
+    "seller_on_marketplace"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly assigns duties to 'marketplace e-commerce entities' and requires them to ensure 'sellers' provide accurate content, directly referencing both provider types. | reviewer: The text only addresses obligations of the marketplace entity, not duties of sellers on the marketplace. [evidence is not a quote from the source text] | reviewer verdict disagree; reviewer would assign different tags; low confidence",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t06",
+   "expected_tags": [
+    "marketplace"
+   ]
+  },
+  "6ffa72730c6f10f671e1fc1984de6195f6eef40d4e61bc8f1ce9d5eefc6aa962": {
+   "locator": "ecom_rules_2020_egazette:5(3) part 1",
+   "tags": [
+    "marketplace",
+    "seller_on_marketplace",
+    "payment_intermediary"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly imposes duties on 'marketplace e-commerce entities' to display information about 'sellers' and 'payment service providers' on their platform. | reviewer: The clause imposes obligations on the marketplace and relates to information about sellers, but does not concern duties of payment intermediaries. [evidence is not a quote from the source text] | reviewer verdict disagree; reviewer would assign different tags; low confidence",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t07",
+   "expected_tags": [
+    "marketplace"
+   ]
+  },
+  "77f89ddb512d2b93306e999cd6807c7118731b8fb02ce80edf3860796eb03085": {
+   "locator": "ecom_rules_2020_egazette:5(4)-(5)",
+   "tags": [
+    "marketplace",
+    "seller_on_marketplace"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly imposes duties on 'marketplace e-commerce entities' regarding their terms and conditions with 'sellers on its platform' and the management of such sellers. | reviewer: The clause imposes obligations on the marketplace entity, not on sellers, so only the marketplace tag applies. [evidence is not a quote from the source text] | reviewer verdict disagree; reviewer would assign different tags; low confidence",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t08",
+   "expected_tags": [
+    "marketplace"
+   ]
+  },
+  "869cb0b55f6b4e0df41100eac9e46b83d0b8d8063af9732079477cf95fb1039d": {
+   "locator": "ecom_rules_2020_egazette:6(1)-(3)",
+   "tags": [
+    "seller_on_marketplace"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly imposes duties on 'sellers offering goods or services through a marketplace e-commerce entity', which corresponds to the 'seller_on_marketplace' tag. | reviewer: The text explicitly refers to duties of sellers offering goods or services through a marketplace e‑commerce entity. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t09",
+   "expected_tags": [
+    "seller_on_marketplace"
+   ]
+  },
+  "4ce6a9dbf366793a90c95e925f35b135935f39de17e2408851c250109be866d5": {
+   "locator": "ecom_rules_2020_egazette:6(4)",
+   "tags": [
+    "seller_on_marketplace"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly states 'Any seller offering goods or services through a marketplace e-commerce entity shall', directly assigning duties to sellers operating on a marketplace. | reviewer: The clause explicitly addresses duties of a seller offering goods or services through a marketplace. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t10",
+   "expected_tags": [
+    "seller_on_marketplace"
+   ]
+  },
+  "df206eaaa1a853cb3e127866981c396f96787ffddb7e94cc8dd53021fdedfd6e": {
+   "locator": "ecom_rules_2020_egazette:6(5)",
+   "tags": [
+    "seller_on_marketplace"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly imposes duties on 'Any seller offering goods or services through a marketplace e-commerce entity', which directly corresponds to the seller_on_marketplace tag. | reviewer: The clause explicitly addresses duties of a seller offering goods or services through a marketplace. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t11",
+   "expected_tags": [
+    "seller_on_marketplace"
+   ]
+  },
+  "1af89dd09bc9fbe784b4a96ea8e0b9bc1b001cc52c0377b426d09d02ede5ec58": {
+   "locator": "ecom_rules_2020_egazette:7(2)-(4)",
+   "tags": [
+    "direct_seller"
+   ],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text explicitly and repeatedly imposes duties on 'inventory e-commerce entity', which corresponds to the definition of a direct seller. | reviewer: The clause specifically regulates inventory e‑commerce entities, which are direct sellers.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t13",
+   "expected_tags": [
+    "direct_seller"
+   ]
+  },
+  "97a5617ec81f8ab299e3325ac932e246bc6ee64adf4435a406cc8002364e4203": {
+   "locator": "ecom_rules_2020_egazette:7(5)",
+   "tags": [
+    "direct_seller"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The chunk explicitly names 'inventory e-commerce entity' and defines its liability for vouching for the authenticity of goods or services sold by it. | reviewer: The clause refers specifically to an inventory e‑commerce entity, which is a direct seller. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t14",
+   "expected_tags": [
+    "direct_seller"
+   ]
+  },
+  "b39fbdc69a827b4128193f6b2fb18616ba7c47089a31bda4d9eca481f1e4b467": {
+   "locator": "ecom_rules_2020_egazette:8",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk is a general procedural provision stating that the Consumer Protection Act applies to violations of the rules, without specifying duties or rights for any particular type of provider. | reviewer: The chunk discusses only the applicability of the Consumer Protection Act to rule violations and does not mention any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t15",
+   "expected_tags": []
+  },
+  "5dd2eb2fb1ea72c1ce6ad60bb63298c6e37bdcaa8f516358b9335ccac9514165": {
+   "locator": "rbi_ios_2021_notification:2",
+   "tags": [
+    "payment_intermediary"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly lists 'Commercial Banks', 'Regional Rural Banks', 'Co-operative Banks', and 'Non-Banking Financial Companies' as the regulated entities covered by the Scheme, which fall under the definition of payment intermediaries. | reviewer: The text lists banks and NBFCs, which are payment intermediaries. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t25",
+   "expected_tags": [
+    "payment_intermediary"
+   ]
+  },
+  "b9aab649e805815d3c936057376112130fa6ac23d0540e2d2a07350a41257bd2": {
+   "locator": "rbi_ios_2022_amendment_notification:2",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk specifies that the Scheme applies to 'Credit Information Companies', which are entities regulated by the RBI and distinct from marketplaces, direct sellers, or payment intermediaries (banks/wallets) in the context of the allowed tags. | reviewer: The text mentions Credit Information Companies, which is not one of the defined provider categories, so no tags apply.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t26",
+   "expected_tags": [
+    "payment_intermediary"
+   ]
+  },
+  "5f026ffd052a412ac8f3b31857cb8d5c73f2003289aa8f7653016caf02c46871": {
+   "locator": "rbi_pr1184:2",
+   "tags": [
+    "payment_intermediary"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.97,
+   "rationale": "tagger: The text explicitly states the scheme provides redress for complaints involving services rendered by 'entities regulated by RBI', which includes banks, NBFCs, and payment system participants, corresponding to the 'payment_intermediary' tag. | reviewer: The clause refers generically to all RBI‑regulated entities and does not single out payment intermediaries. | reviewer verdict disagree; reviewer would assign different tags",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t23",
+   "expected_tags": [
+    "payment_intermediary"
+   ]
+  },
+  "10e4977599d1d644cbe4a2038cb17832710a0bb496d98d4fea07309ffad80504": {
+   "locator": "rbi_pr1184:6",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk describes the procedural mechanisms (online portal, email, physical address, and contact center) for filing complaints with the Reserve Bank of India, which constitutes a general procedure rather than specific duties or rights of a particular provider type. | reviewer: The chunk only describes complaint filing mechanisms and does not mention any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t24",
+   "expected_tags": [
+    "payment_intermediary"
+   ]
+  },
+  "0ff32a29a061faf6fac8094079c12850ef1c8736860029ab0e48a2aeec411352": {
+   "locator": "nch_home:p1",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes the general grievance redressal mechanism of the National Consumer Helpline, including registration and forwarding to concerned entities, without specifying duties or rights for specific provider types like marketplaces or sellers. | reviewer: The chunk describes a consumer helpline service and does not single out any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t30",
+   "expected_tags": []
+  },
+  "5a6738f012edfd720ed6bad41676d7eae6bc67fb82d4f3a7eb8e00ace89bdeab": {
+   "locator": "nch_about:1",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes the National Consumer Helpline as a general government portal for lodging grievances against various stakeholders, including 'Private Companies' and 'Regulators', without specifying duties or rights for specific provider types like marketplaces or payment intermediaries. | reviewer: The text does not single out any of the defined provider types.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t27",
+   "expected_tags": []
+  },
+  "303dd7d7ebaea1cec94964449e5585064b114ed7c21cd0ecd26cddf521671a06": {
+   "locator": "nch_about:3",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes the general procedure for any aggrieved consumer to register a grievance via phone, portal, SMS, or app, without specifying duties or rights for specific provider types. | reviewer: The chunk only describes grievance registration procedures and does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t28",
+   "expected_tags": []
+  },
+  "4323b911d6460214854dc65f26997c70a7fefcb17924890291ebd2022c2c5b40": {
+   "locator": "pib_ejagriti_2269994:p2",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes the e-Jagriti platform, which is a government system for filing and disposing of consumer cases before consumer commissions, and does not mention any duties or rights specific to marketplaces, sellers, or payment intermediaries. | reviewer: The text only provides platform usage statistics and does not mention any specific provider type.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": "t29",
+   "expected_tags": []
+  },
+  "aaa411f8e9c0f7d7c7974b673c79200e7a68ebbb2ddde04feff89e07cd183c3d": {
+   "locator": "ecom_rules_2020_egazette:2",
+   "tags": [
+    "marketplace",
+    "direct_seller"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly states that the rules apply to 'all models of e-commerce, including marketplace and inventory models of e-commerce,' which directly covers both marketplace platforms and direct sellers (inventory entities). | reviewer: The clause explicitly references both marketplace and inventory (direct seller) models of e‑commerce. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "26c2c7e06e477aecc4bde3c0caa0d371e7ff8aed7951221fa40fcbfaa4e8e642": {
+   "locator": "ecom_rules_2020_egazette:3(1) part 1",
+   "tags": [
+    "marketplace",
+    "direct_seller"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The chunk provides definitions for 'e-commerce entity', 'inventory e-commerce entity' (which sells directly to consumers), and 'marketplace e-commerce entity' (which facilitates transactions between buyers and sellers), thereby identifying the specific provider types covered by the rules. | reviewer: The chunk defines both a marketplace e‑commerce entity and an inventory e‑commerce entity (direct seller). [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "7a8270a931cace4c2d5363b324c31e25153f00e83715b202fe428bd7648307c8": {
+   "locator": "ecom_rules_2020_egazette:3(1) part 2",
+   "tags": [
+    "direct_seller"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The chunk defines 'seller' to include any service provider, which corresponds to the direct_seller tag, and defines 'user' in the context of an e-commerce entity, but does not explicitly define marketplace or payment intermediary roles in this specific text segment. | reviewer: The chunk defines “seller” as the product seller, which refers to a direct seller. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "dfacff87ee51c3bcdab810e02826f0711591e7482539b02a50b0f766723364cd": {
+   "locator": "ecom_rules_2020_egazette:4(3)-(7)",
+   "tags": [
+    "marketplace"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly imposes duties on 'e-commerce entities' regarding their 'platform', grievance officers, and sellers on the platform, which aligns with the definition of a marketplace. | reviewer: The chunk specifies duties of an e‑commerce entity, i.e., a marketplace platform. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "79c9b0ce85c012f5d4ba8306ae1f7043ece23a0d2006853042a51efb0191f01c": {
+   "locator": "ecom_rules_2020_egazette:5(3) part 2",
+   "tags": [
+    "marketplace"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly refers to the ranking of goods or sellers on 'its platform', which identifies the subject as a marketplace e-commerce entity. | reviewer: The clause requires the marketplace to explain ranking parameters, directly referring to a marketplace entity. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "567bea973aec47b46e6a1c85ae13653b5ccf185de55bd7ba5c003bd3f5138adc": {
+   "locator": "nch_about:2",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 1.0,
+   "rationale": "tagger: The text describes the general scope of grievances ('Consumer Issues') without specifying any particular type of provider such as a marketplace, seller, or payment intermediary. | reviewer: The text does not mention any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "56bc36ca75b622a109ce6ff819043d6dd8161e2f0d50f0b12e2d7e9b27cd5854": {
+   "locator": "nch_about:4",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes general features of a consumer awareness portal, such as links to rights and acts, without mentioning any specific duties or procedures for marketplaces, sellers, or payment intermediaries. | reviewer: The text only describes portal features and does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "7204881683cd70d6b4ec46995b37f692360f4b5e35399b4c33126346c4540419": {
+   "locator": "nch_home:p2",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes general consumer procedures for tracking grievances and contacting the National Consumer Helpline, without specifying duties or rights for any particular type of provider. | reviewer: The text describes grievance handling services and does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "135154d9adb5cc860d092bfcd553c24b15240186b69fdce458801be5402c181a": {
+   "locator": "pib_ejagriti_2269994:p1",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes a government award for a consumer grievance platform and does not mention any duties, rights, or procedures specific to marketplaces, sellers, or payment intermediaries. | reviewer: The chunk mentions only the e-Jagriti platform award and does not single out any provider type.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "bdafa0e121302ec4eddccaffcf5b61eb5e09d151777282974c697b920a1a0c24": {
+   "locator": "pib_ejagriti_2269994:p3",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes the features and performance of the e-Jagriti platform for consumer commissions, focusing on procedural aspects like online filing, virtual hearings, and case disposal rates, without specifying duties or rights for specific provider types. | reviewer: The text describes platform functionalities and consumer complaint processes without mentioning any specific provider type.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "35dc8c66a8a3ba00bdf5e26efa25a1b46a31cf8bae0d09fa7e79e117e69de663": {
+   "locator": "pib_ejagriti_2269994:p4",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text describes the e-Jagriti platform's features, NRI complaint statistics, and state disposal rates, which are general procedural and informational details not specific to any provider type. | reviewer: The chunk does not mention any marketplace, seller, or payment intermediary.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "aca9a49997d7fc1d2cc1723e03dae14b61692359594e9849dfa6ee6b90a3c6b2": {
+   "locator": "pib_ejagriti_2269994:p5",
+   "tags": [
+    "direct_seller"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text describes specific court orders against an insurance company and a learning academy, which are direct service providers, but does not mention any marketplace, seller on a marketplace, or payment intermediary. | reviewer: The chunk references an insurance company and a learning academy providing services directly to consumers, fitting the direct_seller category. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "5a7e3988649b597589fcf4e8d1aa366d744dcfec2deb168cbb061763396fc4d6": {
+   "locator": "rbi_ios_2021_notification:1",
+   "tags": [
+    "payment_intermediary"
+   ],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.85,
+   "rationale": "tagger: The text explicitly states the scheme is for customers of entities regulated by the Reserve Bank of India, integrating schemes for Banking, Non-Banking Financial Companies, and Digital Transactions, which corresponds to payment intermediaries. | reviewer: The text refers to customers of entities regulated by the RBI, which includes payment intermediaries.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "c83624d3e1dbd2b694bd449be9a7fb7c7a25d1db6141b079643ea179410e4f02": {
+   "locator": "rbi_ios_2021_notification:3",
+   "tags": [
+    "payment_intermediary"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.9,
+   "rationale": "tagger: The chunk refers to 'regulated entities' complying with the scheme, which in the context of the RBI Ombudsman Scheme refers to banks and financial institutions, corresponding to the 'payment_intermediary' tag. | reviewer: The clause refers only to \"regulated entities\" without specifying payment intermediaries. | reviewer verdict disagree; reviewer would assign different tags",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "d6dc26e520836e0bb4a1cc1db9bb1150a45ff10ba84c2f300792a8538199272a": {
+   "locator": "rbi_ios_2021_notification:4",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 1.0,
+   "rationale": "tagger: The chunk merely states that a complaint format is annexed and does not specify any duties, rights, or procedures for specific types of providers. | reviewer: The text does not mention any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "320ffe46427bb7f0a144ad31391f042ef7bb99450d54260467d5edf600cb462d": {
+   "locator": "rbi_ios_2021_notification:5",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 1.0,
+   "rationale": "tagger: The chunk only specifies the effective date of the Scheme and does not mention any specific provider types or duties. | reviewer: The text does not mention any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "40926bc7db114d7b771a4606fd95897a0132a63d651cd2d64902b92ff600e128": {
+   "locator": "rbi_ios_2022_amendment_notification:1",
+   "tags": [
+    "payment_intermediary"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly directs that 'Credit Information Company' shall be treated as a 'Regulated Entity' under the RBI Integrated Ombudsman Scheme, which is a regulatory framework for entities involved in banking and payment services, fitting the definition of a payment intermediary. | reviewer: The chunk refers to Credit Information Companies, not to payment intermediaries or any of the defined provider types. [evidence is not a quote from the source text] | reviewer verdict disagree; reviewer would assign different tags; low confidence",
+   "reasons": [
+    "reviewer verdict disagree",
+    "reviewer would assign different tags",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "f80e15f94cc83fff152d94d0a9c1842c9d9feec0bc1e3a9c9229923c059808ce": {
+   "locator": "rbi_ios_2022_amendment_notification:3",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 1.0,
+   "rationale": "tagger: The chunk specifies the effective date of the amendment and does not mention any specific provider types or duties. | reviewer: The text only states the effective date of the amendment and does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "049b14a53ab0a80991678d911b4e0244068c0e495e7b70067976ab859622775b": {
+   "locator": "rbi_ios_2022_amendment_notification:4",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The text merely states that an updated version of the Scheme is annexed and does not describe any specific duties, rights, or procedures for any provider type. | reviewer: The text does not mention any type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "80e8e6375154535cc371ad5d53b9d17703c8a6a4aa14bcf6dfa845623847d158": {
+   "locator": "rbi_pr1184:1",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 1.0,
+   "rationale": "tagger: The text announces the launch of the Reserve Bank's Integrated Ombudsman Scheme and does not specify duties or rights for any specific provider type. | reviewer: The chunk does not mention any marketplace, seller, or payment intermediary.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "36ab3e1fc3cf7f32ce8bb2fa3ec4e4fba4ed9befcad0f93978df4feb43b1a1d1": {
+   "locator": "rbi_pr1184:3",
+   "tags": [
+    "payment_intermediary"
+   ],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.97,
+   "rationale": "tagger: The text explicitly mentions 'Non-Scheduled Primary Co-operative Banks' and the 'RBI Ombudsman mechanism', which are entities and procedures regulated for banking and payment services. | reviewer: The text specifically mentions banks, which are payment intermediaries.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "76c9c37e56654a2571b5d956bfb0c721bb32d2bbf8ba6e57966ebfc75d3a54d0": {
+   "locator": "rbi_pr1184:4",
+   "tags": [
+    "payment_intermediary"
+   ],
+   "state": "needs_attention",
+   "reviewer_confidence": 0.5,
+   "rationale": "tagger: The text explicitly mentions 'Regulated Entity' and 'Public Sector Bank' in the context of responding to customer complaints, which corresponds to the definition of a payment intermediary. | reviewer: The text refers specifically to banks as the Regulated Entity, which are payment intermediaries. [evidence is not a quote from the source text] | reviewer verdict unsure; low confidence",
+   "reasons": [
+    "reviewer verdict unsure",
+    "low confidence"
+   ],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "f28b42ce4a980b64c62571a68766e3bd1137d7f50b9433da837f439bcd4f1c6f": {
+   "locator": "rbi_pr1184:5",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 0.99,
+   "rationale": "tagger: The chunk identifies the RBI Executive Director as the Appellate Authority, which is a procedural role within the regulatory framework and does not describe duties or rights specific to any of the allowed provider types. | reviewer: The text names only an RBI official and does not refer to any marketplace, seller, or payment intermediary.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  },
+  "e2fe96c35b6e8b735b17c6fa13afd02eef9eb7a3d56bf129cb8823e094e145a2": {
+   "locator": "rbi_pr1184:7",
+   "tags": [],
+   "state": "llm_reviewed",
+   "reviewer_confidence": 1.0,
+   "rationale": "tagger: The chunk only states where the Scheme is available and its effective date, without describing any specific duties or rights for providers. | reviewer: The text does not mention any specific type of provider.",
+   "reasons": [],
+   "tagger_model": "qwen/qwen3.8-27b",
+   "reviewer_model": "openai/gpt-oss-120b",
+   "prompt_hash": "f9cc60c84bc4+105399c06201",
+   "label_id": null,
+   "expected_tags": null
+  }
+ },
+ "answers": {
+  "m01": {
+   "locator": "cpa2019_egazette:69",
+   "top1_is_right_chunk": true,
+   "verdict": "agree",
+   "confidence": 0.99,
+   "rationale": "The chunk specifies the filing deadline for a consumer complaint."
+  },
+  "m02": {
+   "locator": "cpa2019_egazette:2(7)",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The clause defines a consumer to include online purchases and excludes persons who obtain goods for resale or commercial purpose. [evidence is not a quote from the source text]"
+  },
+  "m03": {
+   "locator": "cpa2019_egazette:41",
+   "top1_is_right_chunk": true,
+   "verdict": "agree",
+   "confidence": 0.99,
+   "rationale": "The chunk specifies the time limit for appealing a District Commission order."
+  },
+  "m04": {
+   "locator": "cpa2019_egazette:34(1)",
+   "top1_is_right_chunk": true,
+   "verdict": "agree",
+   "confidence": 1.0,
+   "rationale": "The chunk directly states the maximum value for District Commission jurisdiction."
+  },
+  "m05": {
+   "locator": "cpa2019_egazette:48",
+   "top1_is_right_chunk": false,
+   "verdict": "unsure",
+   "confidence": 0.78,
+   "rationale": "The chunk mentions that a complaint can be transferred to another District Commission within the State, which partially addresses jurisdiction across cities."
+  },
+  "m06": {
+   "locator": "cpa2019_egazette:69",
+   "top1_is_right_chunk": false,
+   "verdict": "disagree",
+   "confidence": 0.98,
+   "rationale": "The chunk only discusses filing time limits and condonation of delay, not who may file or electronic filing."
+  },
+  "m07": {
+   "locator": "cpa2019_egazette:39(1) part 1",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk lists the specific orders the commission may issue, including refund and replacement of goods. [evidence is not a quote from the source text]"
+  },
+  "m08": {
+   "locator": "cpa2019_egazette:38(7)-(8)",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk specifies the time limits the District Commission must follow to decide a complaint. [evidence is not a quote from the source text]"
+  },
+  "m09": {
+   "locator": "cpa2019_egazette:72",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk specifies the penalties for failing to comply with a commission order. [evidence is not a quote from the source text]"
+  },
+  "m10": {
+   "locator": "ecom_rules_2020_egazette:4(3)-(7)",
+   "top1_is_right_chunk": false,
+   "verdict": "agree",
+   "confidence": 0.99,
+   "rationale": "The chunk specifies the required acknowledgment time and resolution deadline for the grievance officer."
+  },
+  "m11": {
+   "locator": "ecom_rules_2020_egazette:6(1)-(3)",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The rule explicitly states sellers cannot refuse to refund for defective goods. [evidence is not a quote from the source text]"
+  },
+  "m12": {
+   "locator": "ecom_rules_2020_egazette:4(8)-(10)",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk explicitly states that e‑commerce entities may not impose cancellation charges on consumers after purchase confirmation except in limited circumstances. [evidence is not a quote from the source text]"
+  },
+  "m13": {
+   "locator": "ecom_rules_2020_egazette:4(8)-(10)",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The clause explicitly requires e‑commerce entities to pay accepted refunds within a reasonable period of time. [evidence is not a quote from the source text]"
+  },
+  "m14": {
+   "locator": "ecom_rules_2020_egazette:5(3) part 1",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk explicitly lists the seller details to be shown and the requirement for a complaint ticket number. [evidence is not a quote from the source text]"
+  },
+  "m15": {
+   "locator": "ecom_rules_2020_egazette:6(1)-(3)",
+   "top1_is_right_chunk": false,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The rule explicitly states that refusing to take back defective goods or refund is prohibited as an unfair trade practice. [evidence is not a quote from the source text]"
+  },
+  "m16": {
+   "locator": "cpa2019_egazette:2(10)-(11)",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk defines both \"defect\" for goods and \"deficiency\" for services. [evidence is not a quote from the source text]"
+  },
+  "m17": {
+   "locator": "rbi_pr1184:2",
+   "top1_is_right_chunk": true,
+   "verdict": "agree",
+   "confidence": 0.97,
+   "rationale": "The chunk specifies the condition under which a customer can approach the RBI Ombudsman."
+  },
+  "m18": {
+   "locator": "nch_about:3",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk lists both the toll‑free numbers and the WhatsApp number for the helpline. [evidence is not a quote from the source text]"
+  },
+  "m19": {
+   "locator": "nch_home:p2",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.78,
+   "rationale": "The chunk mentions the ability to register a grievance but does not provide the step‑by‑step instructions requested."
+  },
+  "m20": {
+   "locator": "pib_ejagriti_2269994:p2",
+   "top1_is_right_chunk": true,
+   "verdict": "agree",
+   "confidence": 0.98,
+   "rationale": "The chunk states that e-Jagriti unified and thus replaced e-Daakhil for filing consumer cases."
+  },
+  "m21": {
+   "locator": "cpa2019_egazette:69",
+   "top1_is_right_chunk": true,
+   "verdict": "agree",
+   "confidence": 0.99,
+   "rationale": "The chunk specifies the time limit for filing a consumer complaint."
+  },
+  "m22": {
+   "locator": "ecom_rules_2020_egazette:6(1)-(3)",
+   "top1_is_right_chunk": false,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk specifies the seller's duty to refund when delivery is late or goods are defective. [evidence is not a quote from the source text]"
+  },
+  "m23": {
+   "locator": "ecom_rules_2020_egazette:4(3)-(7)",
+   "top1_is_right_chunk": false,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk specifies that e‑commerce platforms must provide grievance officer contact details and outline complaint acknowledgment and redress timelines. [evidence is not a quote from the source text]"
+  },
+  "m24": {
+   "locator": "cpa2019_egazette:73",
+   "top1_is_right_chunk": false,
+   "verdict": "agree",
+   "confidence": 0.98,
+   "rationale": "The chunk specifies the time limit for filing an appeal against a District Commission order."
+  },
+  "m25": {
+   "locator": "ecom_rules_2020_egazette:4(8)-(10)",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk states that e‑commerce entities cannot impose cancellation charges on consumers unless they also bear similar charges. [evidence is not a quote from the source text]"
+  },
+  "m26": {
+   "locator": "rbi_pr1184:2",
+   "top1_is_right_chunk": false,
+   "verdict": "disagree",
+   "confidence": 0.9,
+   "rationale": "The chunk describes the integrated ombudsman scheme but does not explain how to file a complaint with RBI."
+  },
+  "m27": {
+   "locator": "ecom_rules_2020_egazette:4(8)-(10)",
+   "top1_is_right_chunk": false,
+   "verdict": "disagree",
+   "confidence": 0.97,
+   "rationale": "The chunk describes e‑commerce entity duties on cancellation charges, consent, and refund payments, not the orders a consumer commission can issue for refund or compensation."
+  },
+  "m28": {
+   "locator": "ecom_rules_2020_egazette:6(1)-(3)",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The rule explicitly prohibits sellers from refusing refunds for defective goods. [evidence is not a quote from the source text]"
+  },
+  "m29": {
+   "locator": "nch_home:p2",
+   "top1_is_right_chunk": true,
+   "verdict": "unsure",
+   "confidence": 0.5,
+   "rationale": "The chunk provides the helpline numbers and mentions WhatsApp as a way to lodge grievances. [evidence is not a quote from the source text]"
+  },
+  "m30": {
+   "locator": "cpa2019_egazette:34(1)",
+   "top1_is_right_chunk": true,
+   "verdict": "agree",
+   "confidence": 0.99,
+   "rationale": "The chunk directly states the maximum value for complaints to the District Commission."
+  }
+ },
+ "run": {
+  "tagger": {
+   "model": "qwen/qwen3.8-27b",
+   "mode": "instruct",
+   "reasoning_effort": "none"
+  },
+  "reviewer": {
+   "model": "openai/gpt-oss-120b",
+   "reasoning_effort": "low"
+  },
+  "prompt_hash": "f9cc60c84bc4+105399c06201",
+  "answer_prompt_hash": "b8b7ebdf8a97",
+  "calls_this_run": 78,
+  "tokens_this_run": 57894,
+  "spent_usd_this_run": 0.0253
+ }
+}
