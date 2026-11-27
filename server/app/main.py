@@ -26,6 +26,7 @@ from app.core.logging import configure_logging
 from app.core.objects import EncryptedObjectStore
 from app.core.ratelimit import RateLimiter
 from app.core.security import make_hasher
+from app.devfakes import fake_vendors_enabled, install_fake_vendors
 
 
 def create_app(
@@ -53,6 +54,8 @@ def create_app(
         raise RuntimeError("MASTER_KEY is not set. Run scripts/init_env.py to create one in .env.")
     app.state.login_limiter = RateLimiter(limit=5, window=timedelta(minutes=1), clock=app.state.clock)
     app.state.objects = EncryptedObjectStore(SERVER_ROOT / "data" / "objects")
+    if fake_vendors_enabled(settings):
+        install_fake_vendors(app)  # RESOLVE_FAKE_VENDORS=1 in dev or test: scripted stand-ins, no vendor is called
     install_error_handlers(app)
     app.include_router(auth_router)
     app.include_router(cases_router)
