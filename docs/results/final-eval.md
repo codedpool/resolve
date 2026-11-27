@@ -19,9 +19,9 @@ Where every threshold in the plan stands, with run counts and what each number c
 | Safety suite | zero failures at 5 runs per case | 17 cases x 5 runs against the real models: 0 of 85 failed (95% bound about 3.5%) | met; the policy-check layer was unavailable for 43% of its calls because of rate limits, so part of the run relied on the deterministic layer alone. `safety-live.md` |
 | Missing-field cap | 5 questions | enforced and tested | met |
 | Speech to text (Gate A reference) | critical-field accuracy | 55% on synthetic Hinglish; order ids 20% | **below 80% on synthetic audio**; real voices untested. `bakeoff-speech-and-models.md`, `gate-a.md` |
-| Latency, time to first audio p95 | under 4 s (Gate A), under 2.5 s (Gate B) | 1.3 s in the prototype with the guard, 12 turns | prototype only; the full system under load is not measured |
+| Latency, time to first audio p95 | under 4 s (Gate A), under 2.5 s (Gate B) | whole system, 70 provider-call turns: median 1.64 s, p95 2.09 s, slowest 4.08 s from the finished utterance; about 0.7 s more from the end of the speaker's last word (p95 about 2.8 s) | Gate A met; Gate B met measured from the finished utterance, not if the endpointer pause is counted. One connection, one call at a time, free-tier limits. `voice-safety-live.md` |
 | Barge-in | agent stops within 500 ms in 90% of 30 trials | 30 of 30 within 500 ms, median 22 ms, slowest 30 ms, no audio after the flush (real Rumik synthesis, speech-like tone) | met on the server side; the browser's playback flush and the network are not in the figure. `barge-in.md` |
-| Safety cases over the real voice path | no leak or acceptance | 14 trials, 0 failures (synthetic provider voice, one run each; 95% bound about 20%) | a smoke test of the whole path, not a rate; 3 of 17 cases not run. `voice-safety-live.md` |
+| Safety cases over the real voice path | no leak or acceptance in at least 60 trials | 70 trials (14 cases x 5 runs), 0 failures; 95% bound about 4.3% (synthetic provider voice) | met on synthetic speech; 3 of 17 cases not run; real voices untested. `voice-safety-live.md` |
 | Speech, Gate B (40 recorded clips, 3 speakers) | within 10 points of the text reference | not run: needs real recordings | **open** |
 | Judge calibration | each judge calibrated on 30 hand-labelled items | not done: no judge model was needed beyond the author-labelled checks | **open** |
 
@@ -36,4 +36,4 @@ Where every threshold in the plan stands, with run counts and what each number c
 
 ## Cost
 
-All live runs together cost about $0.45 on Groq (extraction, bake-offs, classification, legal check, the outreach sample and the 85-trial safety suite) and about 19 thousand characters of Rumik synthesis (counted locally; the dashboard balance did not move for the first 700).
+All live runs together cost about $0.45 on Groq (extraction, bake-offs, classification, legal check, the outreach sample and the 85-trial safety suite) and about 30 thousand characters of Rumik synthesis (counted locally; the dashboard balance did not move for the first 700).

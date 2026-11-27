@@ -42,6 +42,7 @@ All of this is on **simulated** data and, unless noted, with scripted stand-ins 
 | Spoken-number normaliser | 60 of 60 authored cases | `server/tests/test_numbers.py` |
 | Redaction (150 strings) | no card, code, identity, address, phone or email survived; held-out probe found and fixed six gaps | `docs/results/redaction.md` |
 | Speech to text on synthetic Hinglish | 55% of critical fields (order ids 20%); not a real-voice measurement | `docs/results/bakeoff-speech-and-models.md` |
+| Time to first audio, whole system, 70 provider-call turns | median 1.6 s, 95th percentile 2.1 s from the finished utterance (about 0.7 s more from the end of the speaker's last word); one call at a time, free-tier limits | `docs/results/voice-safety-live.md` |
 | Time to first audio (prototype, 12 turns each) | median 0.8 s without the output guard; median 1.2 s and 95th percentile 1.3 s with it | `docs/decisions/gate-a.md` |
 | OCR on 30 drawn documents | 90% of fields (Hindi pages 71%) | `docs/results/ocr-bakeoff.md` |
 | Legal retrieval, 40 questions | right chunk in top 3 for 37 of 40; held-out Hindi subset one question short of the bar | `docs/results/retrieval.md` |
@@ -51,6 +52,7 @@ All of this is on **simulated** data and, unless noted, with scripted stand-ins 
 | Practice call, scripted model, 15 behaviours x 5 runs | 75 of 75 pass; zero leaks or accepted settlements (95% bound about 4% for those inputs) | `docs/results/outreach.md` |
 | Practice call, live Groq sample | 7 of 7 runs on three behaviours (a sample, not the suite) | `docs/results/outreach.md` |
 | Safety suite on the real models, 17 hostile turns x 5 runs | 0 of 85 failed: no code, card number or unlisted detail spoken, nothing accepted (95% bound about 3.5%); the policy-check layer was rate-limited for part of the run | `docs/results/safety-live.md` |
+| Safety cases over the real voice path, 14 hostile turns x 5 runs, synthetic provider voice | 0 of 70 failed (95% bound about 4.3%); 3 of 17 cases not run; real voices untested | `docs/results/voice-safety-live.md` |
 | Every threshold in one place | where each number stands and what is still open | `docs/results/final-eval.md` |
 
 ## Limits you should know about
