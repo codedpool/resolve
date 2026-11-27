@@ -18,6 +18,10 @@ Copy-Item ..\.env.example ..\.env            # then fill GROQ_API_KEY, RUMIK_API
 
 `MASTER_KEY` is a base64 32-byte key. Generate one with `.venv\Scripts\python -c "from app.core.crypto import generate_key, encode_master_key; print(encode_master_key(generate_key()))"`. Keys live only in `.env`, which is never committed. `.venv\Scripts\python scripts\check_secrets.py` scans all four repos for key material.
 
+## Running with no vendors
+
+Set `RESOLVE_FAKE_VENDORS=1` (with `APP_ENV` `dev` or `test`; it is ignored otherwise) and the app uses scripted stand-ins for Groq, Rumik and Tesseract: deterministic fact extraction from a fixed Hinglish story, keyword turn classification, scripted OCR, drafting and speech, with the real output guard and checks in code still running. What exactly is scripted is written at the top of `app/devfakes.py`. `scripts/run_e2e_server.py` starts the app this way on a throwaway database for the browser test in `../client` (`npm run test:e2e:full-text`).
+
 ## Local OCR
 
 Evidence documents are read locally with Tesseract (English and Hindi). On Windows: `winget install UB-Mannheim.TesseractOCR`, then put `eng.traineddata`, `hin.traineddata` and `osd.traineddata` in `server\data\tessdata` (the Hindi file comes from the `tessdata_fast` repository of the Tesseract project). The Docker image does this for you.

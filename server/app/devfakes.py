@@ -57,7 +57,7 @@ ALLOWED_ENVS = {"dev", "test"}
 
 # The story the end-to-end test tells. It leaves out the order date on purpose, so one follow-up question is needed.
 STORY = (
-    "Maine Zeta Mart se ek phone 4999 rupaye mein order kiya tha, order id OD43817265. "
+    "Maine Zeta Mart se ek phone 4999 rupaye mein order kiya tha, order id OD43817265. Paise UPI se diye the. "
     "Phone wapas kar diya par refund nahi aaya. Mujhe poora refund chahiye."
 )
 STORY_VARIANTS = (

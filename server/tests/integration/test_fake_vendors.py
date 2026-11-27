@@ -33,7 +33,7 @@ def test_the_switch_needs_the_variable_and_a_dev_or_test_environment(monkeypatch
 def test_the_fixed_story_gives_the_expected_facts_and_no_order_date():
     got = _values(STORY)
     assert got["company_name"] == "Zeta Mart" and got["amount"] == "4999" and got["order_id"] == "OD43817265"
-    assert got["desired_remedy"] == "full refund" and got["product"] == "phone" and "order_date" not in got
+    assert got["desired_remedy"] == "full refund" and got["product"] == "phone" and got["payment_mode"] == "upi" and "order_date" not in got
     assert "provider_entity_type" not in got
 
 
