@@ -31,7 +31,11 @@ _FIELD_PATTERNS: dict[str, re.Pattern] = {
     "bank_account": re.compile(r"(?i)bank account|account number|a/c|\bifsc\b|खाता|खाते का नंबर"),
     "upi_id": re.compile(r"(?i)\bupi\b|\bvpa\b|यूपीआई"),
     "date_of_birth": re.compile(r"(?i)date of birth|\bdob\b|birth ?date|birthday|जन्म"),
-    "phone": re.compile(r"(?i)phone|mobile|contact number|whatsapp|फोन|मोबाइल|registered number|number on the account|cell number"),
+    # "your phone" in "a code came on your phone" is not a request for the number: skip "on (the) phone" and "phone par/pe"
+    "phone": re.compile(
+        r"(?i)(?<!on the )(?<!on your )(?<!on his )(?<!on her )(?<!on )(?:phone|mobile|फोन|मोबाइल)(?!\s+(?:par\b|pe\b|पर|पे|से))"
+        r"|contact number|whatsapp|registered number|number on the account|cell number"
+    ),
     "email": re.compile(r"(?i)e-?mail|ईमेल"),
     "address": re.compile(r"(?i)address|\bpata\b|पता|delivery location|house number|flat number|street"),
     "pincode": re.compile(r"(?i)pin ?code|postal code|zip|पिन कोड|पिनकोड"),

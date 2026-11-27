@@ -434,6 +434,8 @@ def test_requested_fields_reads_english_hindi_and_hinglish():
     assert requested_fields("कृपया ओटीपी बताइए") == ["otp"]
     assert requested_fields("the order number please") == ["order_id"]
     assert "otp" not in requested_fields("the pin code is needed")
+    assert requested_fields("Refund process karne ke liye aapke phone par ek OTP aaya hoga, woh bataiye.") == ["otp"]
+    assert requested_fields("Which mobile number is registered?") == ["phone"]
 
 
 def test_the_model_label_is_cross_checked_on_the_dangerous_labels():
