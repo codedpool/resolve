@@ -11,6 +11,7 @@ from app.api.approvals import router as approvals_router
 from app.api.auth import router as auth_router
 from app.api.cases import router as cases_router
 from app.api.evidence import router as evidence_router
+from app.api.followup import router as followup_router
 from app.api.intake import router as intake_router
 from app.api.mandates import router as mandates_router
 from app.api.notifications import router as notifications_router
@@ -67,6 +68,7 @@ def create_app(
     app.include_router(notifications_router)
     app.include_router(voice_router)
     app.include_router(outreach_router)
+    app.include_router(followup_router)
 
     @app.get("/health")
     def health() -> dict:

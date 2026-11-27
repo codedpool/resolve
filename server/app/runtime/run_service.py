@@ -37,6 +37,18 @@ def once(session_factory, key: str, fn) -> bool:
     return True
 
 
+def once_in_session(session: Session, key: str, fn) -> bool:
+    """`once` for an effect that writes through the caller's own session. The key and the effect are committed or rolled
+    back together, so a worker killed in the middle leaves neither: the retry runs the effect, and a finished one is never
+    run again. (`once` above commits the key first, which suits an effect that cannot be undone but loses it if it fails.)"""
+    if session.get(SideEffect, key) is not None:
+        return False
+    fn()
+    session.add(SideEffect(key=key, created_at=datetime.now(timezone.utc)))
+    session.flush()
+    return True
+
+
 def _plain_url(database_url: str) -> str:
     return database_url.replace("postgresql+psycopg://", "postgresql://", 1)
 

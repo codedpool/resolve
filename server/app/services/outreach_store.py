@@ -36,6 +36,19 @@ ENTITY_TYPES = {"marketplace", "seller_on_marketplace", "direct_seller", "paymen
 CREDIT_DOC_WORDS = ("refund", "credit")  # an evidence document of this type shows money arriving
 
 
+def case_evidence_of(session: Session, case: Case, key: bytes, facts: dict[str, str]) -> CaseEvidence:
+    """What the code compares a provider's claim with: the stored facts and, as credits, evidence documents that show a
+    refund arriving. A receipt or invoice is a purchase document, not a credit."""
+    credits = []
+    for row in session.scalars(select(Evidence).where(Evidence.case_id == case.id)).all():
+        if not row.fields_enc or not any(w in (row.type or "") for w in CREDIT_DOC_WORDS):
+            continue
+        body = json.loads(open_text(row.fields_enc, key)).get("fields", {})
+        credits.append(Credit(str(body.get("amount", "")), str(body.get("order_date", body.get("date", ""))), str(body.get("reference", ""))))
+    refs = tuple(v for k, v in facts.items() if k == "refund_reference" and v)
+    return CaseEvidence(facts.get("amount", ""), facts.get("order_date", ""), facts.get("order_id", ""), refs, tuple(c for c in credits if c.amount))
+
+
 class ServerOutreachStore:
     def __init__(self, session: Session, case: Case, user: User, call: Call, key: bytes, now) -> None:
         self.session, self.case, self.user, self.call, self.key, self._now = session, case, user, call, key, now
@@ -68,17 +81,7 @@ class ServerOutreachStore:
         return {"name": facts.get("company_name") or "the company", "entity_type": entity if entity in ENTITY_TYPES else "unknown"}
 
     def case_evidence(self, case_id: str) -> CaseEvidence:
-        """What the code compares a provider's claim with: the stored facts and, as credits, evidence documents that show a
-        refund arriving. A receipt or invoice is a purchase document, not a credit."""
-        facts = self._facts()
-        credits = []
-        for row in self.session.scalars(select(Evidence).where(Evidence.case_id == self.case.id)).all():
-            if not row.fields_enc or not any(w in (row.type or "") for w in CREDIT_DOC_WORDS):
-                continue
-            body = json.loads(open_text(row.fields_enc, self.key)).get("fields", {})
-            credits.append(Credit(str(body.get("amount", "")), str(body.get("order_date", body.get("date", ""))), str(body.get("reference", ""))))
-        refs = tuple(v for k, v in facts.items() if k == "refund_reference" and v)
-        return CaseEvidence(facts.get("amount", ""), facts.get("order_date", ""), facts.get("order_id", ""), refs, tuple(c for c in credits if c.amount))
+        return case_evidence_of(self.session, self.case, self.key, self._facts())
 
     # -- case writes ------------------------------------------------------------------------------------------------
     def save_promise(self, case_id: str, call_id: str, who: str, what: str, by_when: str, reference: str, key: str) -> str:

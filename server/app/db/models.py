@@ -225,6 +225,17 @@ class OutreachState(Base):
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
 
 
+class FollowUpState(Base):
+    """Working state of the follow-up graph for one case, sealed with the case key: events already handled, the approvals and
+    reminders they made, and a pending escalation choice."""
+
+    __tablename__ = "follow_up_states"
+
+    case_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("cases.id"), primary_key=True)
+    body_enc: Mapped[bytes] = mapped_column(LargeBinary)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
 class Evidence(Base):
     __tablename__ = "evidence"
 
