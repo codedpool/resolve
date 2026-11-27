@@ -20,9 +20,12 @@ class RedactionFilter(logging.Filter):
         self.secrets = [item for item in (secrets or []) if item]
 
     def filter(self, record: logging.LogRecord) -> bool:
-        record.msg = self.redact(str(record.msg))
-        if record.args:
-            record.args = tuple(self.redact(str(arg)) for arg in record.args)
+        try:
+            message = record.getMessage()  # format first, so numeric formats such as %.2f work, then strip secrets from the result
+        except (TypeError, ValueError):
+            message = str(record.msg)
+        record.msg = self.redact(message)
+        record.args = None
         return True
 
     def redact(self, text: str) -> str:

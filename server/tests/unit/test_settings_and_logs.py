@@ -30,3 +30,12 @@ def test_configured_logger_emits_json_without_the_canary():
     payload = json.loads(handler.format(record))
     assert canary not in payload["message"]
     assert "[redacted]" in payload["message"]
+
+
+def test_log_filter_keeps_numeric_formats_working_and_still_strips_secrets():
+    canary = "canary-secret-value-should-not-leak"
+    filt = RedactionFilter([canary])
+    record = logging.LogRecord("resolve", logging.INFO, __file__, 1, "took %.2fs for %d items using %s", (1.2345, 3, canary), None)
+    assert filt.filter(record) is True
+    message = record.getMessage()
+    assert message.startswith("took 1.23s for 3 items") and canary not in message

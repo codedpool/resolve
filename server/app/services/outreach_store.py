@@ -167,7 +167,7 @@ def get_retriever(request, session: Session):
         return NoRetriever()
 
 
-def build_runner(request, session: Session, user: User, case: Case, call: Call, key: bytes) -> OutreachRunner:
+def build_runner(request, session: Session, user: User, case: Case, call: Call, key: bytes, on_sentence=None) -> OutreachRunner:
     state = request.app.state
     now = state.clock.now
     llm = get_llm(request)
@@ -177,7 +177,7 @@ def build_runner(request, session: Session, user: User, case: Case, call: Call, 
     ports = OutreachPorts(
         llm=llm, classifier=llm, screen=llm, case_store=case_store, store=ServerOutreachStore(session, case, user, call, key, now),
         approvals=ServerApprovalPort(session, case, user, key, state.master_key, now), retriever=get_retriever(request, session), guard=guard,
-        now=now, normalise=normalize_numbers, backoff_watch=getattr(llm, "watch_backoff", None),
+        now=now, normalise=normalize_numbers, backoff_watch=getattr(llm, "watch_backoff", None), on_sentence=on_sentence,
     )
     return OutreachRunner(ports)
 

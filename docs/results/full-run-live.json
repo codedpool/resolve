@@ -1,0 +1,81 @@
+{
+ "steps": [
+  {
+   "step": "intake",
+   "ok": true,
+   "questions": [
+    "What is the order number? You can also type it into the form.",
+    "On which date did you place the order?",
+    "What would you like: a refund, a replacement, or something else?"
+   ],
+   "first": {
+    "text": null,
+    "phase": "narrating",
+    "status": "intake",
+    "handoff_fields": []
+   },
+   "last_reply": {
+    "text": "I have noted what you told me. Please check each detail below and confirm it.",
+    "phase": "confirming",
+    "status": "confirming",
+    "handoff_fields": []
+   },
+   "fields": [
+    "amount",
+    "company_name",
+    "company_said",
+    "currency",
+    "desired_remedy",
+    "issue_summary",
+    "order_date",
+    "order_id",
+    "product",
+    "provider_entity_type"
+   ],
+   "values": {
+    "company_name": "Zeta Mart",
+    "amount": "3000",
+    "order_id": "ZM48210937"
+   }
+  },
+  {
+   "step": "confirm",
+   "ok": true,
+   "status": "ready_for_mandate"
+  },
+  {
+   "step": "mandate",
+   "ok": true,
+   "status": 200
+  },
+  {
+   "step": "call",
+   "ok": true,
+   "heard": "We are sorry for the trouble. We can offer you a voucher of 500 rupees as a full and final settlement.",
+   "agent": [
+    "Hello, I am an AI assistant calling on behalf of a customer about the refund for order ZM48210937.",
+    "Thank you for the offer.",
+    "I am not able to accept or counter it on my own; I have noted your voucher offer and will pass it to the customer, who will decide through the app.",
+    "Thank you for your time."
+   ],
+   "audio_bytes": 528384
+  },
+  {
+   "step": "approval_pending",
+   "ok": true,
+   "approvals": [
+    {
+     "kind": "summary",
+     "status": "pending"
+    }
+   ],
+   "frame_approval": true
+  },
+  {
+   "step": "approval_decided",
+   "ok": true,
+   "status": 200,
+   "seconds": 17459
+  }
+ ]
+}

@@ -134,3 +134,27 @@ def test_there_is_no_narration_on_a_provider_call(client):
         ws.send_json({"type": "end"})
         frames, _ = collect(ws, lambda f: f.get("type") == "closed", limit=800)
         assert frames[-1]["type"] == "closed"
+
+
+def test_each_spoken_turn_logs_where_the_time_went(client):
+    import logging
+
+    lines = []
+
+    class Catch(logging.Handler):
+        def emit(self, record):
+            if record.getMessage().startswith("turn latency"):
+                lines.append(record.getMessage())
+
+    _, _, call = _call(client, "vp-latency@example.com", ["Please confirm the order number."])
+    logging.getLogger("resolve").addHandler(Catch())
+    logging.getLogger("resolve").disabled = False  # the migration step of the test fixture disables existing loggers
+    with client.websocket_connect(url(call)) as ws:
+        ws.receive_json()
+        collect(ws, lambda f: f.get("who") == "agent")
+        take_chunks(ws, 3)
+        stream(ws, speech(2.0) + silence(1.2))
+        collect(ws, lambda f: f.get("who") == "user", limit=800)
+        ws.send_json({"type": "end"})  # the answer to the turn is spoken in full before the call ends
+        collect(ws, lambda f: f.get("type") == "closed", limit=2000)
+    assert lines and all(part in lines[0] for part in ("stt=", "graph_to_first_sentence=", "tts_first_audio=", "total="))

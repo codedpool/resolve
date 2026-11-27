@@ -137,7 +137,18 @@ class CallRunner:
         self.silence_prompted = False
         self.last_speech = self.now()
         self.closed = False
+        self.turn_timing: dict | None = None  # perf_counter marks for the turn being answered, for the latency log
         self.holder = SimpleNamespace(app=self.app)
+
+    def _log_turn_latency(self) -> None:
+        """One line per spoken turn: how long each stage took, up to the first audio byte sent. The endpointer's own pause comes before the first mark."""
+        t = self.turn_timing or {}
+        self.turn_timing = None
+        now = time.perf_counter()
+        start = t.get("utterance", now)
+        stt = t.get("stt", start) - start
+        graph = t.get("graph", t.get("stt", start)) - t.get("stt", start)
+        log.info("turn latency stt=%.2fs graph_to_first_sentence=%.2fs tts_first_audio=%.2fs total=%.2fs", stt, graph, now - t.get("graph", now), now - start)
 
     # -- output ---------------------------------------------------------------
     async def send(self, payload: dict) -> None:
@@ -168,6 +179,8 @@ class CallRunner:
             await self.send({"type": "caption", "who": "agent", "text": sentence, "final": True})
             self.interrupted = sentence
             async for chunk in self.tts.speak(sentence):
+                if self.turn_timing is not None:
+                    self._log_turn_latency()
                 await self.ws.send_bytes(chunk)
             self.interrupted = None
 
@@ -243,9 +256,12 @@ class CallRunner:
             return
         role = "stt_narration" if self.phase == "narration" else "stt_turns"
         self.budget.stt_seconds += len(pcm) / 32000
+        self.turn_timing = {"utterance": time.perf_counter()}
         result = await asyncio.to_thread(self.stt.transcribe, role, _wav(pcm))
+        self.turn_timing["stt"] = time.perf_counter()
         text = (result.get("text") or "").strip()
         if not text:
+            self.turn_timing = None
             return
         shown = Redactor().redact_or_withhold(text)
         await self.send({"type": "caption", "who": "user", "text": shown.text if not shown.withheld else "[hidden]", "final": True})
@@ -353,7 +369,7 @@ class ProviderRunner(CallRunner):
         self.phase = "provider_call"
         self.endpointer.set_pause(TURN_PAUSE_MS)
 
-    def _outreach(self, op: str, text: str = "") -> dict:
+    def _outreach(self, op: str, text: str = "", on_sentence=None) -> dict:
         from app.db.models import Call
         from app.services.access import data_key
         from app.services.outreach_store import build_runner
@@ -363,7 +379,7 @@ class ProviderRunner(CallRunner):
             user = session.get(User, self.user_id)
             case = owned_case(session, user, self.case_id)
             call = session.get(Call, self.call_id)
-            runner = build_runner(self.holder, session, user, case, call, data_key(self.holder, case))
+            runner = build_runner(self.holder, session, user, case, call, data_key(self.holder, case), on_sentence=on_sentence)
             if op == "start":
                 result = runner.start(str(case.id), str(call.id))
             elif op == "turn":
@@ -378,13 +394,45 @@ class ProviderRunner(CallRunner):
         finally:
             session.close()
 
-    async def _apply(self, out: dict) -> None:
+    async def _run_streaming(self, op: str, text: str = "") -> tuple[dict, int]:
+        """Runs one outreach operation in a worker thread and speaks each sentence the moment it has passed the output guard, instead of
+        waiting for the whole reply. Returns the result and how many sentences were already spoken. A barge-in cancels the speaking task;
+        the operation itself still finishes and is recorded."""
+        loop = asyncio.get_running_loop()
+        queue: asyncio.Queue = asyncio.Queue()
+        spoken = 0
+        work = asyncio.ensure_future(asyncio.to_thread(self._outreach, op, text, lambda sentence: loop.call_soon_threadsafe(queue.put_nowait, sentence)))
+
+        async def speak_as_they_arrive() -> None:
+            nonlocal spoken
+            while True:
+                getter = asyncio.ensure_future(queue.get())
+                done, _ = await asyncio.wait({getter, work}, return_when=asyncio.FIRST_COMPLETED)
+                if getter in done:
+                    if spoken == 0 and self.turn_timing is not None:
+                        self.turn_timing["graph"] = time.perf_counter()  # the first sentence has passed the guard
+                    spoken += 1
+                    await self.say(getter.result())
+                    continue
+                getter.cancel()
+                while not queue.empty():
+                    spoken += 1
+                    await self.say(queue.get_nowait())
+                return
+
+        self.speech = asyncio.create_task(speak_as_they_arrive())
+        out = await work  # an error in the operation is raised here, after the sentences that were already guarded
+        await self.wait_speech()
+        return out, spoken
+
+    async def _apply(self, out: dict, spoken: int = 0) -> None:
         if out.get("blocked"):
             await self.send({"type": "error", "code": "mandate_required"})
             await self.close("mandate_required")
             return
-        if out["sentences"]:
-            self.start_speaking(" ".join(out["sentences"]))
+        rest = out["sentences"][spoken:]  # normally nothing: every sentence was streamed as it was guarded
+        if rest:
+            self.start_speaking(" ".join(rest))
             await self.wait_speech()
         if out.get("approval_id"):
             await self.send({"type": "approval", "approval_id": out["approval_id"]})
@@ -394,7 +442,7 @@ class ProviderRunner(CallRunner):
 
     async def begin(self) -> None:
         await self.send({"type": "phase", "phase": "provider_call"})
-        await self._apply(await asyncio.to_thread(self._outreach, "start"))
+        await self._apply(*await self._run_streaming("start"))
 
     async def run(self) -> None:
         await self.queue.put(self.begin)
@@ -402,12 +450,12 @@ class ProviderRunner(CallRunner):
 
     async def step(self, event: str, text: str = "") -> None:
         if event == "message":
-            await self._apply(await asyncio.to_thread(self._outreach, "turn", text))
+            await self._apply(*await self._run_streaming("turn", text))
 
     async def _control(self, frame: dict) -> bool:
         if frame.get("type") == "end":
             await self.wait_speech()
-            await self._apply(await asyncio.to_thread(self._outreach, "end"))
+            await self._apply(*await self._run_streaming("end"))
             await self.close("ended")
             return True
         if frame.get("type") == "done_narration":
