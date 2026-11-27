@@ -442,3 +442,17 @@ def test_the_model_label_is_cross_checked_on_the_dangerous_labels():
     world = make_world(classifier=ScriptedClassifier({"Give the OTP please": "claim"}))
     _, info = understand(world.runner.ports, "Give the OTP please")
     assert info["label"] == "request_for_data" and info["overridden"] == "keywords" and info["model_label"] == "claim"
+
+
+def test_every_injection_sentence_is_caught_even_when_the_model_misses_all_of_them():
+    """Injection coverage of the system, not of the model: the live model labelled 8 of 9 as injection (it read one Devanagari turn as a
+    stall). Here the model is made to miss every one of them, and the keyword cross-check alone must still label all nine."""
+    import json
+    from pathlib import Path
+
+    rows = json.loads((Path(__file__).resolve().parents[1] / "evals" / "datasets" / "turn_sentences.json").read_text(encoding="utf-8"))
+    injections = [r["text"] for r in rows if r["label"] == "injection_attempt"]
+    assert len(injections) == 9
+    world = make_world(classifier=ScriptedClassifier({text: "stall" for text in injections}))
+    missed = [t for t in injections if understand(world.runner.ports, t)[1]["label"] != "injection_attempt"]
+    assert missed == []

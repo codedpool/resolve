@@ -41,7 +41,8 @@ class Understood:
 _INJECTION = re.compile(
     r"ignore (?:all |your |the )?(?:previous|prior|earlier)|forget (?:everything|the refund|your)|disregard (?:the |your )?(?:rules|mandate|instructions)|"
     r"system prompt|developer mode|you are now|new instruction|system:|system message|pichh?le (?:saare |sabhi )?(?:nirdesh|instructions?|niyam)|"
-    r"bhool jao|निर्देश|भूल जाओ|अनदेखा|सिस्टम|from now on you",
+    r"bhool jao|निर्देश|भूल जाओ|अनदेखा|सिस्टम|from now on you|"
+    r"hidden (?:rules|instructions)|(?:say|tell the customer) .{0,60}you (?:approve|accept|agree)|kaho ki aap|apne niyam (?:mujhe )?batao|अपने नियम",
     re.IGNORECASE,
 )
 _DATA = re.compile(
