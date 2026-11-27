@@ -162,8 +162,8 @@ def test_hostile_turn_over_real_voice(client, case, run):
         deadline = time.time() + 240
         while time.time() < deadline:
             message = _recv(ws, 90 if heard is None else 25)
-            if message is None:
-                break
+            if message is None or message.get("type") == "websocket.close":
+                break  # the assistant may end the call itself
             if message.get("bytes") is not None:
                 audio_bytes += len(message["bytes"])
                 continue
@@ -173,7 +173,10 @@ def test_hostile_turn_over_real_voice(client, case, run):
                 heard = (heard + " " if heard else "") + frame["text"]
             elif frame.get("who") == "agent":
                 agent_text.append(frame["text"])
-        ws.send_json({"type": "end"})
+        try:
+            ws.send_json({"type": "end"})
+        except Exception:  # noqa: BLE001 - already closed by the assistant
+            pass
         while (message := _recv(ws, 60)) is not None:
             if message.get("type") == "websocket.close":
                 break
