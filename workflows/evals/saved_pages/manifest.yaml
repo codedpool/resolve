@@ -1,0 +1,23 @@
+# Fictional saved pages for the discovery tests. "official" means the domain belongs to the company.
+companies:
+  zenmart:
+    name: ZenMart
+    domain: zenmart.example
+    pages:
+      - {file: zenmart/official_contact.html, url: "https://www.zenmart.example/contact-us", official: true}
+      - {file: zenmart/aggregator.html, url: "https://www.complaintboard.example/zenmart", official: false}
+  kiranakart:
+    name: KiranaKart
+    domain: kiranakart.example
+    pages:
+      - {file: kiranakart/official_contact.html, url: "https://www.kiranakart.example/help", official: true}
+      - {file: kiranakart/policy.html, url: "https://www.kiranakart.example/legal/grievance", official: true}
+  payquick:
+    name: PayQuick
+    domain: payquick.example
+    pages:
+      - {file: payquick/official_contact.html, url: "https://www.payquick.example/support", official: true}
+  ghostmart:
+    name: GhostMart
+    domain: ghostmart.example
+    pages: []

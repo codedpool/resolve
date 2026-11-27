@@ -1,0 +1,14 @@
+[
+ {"text":"The refund of 4999 rupees was processed to your account yesterday.","label":"resolved_claimed","live":true},
+ {"text":"Dear customer, your issue is resolved and the amount has been credited.","label":"resolved_claimed","live":true},
+ {"text":"आपका पैसा आपके खाते में भेज दिया गया है, मामला बंद किया जाता है।","label":"resolved_claimed","live":false},
+ {"text":"We can refund 2000 rupees now and the rest after we check with the seller.","label":"partial","live":true},
+ {"text":"We are sending a 5000 rupee voucher instead of the cash refund.","label":"partial","live":true},
+ {"text":"Hum sirf aadha refund kar sakte hain, baaki ke liye aapko seller se baat karni hogi.","label":"partial","live":false},
+ {"text":"We are unable to refund this order as it is outside the return window.","label":"rejected","live":true},
+ {"text":"Your request has been declined. No refund will be issued.","label":"rejected","live":true},
+ {"text":"आपका रिफ़ंड का अनुरोध स्वीकार नहीं किया जा सकता।","label":"rejected","live":false},
+ {"text":"Please share a photo of the damaged item and your order confirmation email.","label":"needs_info","live":true},
+ {"text":"To proceed we need the date of delivery and the courier tracking number.","label":"needs_info","live":true},
+ {"text":"Kripya order ka screenshot aur payment ka proof bhejiye, tabhi hum aage badh sakte hain.","label":"needs_info","live":false}
+]

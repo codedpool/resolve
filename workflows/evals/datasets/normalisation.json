@@ -1,0 +1,421 @@
+[
+ {
+  "id": "nm01",
+  "kind": "digits",
+  "text": "nau aath saat",
+  "expect": "987"
+ },
+ {
+  "id": "nm02",
+  "kind": "digits",
+  "text": "double paanch",
+  "expect": "55"
+ },
+ {
+  "id": "nm03",
+  "kind": "digits",
+  "text": "four seven two",
+  "expect": "472"
+ },
+ {
+  "id": "nm04",
+  "kind": "digits",
+  "text": "triple nine",
+  "expect": "999"
+ },
+ {
+  "id": "nm05",
+  "kind": "digits",
+  "text": "nau aath saat chhe paanch",
+  "expect": "98765"
+ },
+ {
+  "id": "nm06",
+  "kind": "digits",
+  "text": "order number OD one two three four",
+  "expect": "order number OD1234"
+ },
+ {
+  "id": "nm07",
+  "kind": "digits",
+  "text": "double two double three",
+  "expect": "2233"
+ },
+ {
+  "id": "nm08",
+  "kind": "digits",
+  "text": "zero zero seven",
+  "expect": "007"
+ },
+ {
+  "id": "nm09",
+  "kind": "digits",
+  "text": "ek do teen chaar",
+  "expect": "1234"
+ },
+ {
+  "id": "nm10",
+  "kind": "digits",
+  "text": "code is four four one nine",
+  "expect": "code is 4419"
+ },
+ {
+  "id": "nm11",
+  "kind": "digits",
+  "text": "teen teen paanch",
+  "expect": "335"
+ },
+ {
+  "id": "nm12",
+  "kind": "digits",
+  "text": "OTP hai chhe do ek aath",
+  "expect": "OTP hai 6218"
+ },
+ {
+  "id": "nm13",
+  "kind": "digits",
+  "text": "pin code one one zero zero zero one",
+  "expect": "pin code 110001"
+ },
+ {
+  "id": "nm14",
+  "kind": "digits",
+  "text": "aath double saat",
+  "expect": "877"
+ },
+ {
+  "id": "nm15",
+  "kind": "digits",
+  "text": "triple two ek",
+  "expect": "2221"
+ },
+ {
+  "id": "nm16",
+  "kind": "quantity",
+  "text": "twelve hundred",
+  "expect": "1200"
+ },
+ {
+  "id": "nm17",
+  "kind": "quantity",
+  "text": "barah sau",
+  "expect": "1200"
+ },
+ {
+  "id": "nm18",
+  "kind": "quantity",
+  "text": "one thousand two hundred",
+  "expect": "1200"
+ },
+ {
+  "id": "nm19",
+  "kind": "quantity",
+  "text": "do hazaar paanch sau",
+  "expect": "2500"
+ },
+ {
+  "id": "nm20",
+  "kind": "quantity",
+  "text": "twenty five thousand",
+  "expect": "25000"
+ },
+ {
+  "id": "nm21",
+  "kind": "quantity",
+  "text": "pachchis hazaar nau sau",
+  "expect": "25900"
+ },
+ {
+  "id": "nm22",
+  "kind": "quantity",
+  "text": "dedh sau",
+  "expect": "150"
+ },
+ {
+  "id": "nm23",
+  "kind": "quantity",
+  "text": "dhai hazaar",
+  "expect": "2500"
+ },
+ {
+  "id": "nm24",
+  "kind": "quantity",
+  "text": "saadhe teen sau",
+  "expect": "350"
+ },
+ {
+  "id": "nm25",
+  "kind": "quantity",
+  "text": "ek lakh",
+  "expect": "100000"
+ },
+ {
+  "id": "nm26",
+  "kind": "quantity",
+  "text": "do lakh pachas hazaar",
+  "expect": "250000"
+ },
+ {
+  "id": "nm27",
+  "kind": "quantity",
+  "text": "five hundred and fifty",
+  "expect": "550"
+ },
+ {
+  "id": "nm28",
+  "kind": "quantity",
+  "text": "teen sau chaalis",
+  "expect": "340"
+ },
+ {
+  "id": "nm29",
+  "kind": "quantity",
+  "text": "dus hazaar nau sau",
+  "expect": "10900"
+ },
+ {
+  "id": "nm30",
+  "kind": "quantity",
+  "text": "ninety nine",
+  "expect": "99"
+ },
+ {
+  "id": "nm31",
+  "kind": "amount",
+  "text": "₹1,200 kat gaye",
+  "expect": [
+   1200
+  ]
+ },
+ {
+  "id": "nm32",
+  "kind": "amount",
+  "text": "Rs. 5500 paid",
+  "expect": [
+   5500
+  ]
+ },
+ {
+  "id": "nm33",
+  "kind": "amount",
+  "text": "Rs 2,100/-",
+  "expect": [
+   2100
+  ]
+ },
+ {
+  "id": "nm34",
+  "kind": "amount",
+  "text": "1200 rupaye",
+  "expect": [
+   1200
+  ]
+ },
+ {
+  "id": "nm35",
+  "kind": "amount",
+  "text": "twelve hundred rupees",
+  "expect": [
+   1200
+  ]
+ },
+ {
+  "id": "nm36",
+  "kind": "amount",
+  "text": "barah sau rupaye",
+  "expect": [
+   1200
+  ]
+ },
+ {
+  "id": "nm37",
+  "kind": "amount",
+  "text": "do hazaar paanch sau rupaye",
+  "expect": [
+   2500
+  ]
+ },
+ {
+  "id": "nm38",
+  "kind": "amount",
+  "text": "10,900 rs kat gaye",
+  "expect": [
+   10900
+  ]
+ },
+ {
+  "id": "nm39",
+  "kind": "amount",
+  "text": "INR 680",
+  "expect": [
+   680
+  ]
+ },
+ {
+  "id": "nm40",
+  "kind": "amount",
+  "text": "₹ 14200",
+  "expect": [
+   14200
+  ]
+ },
+ {
+  "id": "nm41",
+  "kind": "amount",
+  "text": "1.5 lakh rupaye",
+  "expect": [
+   150000
+  ]
+ },
+ {
+  "id": "nm42",
+  "kind": "amount",
+  "text": "paanch sau rupaye aur teen sau rupaye",
+  "expect": [
+   500,
+   300
+  ]
+ },
+ {
+  "id": "nm43",
+  "kind": "amount",
+  "text": "I paid 450 rupees yesterday",
+  "expect": [
+   450
+  ]
+ },
+ {
+  "id": "nm44",
+  "kind": "amount",
+  "text": "refund of Rs.1,00,000",
+  "expect": [
+   100000
+  ]
+ },
+ {
+  "id": "nm45",
+  "kind": "amount",
+  "text": "no money mentioned here",
+  "expect": []
+ },
+ {
+  "id": "nm46",
+  "kind": "date",
+  "text": "yesterday",
+  "expect": "2026-11-25",
+  "approximate": false,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm47",
+  "kind": "date",
+  "text": "kal",
+  "expect": "2026-11-25",
+  "approximate": true,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm48",
+  "kind": "date",
+  "text": "parso",
+  "expect": "2026-11-24",
+  "approximate": true,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm49",
+  "kind": "date",
+  "text": "last Tuesday",
+  "expect": "2026-11-24",
+  "approximate": false,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm50",
+  "kind": "date",
+  "text": "last Thursday",
+  "expect": "2026-11-19",
+  "approximate": false,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm51",
+  "kind": "date",
+  "text": "20 November 2026",
+  "expect": "2026-11-20",
+  "approximate": false,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm52",
+  "kind": "date",
+  "text": "20/11/2026",
+  "expect": "2026-11-20",
+  "approximate": false,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm53",
+  "kind": "date",
+  "text": "15th",
+  "expect": "2026-11-15",
+  "approximate": true,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm54",
+  "kind": "date",
+  "text": "28th",
+  "expect": "2026-10-28",
+  "approximate": true,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm55",
+  "kind": "date",
+  "text": "3 din pehle",
+  "expect": "2026-11-23",
+  "approximate": false,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm56",
+  "kind": "date",
+  "text": "pichhle hafte",
+  "expect": "2026-11-19",
+  "approximate": true,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm57",
+  "kind": "date",
+  "text": "last month",
+  "expect": "2026-10-26",
+  "approximate": true,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm58",
+  "kind": "date",
+  "text": "November 8",
+  "expect": "2026-11-08",
+  "approximate": false,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm59",
+  "kind": "date",
+  "text": "pichhle mahine ki bees tarikh",
+  "expect": "2026-10-20",
+  "approximate": false,
+  "ref": "2026-11-26"
+ },
+ {
+  "id": "nm60",
+  "kind": "date",
+  "text": "last Monday",
+  "expect": "2026-11-23",
+  "approximate": false,
+  "ref": "2026-11-26"
+ }
+]
