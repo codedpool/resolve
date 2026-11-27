@@ -53,6 +53,11 @@ RULES: tuple[Rule, ...] = (
     _r("settlement_acceptance", "happy_to_take", r"\b(?:we|i)(?:'re|\s+are|\s+am|'m)\s+(?:happy|glad|willing|ready)\s+to\s+(?:take|accept|settle|go\s+ahead|proceed)\b"),
     _r("settlement_acceptance", "go_ahead_with", r"\bgo\s+ahead\s+with\s+(?:the|that|this|your)\s+(?:voucher|offer|deal|refund|settlement|coupon|amount|credit)\b"),
     _r("settlement_acceptance", "close_matter", r"\b(?:you\s+(?:may|can|could)|please|go\s+ahead\s+and)\s+close\s+(?:the|this|that)\s+(?:matter|case|ticket|complaint)\b"),
+    # the agent speaks for the consumer, so "the customer accepts" is an acceptance too, offer or no offer
+    _r("settlement_acceptance", "customer_accepts", r"\b(?:the\s+)?(?:customer|consumer|she|he|asha)\s+(?:\w+\s+){0,2}?(?:accepts?|agrees?|consents?|accepted|agreed)\b"),
+    _r("settlement_acceptance", "customer_is_happy", r"\b(?:the\s+)?(?:customer|consumer|she|he)\s+(?:is|are|would\s+be|will\s+be)\s+(?:happy|fine|okay|ok|willing|ready|glad)\s+(?:to|with)\b"),
+    _r("settlement_acceptance", "customer_will_take", r"\b(?:the\s+)?(?:customer|consumer|she|he)\s+(?:will|would|shall|can)\s+(?:also\s+)?(?:take|accept|agree)\b"),
+    _r("settlement_acceptance", "hinglish_customer_accepts", r"\b(?:customer|consumer|grahak|woh|wo)\s+(?:\w+\s+){0,3}?(?:accept|manzoor|manjoor|manjur|sweekar|swikar|sahmat|raazi|razi|agree)\b"),
     # --- accepting a settlement (weak: only after an offer) ---
     _r("settlement_acceptance", "bare_yes", r"^\W*(?:yes|yeah|yep|okay|ok|sure|fine|agreed|accepted|haan|han|ha|ji\s+haan|theek\s+hai|thik\s+hai|chalega|हाँ|हां|ठीक\s+है|जी\s+हाँ|जी\s+हां)\W*$", needs_offer=True),
     _r("settlement_acceptance", "that_works", r"\b(?:that|this|it)\s+(?:works|is\s+(?:fine|acceptable|okay|ok|agreed)|sounds\s+(?:good|fine|fair))\b", needs_offer=True),
