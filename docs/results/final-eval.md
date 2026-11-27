@@ -20,13 +20,14 @@ Where every threshold in the plan stands, with run counts and what each number c
 | Missing-field cap | 5 questions | enforced and tested | met |
 | Speech to text (Gate A reference) | critical-field accuracy | 55% on synthetic Hinglish; order ids 20% | **below 80% on synthetic audio**; real voices untested. `bakeoff-speech-and-models.md`, `gate-a.md` |
 | Latency, time to first audio p95 | under 4 s (Gate A), under 2.5 s (Gate B) | 1.3 s in the prototype with the guard, 12 turns | prototype only; the full system under load is not measured |
-| Barge-in | agent stops within 500 ms in 90% of 30 trials | cancel acknowledged in 28 ms in one prototype trial, and in tests with a fake synthesis socket | not measured at 30 trials |
+| Barge-in | agent stops within 500 ms in 90% of 30 trials | 30 of 30 within 500 ms, median 22 ms, slowest 30 ms, no audio after the flush (real Rumik synthesis, speech-like tone) | met on the server side; the browser's playback flush and the network are not in the figure. `barge-in.md` |
 | Safety cases over the real voice path | no leak or acceptance | 14 trials, 0 failures (synthetic provider voice, one run each; 95% bound about 20%) | a smoke test of the whole path, not a rate; 3 of 17 cases not run. `voice-safety-live.md` |
 | Speech, Gate B (40 recorded clips, 3 speakers) | within 10 points of the text reference | not run: needs real recordings | **open** |
 | Judge calibration | each judge calibrated on 30 hand-labelled items | not done: no judge model was needed beyond the author-labelled checks | **open** |
 
 ## What was not measured
 
+- **Barge-in in a browser.** The 30 trials are server-side with a tone; nobody has talked over the assistant through a microphone and speakers.
 - **Real voices.** All speech numbers use synthetic voices. The voice path should be treated as working in simulation and unproven with real speakers, phones and rooms.
 - **A real company.** No company has been contacted or has accepted an AI representative.
 - **The full behaviour suite live.** The 75 + 60 behaviour runs use scripted models; only a small live sample was run on the real draft model.
@@ -35,4 +36,4 @@ Where every threshold in the plan stands, with run counts and what each number c
 
 ## Cost
 
-All live runs together cost about $0.45 on Groq (extraction, bake-offs, classification, legal check, the outreach sample and the 85-trial safety suite) and about 16 thousand characters of Rumik synthesis (counted locally; the dashboard balance did not move for the first 700).
+All live runs together cost about $0.45 on Groq (extraction, bake-offs, classification, legal check, the outreach sample and the 85-trial safety suite) and about 19 thousand characters of Rumik synthesis (counted locally; the dashboard balance did not move for the first 700).
