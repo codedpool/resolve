@@ -642,3 +642,30 @@ legend {
     flex: 1 1 8rem;
   }
 }
+
+/* The practice call in text. It reuses the chat bubbles; a held reply is marked with the red stamp, never hidden. */
+
+.practice {
+  padding: 1.1rem 1.2rem;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--stamp);
+}
+
+.bubble-held {
+  border-inline-start-color: var(--stamp);
+  font-style: italic;
+}
+
+.ideas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.case-form .ideas button.quiet {
+  min-height: 2.4rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.92rem;
+}

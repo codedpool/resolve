@@ -6,7 +6,7 @@ import { ApprovalCard } from "@/components/ApprovalCard";
 import { api } from "@/components/StepUpDialog";
 import { evidenceNames } from "@/lib/approvals";
 
-export function ApprovalList({ caseId, send = (path, options) => api.request(path, options) }) {
+export function ApprovalList({ caseId, version = 0, send = (path, options) => api.request(path, options) }) {
   const [approvals, setApprovals] = useState(null);
   const [evidence, setEvidence] = useState([]);
   const [error, setError] = useState("");
@@ -43,7 +43,7 @@ export function ApprovalList({ caseId, send = (path, options) => api.request(pat
       live = false;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [caseId]);
+  }, [caseId, version]);
 
   async function decide(approval, decision) {
     try {

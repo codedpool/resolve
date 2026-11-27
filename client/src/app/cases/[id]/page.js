@@ -7,6 +7,7 @@ import { useParams } from "next/navigation";
 import { api } from "@/components/StepUpDialog";
 import { ApprovalList } from "@/components/ApprovalList";
 import { MandateCard } from "@/components/MandateCard";
+import { PracticeCall } from "@/components/PracticeCall";
 import { EvidenceUploader } from "@/components/EvidenceUploader";
 import { ConfirmationCard } from "@/components/ConfirmationCard";
 import { applyCorrection, CRITICAL_FIELDS } from "@/components/facts";
@@ -22,6 +23,8 @@ export default function CasePage() {
   const [evidence, setEvidence] = useState([]);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
+  const [mandateActive, setMandateActive] = useState(false);
+  const [approvalsVersion, setApprovalsVersion] = useState(0);
   const details = useRef(null);
 
   const reload = useCallback(async () => {
@@ -43,12 +46,21 @@ export default function CasePage() {
       .request(`/cases/${id}/evidence`)
       .then((payload) => setEvidence(payload.evidence))
       .catch(() => {});
+    api
+      .request(`/cases/${id}/mandate`)
+      .then((payload) => setMandateActive(Boolean(payload.mandate?.active)))
+      .catch(() => {});
   }, [params.id]);
 
   async function upload(file) {
     const saved = await api.upload(`/cases/${params.id}/evidence`, file);
     rememberEvidenceName(saved.id, file.name);
     setEvidence((current) => [...current, saved]);
+  }
+
+  async function afterCallStep() {
+    await reload();
+    setApprovalsVersion((current) => current + 1);
   }
 
   function showDetails() {
@@ -115,9 +127,10 @@ export default function CasePage() {
       </div>
       <FactList facts={detail.facts || []} />
       <Timeline events={detail.timeline || []} />
-      <MandateCard caseId={String(params.id)} />
-      <h2>Approvals</h2>
-      <ApprovalList caseId={String(params.id)} />
+      <MandateCard caseId={String(params.id)} onChange={(mandate) => setMandateActive(Boolean(mandate?.active))} />
+      <PracticeCall caseId={String(params.id)} mandateActive={mandateActive} onChange={afterCallStep} />
+      <h2 id="approvals">Approvals</h2>
+      <ApprovalList caseId={String(params.id)} version={approvalsVersion} />
       <EvidenceUploader onFile={upload} />
       <ul>
         {evidence.map((item) => (
