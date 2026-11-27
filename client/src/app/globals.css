@@ -1,0 +1,644 @@
+:root {
+  --ink: #1b3a4b;
+  --paper: #e7eef2;
+  --field: #f8fbfc;
+  --line: #c5d2d8;
+  --stamp: #9c2f2f;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  display: block;
+}
+
+.spine {
+  border-left: 12px solid var(--stamp);
+  min-height: 100vh;
+  padding: 4rem 1.5rem 3rem 2rem;
+}
+
+.case-form {
+  max-width: 28rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.case-form.wide {
+  max-width: 38rem;
+}
+
+.case-form h1 {
+  margin: 0;
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.case-form p {
+  margin: 0;
+  line-height: 1.5;
+  max-width: 38rem;
+}
+
+.case-form label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.case-form input[type="text"],
+.case-form input[type="email"],
+.case-form input[type="password"],
+.case-form input:not([type]),
+.case-form textarea,
+.case-form select {
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+}
+
+.case-form button,
+.actions a,
+.step-up button {
+  width: fit-content;
+  background: var(--ink);
+  color: var(--field);
+  border: 0;
+  font: inherit;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.simulated {
+  color: var(--stamp);
+}
+
+.fact-list {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.badge {
+  border: 1px solid var(--line);
+  padding: 0.1rem 0.4rem;
+}
+
+.step-up {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+  background: var(--field);
+  border: 1px solid var(--ink);
+  max-width: 18rem;
+}
+
+.step-up input,
+.step-up button {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+}
+
+/* Shared pieces for the mandate, approval and message screens. */
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.case-form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.case-form button.quiet,
+.step-up button.quiet {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.case-form select {
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+}
+
+.case-form h2 {
+  margin: 0;
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.case-form h3 {
+  margin: 0;
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.4rem;
+  margin: -2rem 0 2.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav a {
+  color: var(--ink);
+  padding: 0.3rem 0;
+}
+
+.site-nav .brand {
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 1.3rem;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.site-nav .count {
+  display: inline-block;
+  min-width: 1.35rem;
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+  background: var(--stamp);
+  color: var(--field);
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.35rem;
+  text-align: center;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--ink);
+}
+
+.card.approval-send_image_to_llm,
+.card.unread {
+  border-left-color: var(--stamp);
+}
+
+.card.read {
+  border-left-color: var(--line);
+  color: #4b6573;
+}
+
+.card p {
+  margin: 0;
+}
+
+.card .image-name {
+  padding: 0.6rem 0.8rem;
+  background: var(--paper);
+  border: 1px dashed var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.card .quote {
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--line);
+}
+
+.hint {
+  font-size: 0.92rem;
+  color: #4b6573;
+}
+
+.subhead {
+  font-weight: 600;
+}
+
+.notice {
+  font-weight: 600;
+}
+
+.form-error {
+  color: var(--stamp);
+  font-weight: 600;
+}
+
+.plain {
+  margin: 0.3rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+  line-height: 1.45;
+}
+
+fieldset {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+}
+
+legend {
+  padding: 0 0.3rem;
+  font-weight: 600;
+}
+
+.case-form .check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.2rem;
+}
+
+.check input {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--ink);
+}
+
+.readback {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.readback div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.2rem 1rem;
+}
+
+.readback dt {
+  font-weight: 600;
+}
+
+.readback dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.readback-list,
+.inbox {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.readback-list li {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.8rem 0 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.unread-mark {
+  color: var(--stamp);
+  font-weight: 600;
+}
+
+.step-up {
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    transition: border-left-color 0.2s ease;
+  }
+}
+
+@media (max-width: 640px) {
+  .readback div {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    margin-top: -1rem;
+  }
+
+  .step-up {
+    left: 1rem;
+    max-width: none;
+  }
+
+  .spine {
+    padding: 2rem 1rem 2rem 1.25rem;
+  }
+
+  .case-form h1 {
+    font-size: 2rem;
+  }
+}
+
+/* The intake conversation. Calm, roomy, and ready for Hindi as well as English. */
+
+.intake {
+  display: grid;
+  gap: 0.9rem;
+  font-family: "Segoe UI", "Noto Sans", "Noto Sans Devanagari", "Nirmala UI", "Mangal", sans-serif;
+}
+
+.intake h2 {
+  font-family: Palatino, "Palatino Linotype", "Noto Serif Devanagari", serif;
+}
+
+.intake p,
+.intake textarea,
+.intake input {
+  line-height: 1.65;
+}
+
+.chat-log {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  max-height: 26rem;
+  overflow-y: auto;
+  padding: 0.25rem 0.1rem;
+}
+
+.chat-log:empty {
+  display: none;
+}
+
+.bubble {
+  display: grid;
+  gap: 0.15rem;
+  max-width: min(32rem, 92%);
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.bubble-who {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4b6573;
+}
+
+.bubble-assistant {
+  justify-self: start;
+  background: var(--field);
+  border-inline-start: 5px solid var(--ink);
+}
+
+.bubble-you {
+  justify-self: end;
+  background: #d6e4ea;
+  border-color: #b3c8d1;
+}
+
+.intake textarea {
+  min-height: 7rem;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+.intake textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.composer {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.intake .actions {
+  flex-wrap: wrap;
+}
+
+.intake .actions button,
+.handoff-form button {
+  min-height: 2.75rem;
+  min-width: 5.5rem;
+}
+
+.intake-closed,
+.handoff {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.handoff {
+  padding: 0.9rem 1rem;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-inline-start: 5px solid var(--stamp);
+}
+
+.handoff-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.handoff-form input {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+}
+
+.details {
+  display: grid;
+  gap: 1rem;
+}
+
+.details:focus {
+  outline: none;
+}
+
+.details:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bubble {
+    animation: bubble-in 0.18s ease-out;
+  }
+
+  @keyframes bubble-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .bubble {
+    max-width: 100%;
+  }
+
+  .chat-log {
+    max-height: 22rem;
+  }
+
+  .intake .actions button {
+    flex: 1 1 8rem;
+  }
+}
+
+/* The voice call. Same calm look as the chat; the red stamp marks a live call and the End button. */
+
+.case-form.call-page {
+  max-width: 62rem;
+}
+
+.call,
+.call-cards {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  font-family: "Segoe UI", "Noto Sans", "Noto Sans Devanagari", "Nirmala UI", "Mangal", sans-serif;
+}
+
+.call h2,
+.call-cards h2 {
+  font-family: Palatino, "Palatino Linotype", "Noto Serif Devanagari", serif;
+}
+
+.call p,
+.call-cards p {
+  line-height: 1.65;
+}
+
+.call-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.call-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--field);
+  border: 1px solid var(--line);
+}
+
+.dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: transparent;
+  flex: none;
+}
+
+.dot-live {
+  background: var(--stamp);
+  border-color: var(--stamp);
+}
+
+.dot-connecting {
+  border-style: dashed;
+}
+
+.dot-idle,
+.dot-ended,
+.dot-error {
+  border-color: #7d939f;
+}
+
+.call-connection {
+  font-weight: 600;
+}
+
+.call-speaking {
+  margin-inline-start: auto;
+  color: #4b6573;
+}
+
+.call-speaking.on {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.call-phase,
+.call-progress {
+  padding-inline-start: 0.8rem;
+  border-inline-start: 3px solid var(--line);
+}
+
+.call-controls {
+  flex-wrap: wrap;
+}
+
+.call .actions button {
+  min-height: 2.75rem;
+  min-width: 5.5rem;
+}
+
+.case-form button.stamp {
+  background: var(--stamp);
+}
+
+.case-form button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--field);
+}
+
+.call-captions {
+  max-height: 24rem;
+}
+
+.bubble-live {
+  opacity: 0.7;
+}
+
+@media (max-width: 860px) {
+  .call-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .call-speaking {
+    margin-inline-start: 0;
+    flex-basis: 100%;
+  }
+
+  .call .actions button {
+    flex: 1 1 8rem;
+  }
+}
