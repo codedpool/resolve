@@ -26,10 +26,13 @@ export default function CasePage() {
   const [mandateActive, setMandateActive] = useState(false);
   const [approvalsVersion, setApprovalsVersion] = useState(0);
   const details = useRef(null);
+  const latest = useRef(0);
 
   const reload = useCallback(async () => {
+    const mine = ++latest.current;
     try {
-      setDetail(await api.request(`/cases/${params.id}`));
+      const fresh = await api.request(`/cases/${params.id}`);
+      if (mine === latest.current) setDetail(fresh); // an older answer never overwrites a newer one
       setNotice("");
     } catch (err) {
       setNotice(`We could not refresh the details. ${err.message}`);
@@ -85,6 +88,7 @@ export default function CasePage() {
         item.id === fact.id ? { ...item, confirmation_state: "confirmed", version: saved.confirmed_version } : item,
       ),
     }));
+    await reload(); // accepting the last critical detail changes the case status
   }
 
   async function edit(fact, value) {
