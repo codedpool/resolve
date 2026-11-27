@@ -1,0 +1,58 @@
+# FICTIONAL demo provider for Resolve tests. Nothing here describes a real business.
+slug: demopay_wallet
+name: "FICTIONAL DemoPay Wallet (fictional payment intermediary)"
+fictional: true
+entity_type: payment_intermediary
+entity_type_source: fixture_authored
+known_order_id_formats:
+  - "DPW-TXN-############"
+policy:
+  title: DemoPay Wallet Failed Transaction and Refund Policy (fictional)
+  fictional_label: "FICTIONAL demo policy authored for Resolve test fixtures; not a real company's policy."
+  text: >-
+    FICTIONAL POLICY. DemoPay Wallet moves money between buyers and merchants. If a payment is
+    debited but the merchant order fails, the amount is returned to the source account or wallet
+    within 5 working days of the failure being reported. Refunds for merchant returns depend on the
+    merchant initiating the refund; DemoPay passes it on once received. Customers should raise a
+    complaint with the DemoPay grievance contact first and keep the transaction reference. If the
+    complaint is not resolved, it can be escalated to the escalation targets listed in this fixture.
+contact_candidates:
+  - kind: nodal_officer
+    value: "Ms. Fictional Nodal Officer DemoPay (FICTIONAL, not a real person)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: email
+    value: "grievance@demopay-wallet.example.invalid"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: customer_care
+    value: "+91 00000 00000 (FICTIONAL)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: postal_address
+    value: "0 Fictional Lane, Nowhere City 000000 (FICTIONAL)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+escalation_targets:
+  - kind: rbi_ombudsman
+    name: RBI Integrated Ombudsman Scheme complaint portal (CMS)
+    source_url: https://www.rbi.org.in/commonman/Upload/English/PressRelease/PDFs/PR1184ENG121121.pdf
+    url: https://cms.rbi.org.in
+    contact: "Toll-free 14448; Centralised Receipt and Processing Centre, RBI, 4th Floor, Sector 17, Chandigarh - 160017"
+  - kind: national_consumer_helpline
+    name: National Consumer Helpline (NCH)
+    source_url: https://consumerhelpline.gov.in/public/
+    url: https://consumerhelpline.gov.in/user/index.php
+    contact: "Toll free 1915 or 1800114000; WhatsApp and SMS +918800001915"
+  - kind: consumer_commission_portal
+    name: e-Jagriti (online filing before the consumer commissions; replaces e-Daakhil)
+    source_url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2269994
+    url: https://e-jagriti.gov.in/

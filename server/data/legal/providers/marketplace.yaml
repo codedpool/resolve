@@ -1,0 +1,54 @@
+# FICTIONAL demo provider for Resolve tests. Nothing here describes a real business.
+slug: demo_bazaar
+name: "FICTIONAL Demo Bazaar (fictional marketplace)"
+fictional: true
+entity_type: marketplace
+entity_type_source: fixture_authored
+known_order_id_formats:
+  - "BZR-######"
+policy:
+  title: Demo Bazaar Returns and Refunds (fictional)
+  fictional_label: "FICTIONAL demo policy authored for Resolve test fixtures; not a real company's policy."
+  text: >-
+    FICTIONAL POLICY. Items bought on Demo Bazaar can be returned within 7 days of delivery if they
+    are unused and in original packaging. Refunds for accepted returns go back to the original
+    payment method within 10 working days of the item reaching our warehouse. Orders can be
+    cancelled before dispatch at no charge. Damaged or wrong items are replaced or refunded after
+    photo evidence is shared with the grievance officer. Disputes with a third-party seller on the
+    platform are first handled by our grievance officer, who acknowledges a complaint and tries to
+    resolve it.
+contact_candidates:
+  - kind: grievance_officer
+    value: "Mr. Fictional Officer Bazaar (FICTIONAL, not a real person)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: email
+    value: "grievance@demo-bazaar.example.invalid"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: customer_care
+    value: "+91 00000 00000 (FICTIONAL)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+  - kind: postal_address
+    value: "0 Fictional Lane, Nowhere City 000000 (FICTIONAL)"
+    source_url: "fixture://fictional"
+    fetched_at: 2026-11-26
+    confidence: 1.0
+    confirmed_by_user: false
+escalation_targets:
+  - kind: national_consumer_helpline
+    name: National Consumer Helpline (NCH)
+    source_url: https://consumerhelpline.gov.in/public/
+    url: https://consumerhelpline.gov.in/user/index.php
+    contact: "Toll free 1915 or 1800114000; WhatsApp and SMS +918800001915"
+  - kind: consumer_commission_portal
+    name: e-Jagriti (online filing before the consumer commissions; replaces e-Daakhil)
+    source_url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2269994
+    url: https://e-jagriti.gov.in/
