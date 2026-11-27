@@ -13,6 +13,7 @@ from app.core.crypto import open_text
 from app.core.errors import AppError
 from app.db.models import Notification, User
 from app.deps import current_user, get_session
+from app.services.scheduler import run_due
 
 router = APIRouter(prefix="/notifications", tags=["notifications"])
 
@@ -23,6 +24,7 @@ def list_notifications(
     session: Session = Depends(get_session),
     user: User = Depends(current_user),
 ) -> dict:
+    run_due(session, request.app.state.clock, request.app.state.master_key)  # reminders that came due while nobody was looking
     rows = session.scalars(select(Notification).where(Notification.user_id == user.id).order_by(Notification.created_at)).all()
     return {
         "notifications": [
