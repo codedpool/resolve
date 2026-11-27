@@ -34,8 +34,9 @@ def test_ingest_loads_every_chunk_unreviewed_with_embeddings_and_provenance(load
     assert len(rows) == len(corpus.chunks)
     assert {r.tag_review_state for r in rows} == {TagReviewState.unreviewed}
     assert all(r.embedding is not None and len(r.embedding) == 384 for r in rows)
-    assert all(r.source_url.startswith("http") and r.fetched_at.year == 2026 for r in rows)
-    assert {r.layer for r in rows} >= {"statute", "rules", "regulator", "escalation"}
+    assert all(r.source_url.startswith("http") for r in rows if r.layer != "provider_policy")
+    assert all(r.fetched_at.year == 2026 for r in rows)
+    assert {r.layer for r in rows} >= {"statute", "rules", "regulator", "escalation", "provider_policy"}
     hits = loaded_session.execute(text(
         "select count(*) from legal_chunks where tsv @@ plainto_tsquery('english', 'grievance officer')")).scalar()
     assert hits > 0

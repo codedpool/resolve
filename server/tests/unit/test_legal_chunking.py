@@ -108,13 +108,13 @@ def test_real_corpus_chunks_all_pass_quotecheck_and_cover_the_statute():
     assert corpus.chunks, "corpus is empty"
     assert quotecheck_all(corpus.chunks, corpus.sources) == len(corpus.chunks)
     layers = {c.layer for c in corpus.chunks}
-    assert {"statute", "rules", "regulator", "escalation"} <= layers
+    assert {"statute", "rules", "regulator", "escalation", "provider_policy"} <= layers
     statute = {c.section for c in corpus.chunks if c.source_id == "cpa2019_egazette"}
     assert statute == {str(n) for n in range(1, 108)}
     rules = {c.section for c in corpus.chunks if c.source_id == "ecom_rules_2020_egazette"}
     assert rules == {str(n) for n in range(1, 9)}
     assert all(c.review_state == "unreviewed" for c in corpus.chunks)
-    assert all(c.fetched_at for c in corpus.chunks) and all(c.source_url.startswith("http") for c in corpus.chunks)
+    assert all(c.fetched_at for c in corpus.chunks) and all(c.source_url.startswith("http") for c in corpus.chunks if c.layer != "provider_policy")
     assert max(len(c.text) for c in corpus.chunks) <= 2400
     keys = [c.key for c in corpus.chunks]
     assert len(keys) == len(set(keys))

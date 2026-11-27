@@ -270,7 +270,7 @@ def source_titles() -> dict[str, str]:
     return {sid: cfg["short_title"] for sid, cfg in config["sources"].items()}
 
 
-def build_corpus(legal_dir: Path = LEGAL_DIR) -> Corpus:
+def build_corpus(legal_dir: Path = LEGAL_DIR, include_policies: bool = True) -> Corpus:
     manifest = load_manifest()
     config = yaml.safe_load((legal_dir / "chunking.yaml").read_text(encoding="utf-8"))
     target, maximum = int(config["target_chars"]), int(config["max_chars"])
@@ -281,4 +281,10 @@ def build_corpus(legal_dir: Path = LEGAL_DIR) -> Corpus:
         corpus.sources[source_id] = text
         chunker = chunk_numbered if cfg["mode"] == "numbered" else chunk_paragraphs
         corpus.chunks.extend(chunker(source_id, text, cfg, entry["url"], entry["fetched_at"], target, maximum))
+    if include_policies:
+        from app.legal.policies import policy_corpus
+
+        policy_chunks, policy_sources = policy_corpus(legal_dir / "providers")
+        corpus.chunks.extend(policy_chunks)
+        corpus.sources.update(policy_sources)
     return corpus
