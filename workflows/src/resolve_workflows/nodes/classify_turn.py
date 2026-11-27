@@ -13,7 +13,7 @@ from dataclasses import dataclass
 
 from resolve_workflows import prompts
 from resolve_workflows.nodes.screen import ScreenResult
-from resolve_workflows.ports import Classifier
+from resolve_workflows.ports import Classifier, is_budget_error
 
 TURN_LABELS = ["offer", "claim", "question", "request_for_data", "stall", "hostile", "injection_attempt"]
 REPLY_LABELS = ["resolved_claimed", "partial", "rejected", "needs_info", "silence"]
@@ -100,12 +100,14 @@ def _keyword_reply_label(text: str) -> str:
 keyword_reply_label = _keyword_reply_label  # the follow-up graph uses it when the reply may not be sent to a model
 
 
-def _classify(classifier: Classifier, text: str, prompt_name: str, labels: list[str], roles: tuple[str, ...]):
+def _classify(classifier: Classifier, text: str, prompt_name: str, labels: list[str], roles: tuple[str, ...], stop_on_budget: bool = False):
     prompt = prompts.load(prompt_name)
     for index, role in enumerate(roles):
         try:
             label, confidence, _usage = classifier.classify(role, prompt.text, text, labels)
-        except Exception:
+        except Exception as exc:
+            if stop_on_budget and is_budget_error(exc):
+                raise  # the spending cap is used up: the call stops cleanly instead of limping on with keywords
             continue
         if label in labels:
             return label, float(confidence), "model" if index == 0 else "fallback_role"
@@ -118,7 +120,7 @@ def classify_turn(classifier: Classifier, text: str, screen: ScreenResult | None
     score = screen.score if screen else 0.0
     if not text.strip():
         return Understood("stall", 1.0, "rule", injection_signal=marked, screen_score=score)  # nothing was said
-    got = _classify(classifier, text, "classify_turn", TURN_LABELS, roles)
+    got = _classify(classifier, text, "classify_turn", TURN_LABELS, roles, stop_on_budget=True)
     if got is None:
         return Understood(_keyword_turn_label(text), 0.0, "keywords", degraded=True, low_confidence=True, injection_signal=marked, screen_score=score)
     label, confidence, source = got

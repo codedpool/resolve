@@ -5,6 +5,12 @@ from __future__ import annotations
 from typing import Protocol
 
 
+def is_budget_error(exc: BaseException) -> bool:
+    """True when a model call was refused because the spending cap is used up (the server's `BudgetExceeded`). Checked by
+    its code, so this package needs no import from the server."""
+    return getattr(exc, "code", None) == "budget_exceeded"
+
+
 class LLM(Protocol):
     def structured(self, role: str, prompt_id: str, variables: dict, schema: dict, mode: str = "instruct") -> tuple[dict, dict]: ...
 

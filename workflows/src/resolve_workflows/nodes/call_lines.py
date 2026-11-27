@@ -168,6 +168,16 @@ LINES: dict[str, dict[str, str]] = {
         "hi": "मैं कॉल यहीं समाप्त करता हूँ और जो बात हुई वह ग्राहक को बता दूँगा। आपके समय के लिए धन्यवाद।",
         "hinglish": "Main call yahin end karta hoon aur jo baat hui woh customer ko bata dunga. Aapke time ke liye thank you.",
     },
+    "hold_wait": {
+        "en": "One moment please, I am checking that.",
+        "hi": "कृपया एक क्षण रुकिए, मैं जाँच रहा हूँ।",
+        "hinglish": "Ek minute please, main check kar raha hoon.",
+    },
+    "end_budget": {
+        "en": "I have to stop the call here because the usage limit of this service has been reached. I will pass what we discussed to the customer. Thank you for your time.",
+        "hi": "इस सेवा की उपयोग सीमा पूरी हो गई है, इसलिए मुझे कॉल यहीं रोकनी होगी। जो बात हुई वह ग्राहक को बता दी जाएगी। आपके समय के लिए धन्यवाद।",
+        "hinglish": "Is service ki usage limit poori ho gayi hai, isliye mujhe call yahin rokni hogi. Jo baat hui woh main customer ko bata dunga. Aapke time ke liye thank you.",
+    },
     "end_consumer": {
         "en": "I will end the call now. Thank you for your time.",
         "hi": "मैं अब कॉल समाप्त करता हूँ। आपके समय के लिए धन्यवाद।",

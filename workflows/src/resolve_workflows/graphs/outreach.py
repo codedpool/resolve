@@ -17,6 +17,7 @@ checks the draft and every sentence passes the output guard before it is returne
 from __future__ import annotations
 
 import re
+from contextlib import nullcontext
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import Callable, TypedDict
@@ -38,7 +39,7 @@ from resolve_workflows.nodes.turn_facts import (
     NEVER_SHARE, SENSITIVE, asks_for_something, claim_kind, compare_to_mandate, is_refusal, looks_like_offer, parse_offer,
     promise_date, redirect_number, requested_fields, split_sentences,
 )
-from resolve_workflows.ports import LLM, ApprovalPort, CaseStore, Classifier, InjectionScreen, OutreachStore, Retriever
+from resolve_workflows.ports import LLM, ApprovalPort, CaseStore, Classifier, InjectionScreen, OutreachStore, Retriever, is_budget_error
 
 TURN_LIMIT = 30
 STALL_LIMIT = 3
@@ -68,6 +69,9 @@ class OutreachPorts:
     canaries: tuple[str, ...] = ()  # decoy values the guard must never see spoken (tests and the red team)
     on_sentence: Callable[[str], None] | None = None  # called with each sentence as soon as it has passed the guard
     draft_role: str = DRAFT_ROLE
+    # `backoff_watch(callback)` is a context manager that calls `callback(seconds)` when the model client is about to wait
+    # out a rate limit (the server's Groq client has one). The call uses it to say a holding line instead of going silent.
+    backoff_watch: Callable | None = None
 
 
 class OutreachState(TypedDict, total=False):
@@ -511,7 +515,9 @@ def draft_group(ports: OutreachPorts, call: dict, group: list[dict], provider_te
         text, _usage = ports.llm.text(ports.draft_role, system, variables)
     except MandateBlocked:
         raise
-    except Exception:  # noqa: BLE001 - the draft model being down must not stop the call
+    except Exception as exc:  # noqa: BLE001 - the draft model being down must not stop the call
+        if is_budget_error(exc):
+            raise  # but a used-up spending cap does stop it, cleanly (OutreachRunner closes the call)
         text = ""
     if text and _acceptable(text, group):
         return split_sentences(text)
@@ -583,6 +589,7 @@ _OUTCOME_TEXT = {
     "turn_limit": "The call reached its turn limit and I ended it.",
     "ended_by_consumer": "The call was ended.",
     "mandate_blocked": "The call stopped because your permission is no longer valid.",
+    "budget_exhausted": "The call was stopped because the usage limit of this service was reached. Nothing was agreed; you can continue later.",
 }
 
 
@@ -758,7 +765,8 @@ def build_outreach_graph(ports: OutreachPorts):
         if call and not call["ended"]:
             _end(call, state.get("reason") or "ended_by_consumer")
             view = _View(ports, call)
-            sentences = speak(ports, call, [view.line("end_consumer")], "")
+            closing = "end_budget" if call["end_reason"] == "budget_exhausted" else "end_consumer"
+            sentences = speak(ports, call, [view.line(closing)], "")
             return {"sentences": sentences, "call": call}
         return {}
 
@@ -869,14 +877,41 @@ class OutreachRunner:
         self.ports = ports
         self.graph = build_outreach_graph(ports)
 
-    def _run(self, case_id: str, call_id: str, event: str, text: str = "", reason: str = "") -> TurnResult:
-        out = self.graph.invoke({"case_id": case_id, "call_id": call_id, "event": event, "text": text, "reason": reason})
+    def _invoke(self, case_id: str, call_id: str, event: str, text: str, reason: str) -> dict:
+        return self.graph.invoke({"case_id": case_id, "call_id": call_id, "event": event, "text": text, "reason": reason})
+
+    def _result(self, out: dict, early: list[str]) -> TurnResult:
         call = out.get("call") or {}
         return TurnResult(
-            sentences=list(out.get("sentences") or []), phase=out.get("phase", "provider_call"), ended=bool(call.get("ended")),
+            sentences=early + list(out.get("sentences") or []), phase=out.get("phase", "provider_call"), ended=bool(call.get("ended")),
             approval_id=out.get("approval_id", call.get("approval_id", "")), end_reason=call.get("end_reason", ""),
             blocked=out.get("block_reason", "") if out.get("status") == "blocked" else "", understood=out.get("understood", {}),
         )
+
+    def _run(self, case_id: str, call_id: str, event: str, text: str = "", reason: str = "") -> TurnResult:
+        ports = self.ports
+        early: list[str] = []  # lines said while a rate limit was being waited out, ahead of the real reply
+
+        def hold(seconds: float) -> None:
+            if early:
+                return  # one holding line per event is enough
+            language = (ports.store.load_call(call_id) or {}).get("language") or ports.store.language(case_id)
+            said = lines.line("hold_wait", language)
+            early.append(said)
+            if ports.on_sentence:
+                ports.on_sentence(said)
+            ports.case_store.record_event(case_id, "rate_limited_hold", {"seconds": round(float(seconds), 1)})
+
+        watch = ports.backoff_watch(hold) if ports.backoff_watch and event in ("start", "turn") else nullcontext()
+        try:
+            with watch:
+                out = self._invoke(case_id, call_id, event, text, reason)
+        except Exception as exc:  # noqa: BLE001
+            if not is_budget_error(exc) or not ports.store.load_call(call_id):
+                raise  # nothing was started yet, or not a budget problem: the caller reports it
+            # The spending cap is used up. Close the call politely, record why, and hand the summary to the consumer.
+            return self._result(self._invoke(case_id, call_id, "end", "", "budget_exhausted"), early)
+        return self._result(out, early)
 
     def start(self, case_id: str, call_id: str) -> TurnResult:
         return self._run(case_id, call_id, "start")
