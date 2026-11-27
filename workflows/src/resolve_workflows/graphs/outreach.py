@@ -17,8 +17,9 @@ checks the draft and every sentence passes the output guard before it is returne
 from __future__ import annotations
 
 import re
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import nullcontext
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import datetime, timedelta
 from typing import Callable, TypedDict
 
@@ -194,8 +195,12 @@ def _end(call: dict, reason: str) -> None:
 def understand(ports: OutreachPorts, text: str) -> tuple[Understood, dict]:
     """Screen (signal only), classify, then cross-check the model with the keyword reader on the two dangerous labels
     and on the known weakness: the classifier reads Devanagari turns as `stall`."""
-    screen = screen_turn(ports.screen, text)
-    u = classify_turn(ports.classifier, text, screen)
+    # The injection screen and the classifier do not depend on each other (the screen result only marks the turn), so they run together.
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        pending_screen = pool.submit(screen_turn, ports.screen, text)
+        u = classify_turn(ports.classifier, text, None)
+        screen = pending_screen.result()
+    u = replace(u, injection_signal=bool(screen.marked), screen_score=screen.score)
     label, overridden = u.label, ""
     if text.strip():
         keyword = keyword_turn_label(text)
