@@ -135,3 +135,30 @@ class ApprovalPort(Protocol):
     """Creates an Approval row the owner decides in the app. The graph never decides one."""
 
     def create(self, case_id: str, kind: str, payload: dict, key: str) -> str: ...  # -> approval id
+
+
+class FollowUpStore(Protocol):
+    """What the follow-up graph keeps for one case between events, and the case records it writes. Implemented by the server.
+
+    `load` and `save` hold the graph's working state as one JSON-serialisable dict. `set_status` is the only way the graph
+    changes the case status, and the graph only ever passes a status a provider claim can lead to; the consumer's own
+    confirmation is a separate action the graph cannot reach.
+    """
+
+    def load(self, case_id: str) -> dict | None: ...
+
+    def save(self, case_id: str, state: dict) -> None: ...
+
+    def provider(self, case_id: str) -> dict: ...  # {"name": str, "entity_type": str, "confidence": float}
+
+    def routes_by_type(self) -> dict[str, list[dict]]: ...  # entity type -> ordered escalation routes (kind, name, url, contact)
+
+    def case_evidence(self, case_id: str): ...  # -> nodes.evidence_check.CaseEvidence
+
+    def case_status(self, case_id: str) -> str: ...
+
+    def set_status(self, case_id: str, status: str) -> None: ...
+
+    def record_event(self, case_id: str, kind: str, body: dict) -> None: ...
+
+    def schedule_reminder(self, case_id: str, due_at, kind: str, key: str) -> str: ...  # -> deadline id; the same key gives the same id

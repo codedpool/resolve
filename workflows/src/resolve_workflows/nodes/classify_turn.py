@@ -97,6 +97,9 @@ def _keyword_reply_label(text: str) -> str:
     return "needs_info"
 
 
+keyword_reply_label = _keyword_reply_label  # the follow-up graph uses it when the reply may not be sent to a model
+
+
 def _classify(classifier: Classifier, text: str, prompt_name: str, labels: list[str], roles: tuple[str, ...]):
     prompt = prompts.load(prompt_name)
     for index, role in enumerate(roles):

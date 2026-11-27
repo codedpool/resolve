@@ -136,12 +136,16 @@ class FakeApprovals:
     def __init__(self) -> None:
         self.rows: list[dict] = []
         self._by_key: dict[str, str] = {}
+        self.crash_once = False  # raise once right after the row is made, like a worker killed before it can note the id
 
     def create(self, case_id: str, kind: str, payload: dict, key: str) -> str:
         if key not in self._by_key:
             approval_id = f"approval-{len(self.rows) + 1}"
             self._by_key[key] = approval_id
             self.rows.append({"id": approval_id, "case_id": case_id, "kind": kind, "payload": payload, "key": key, "status": "pending"})
+            if self.crash_once:
+                self.crash_once = False
+                raise RuntimeError("worker killed after the approval was made")
         return self._by_key[key]
 
     def of_kind(self, kind: str) -> list[dict]:
@@ -182,3 +186,95 @@ class FakeRetriever:
         words = set(re.findall(r"[a-z]{3,}", query.lower()))
         scored = sorted(self.chunks, key=lambda c: -len(words & set(re.findall(r"[a-z]{3,}", c.text.lower()))))
         return scored[:k]
+
+
+# -- follow-up ports --------------------------------------------------------------------------------------------------
+
+NCH = {"kind": "national_consumer_helpline", "name": "National Consumer Helpline (NCH)", "url": "https://consumerhelpline.gov.in/user/index.php", "contact": "Toll free 1915"}
+COMMISSION = {"kind": "consumer_commission_portal", "name": "e-Jagriti", "url": "https://e-jagriti.gov.in/", "contact": ""}
+RBI = {"kind": "rbi_ombudsman", "name": "RBI Integrated Ombudsman complaint portal", "url": "https://cms.rbi.org.in", "contact": "Toll-free 14448"}
+MARKETPLACE_GRIEVANCE = {"kind": "marketplace_grievance", "name": "Grievance officer of the marketplace", "url": "", "contact": ""}
+DEFAULT_ROUTES = {
+    "marketplace": [NCH, COMMISSION],
+    "seller_on_marketplace": [MARKETPLACE_GRIEVANCE, NCH, COMMISSION],
+    "direct_seller": [NCH, COMMISSION],
+    "payment_intermediary": [RBI, NCH, COMMISSION],
+}
+
+
+class LedgerOnce:
+    """`once(key, fn)` for tests: the key is written only after `fn` succeeds, so a step that fails is run again and a
+    step that succeeded is not. The server's version does the same inside the request's database transaction."""
+
+    def __init__(self) -> None:
+        self.seen: set[str] = set()
+
+    def __call__(self, key: str, fn) -> bool:
+        if key in self.seen:
+            return False
+        fn()
+        self.seen.add(key)
+        return True
+
+
+class FakeFollowUpStore:
+    """Keeps the graph's state as JSON text. `crash_once` names store methods that raise once, simulating a killed worker."""
+
+    def __init__(self, entity_type: str = "marketplace", confidence: float = 0.9, evidence=None, status: str = "awaiting_provider",
+                 routes: dict | None = None) -> None:
+        from resolve_workflows.nodes.evidence_check import CaseEvidence
+
+        self.provider_row = {"name": "Zeta Mart", "entity_type": entity_type, "confidence": confidence}
+        self.evidence = evidence or CaseEvidence(paid_amount="4999", order_date="2026-11-12", order_id="OD43817265")
+        self.routes = routes or DEFAULT_ROUTES
+        self.status = status
+        self.statuses: list[str] = []
+        self.events: list[tuple[str, dict]] = []
+        self.reminders: list[dict] = []
+        self._reminder_keys: dict[str, str] = {}
+        self.states: dict[str, str] = {}
+        self.crash_once: set[str] = set()
+
+    def _maybe_crash(self, name: str) -> None:
+        if name in self.crash_once:
+            self.crash_once.discard(name)
+            raise RuntimeError(f"worker killed in {name}")
+
+    def load(self, case_id: str) -> dict | None:
+        import json
+
+        raw = self.states.get(case_id)
+        return json.loads(raw) if raw is not None else None
+
+    def save(self, case_id: str, state: dict) -> None:
+        import json
+
+        self._maybe_crash("save")
+        self.states[case_id] = json.dumps(state)
+
+    def provider(self, case_id: str) -> dict:
+        return dict(self.provider_row)
+
+    def routes_by_type(self) -> dict:
+        return {k: [dict(r) for r in v] for k, v in self.routes.items()}
+
+    def case_evidence(self, case_id: str):
+        return self.evidence
+
+    def case_status(self, case_id: str) -> str:
+        return self.status
+
+    def set_status(self, case_id: str, status: str) -> None:
+        self.status = status
+        self.statuses.append(status)
+
+    def record_event(self, case_id: str, kind: str, body: dict) -> None:
+        self._maybe_crash("record_event")
+        self.events.append((kind, body))
+
+    def schedule_reminder(self, case_id: str, due_at, kind: str, key: str) -> str:
+        self._maybe_crash("schedule_reminder")
+        if key not in self._reminder_keys:
+            self._reminder_keys[key] = f"deadline-{len(self.reminders) + 1}"
+            self.reminders.append({"id": self._reminder_keys[key], "case_id": case_id, "due_at": due_at, "kind": kind})
+        return self._reminder_keys[key]
