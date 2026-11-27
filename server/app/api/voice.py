@@ -308,6 +308,80 @@ class CallRunner:
         return False
 
 
+class ProviderRunner(CallRunner):
+    """The person on this connection plays the company. Their speech goes into the outreach graph as untrusted text;
+    the agent's replies come back already checked by the output guard and are spoken. No case facts, cards or
+    consumer-side messages are ever sent on this connection."""
+
+    call_id: uuid.UUID
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.phase = "provider_call"
+        self.endpointer.set_pause(TURN_PAUSE_MS)
+
+    def _outreach(self, op: str, text: str = "") -> dict:
+        from app.db.models import Call
+        from app.services.access import data_key
+        from app.services.outreach_store import build_runner
+
+        session = self.app.state.session_factory()
+        try:
+            user = session.get(User, self.user_id)
+            case = owned_case(session, user, self.case_id)
+            call = session.get(Call, self.call_id)
+            runner = build_runner(self.holder, session, user, case, call, data_key(self.holder, case))
+            if op == "start":
+                result = runner.start(str(case.id), str(call.id))
+            elif op == "turn":
+                result = runner.turn(str(case.id), str(call.id), text)
+            else:
+                result = runner.end(str(case.id), str(call.id))
+            session.commit()
+            return {"sentences": result.sentences, "ended": result.ended, "approval_id": result.approval_id, "blocked": result.blocked}
+        except Exception:
+            session.rollback()
+            raise
+        finally:
+            session.close()
+
+    async def _apply(self, out: dict) -> None:
+        if out.get("blocked"):
+            await self.send({"type": "error", "code": "mandate_required"})
+            await self.close("mandate_required")
+            return
+        if out["sentences"]:
+            self.start_speaking(" ".join(out["sentences"]))
+            await self.wait_speech()
+        if out.get("approval_id"):
+            await self.send({"type": "approval", "approval_id": out["approval_id"]})
+        if out["ended"]:
+            await self.send({"type": "phase", "phase": "summary"})
+            await self.close("call_ended")
+
+    async def begin(self) -> None:
+        await self.send({"type": "phase", "phase": "provider_call"})
+        await self._apply(await asyncio.to_thread(self._outreach, "start"))
+
+    async def run(self) -> None:
+        await self.queue.put(self.begin)
+        await super().run()
+
+    async def step(self, event: str, text: str = "") -> None:
+        if event == "message":
+            await self._apply(await asyncio.to_thread(self._outreach, "turn", text))
+
+    async def _control(self, frame: dict) -> bool:
+        if frame.get("type") == "end":
+            await self.wait_speech()
+            await self._apply(await asyncio.to_thread(self._outreach, "end"))
+            await self.close("ended")
+            return True
+        if frame.get("type") == "done_narration":
+            return False  # there is no narration on a provider call
+        return await super()._control(frame)
+
+
 def _make_tts(app) -> TTSEngine:
     factory = getattr(app.state, "voice_tts_factory", None)
     if factory is not None:
@@ -334,13 +408,11 @@ def _open(app, token: str):
             session.commit()
         if _kill(app).engaged:
             raise AppError("voice_disabled", "Voice calls are switched off right now", status_code=503)
-        if voice.role != CallRole.consumer:
-            raise AppError("role_not_supported", "This call role is not available yet", status_code=400)
         stt_used, tts_used = used_today(session, voice.user_id, app.state.clock.now())
         settings = app.state.settings
         if stt_used >= settings.voice_daily_stt_seconds or tts_used >= settings.voice_daily_tts_chars:
             raise AppError("daily_voice_limit", "Daily voice limit reached", status_code=429)
-        return voice.id, voice.user_id, voice.case_id, voice.role
+        return voice.id, voice.user_id, voice.case_id, voice.role, voice.call_id
     finally:
         session.close()
 
@@ -364,15 +436,17 @@ def _finish(app, voice_id: uuid.UUID, runner: CallRunner) -> None:
 async def voice_ws(ws: WebSocket, token: str = "") -> None:
     app = ws.app
     try:
-        voice_id, user_id, case_id, role = await asyncio.to_thread(_open, app, token)
+        voice_id, user_id, case_id, role, call_id = await asyncio.to_thread(_open, app, token)
     except AppError:
         await ws.close(code=4401)
         return
     await ws.accept()
     settings = app.state.settings
     budget = CallBudget(settings.voice_max_call_seconds, settings.voice_daily_tts_chars, time.monotonic())
-    runner = CallRunner(ws, voice_id, user_id, case_id, role, _make_tts(app), _make_stt(app), budget,
-                        now=getattr(app.state, "voice_time", time.monotonic))
+    runner_class = ProviderRunner if role == CallRole.provider_human else CallRunner
+    runner = runner_class(ws, voice_id, user_id, case_id, role, _make_tts(app), _make_stt(app), budget,
+                          now=getattr(app.state, "voice_time", time.monotonic))
+    runner.call_id = call_id
     runner.budget.started_at = runner.now()
     try:
         await runner.run()

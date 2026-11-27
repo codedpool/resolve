@@ -255,13 +255,6 @@ def test_a_spoken_yes_never_confirms_a_fact(client):
     assert facts and all(f["confirmation_state"] == "unconfirmed" for f in facts)
 
 
-def test_a_provider_session_is_not_given_the_consumer_driver(client):
-    _, _, call = setup(client, "v13@example.com", role="provider_human")
-    with pytest.raises(WebSocketDisconnect):
-        with client.websocket_connect(url(call)):
-            pass
-
-
 def test_ending_a_call_is_recorded(client):
     headers, _, call = setup(client, "v14@example.com")
     with client.websocket_connect(url(call)) as ws:
