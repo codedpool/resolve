@@ -215,6 +215,16 @@ class IntakeState(Base):
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
 
 
+class OutreachState(Base):
+    """Working state of one provider call, sealed with the case key, so a call resumes after a restart."""
+
+    __tablename__ = "outreach_states"
+
+    call_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("calls.id"), primary_key=True)
+    body_enc: Mapped[bytes] = mapped_column(LargeBinary)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
 class Evidence(Base):
     __tablename__ = "evidence"
 
