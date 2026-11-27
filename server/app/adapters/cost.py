@@ -30,9 +30,9 @@ class CostMeter:
             raise BudgetExceeded(self.spent_usd, self.limit_usd)
 
     def add(self, usd: float) -> None:
+        """Record what a finished call cost. The call that crosses the cap keeps its answer (it is already paid for); the next
+        call is the one that is refused."""
         self.spent_usd += usd
-        if self.spent_usd > self.limit_usd:
-            raise BudgetExceeded(self.spent_usd, self.limit_usd)
 
 
 def token_cost(prices: dict, model: str, usage: dict | None) -> float:
@@ -48,3 +48,11 @@ def audio_cost(prices: dict, model: str, seconds: float) -> float:
     row = prices.get(model) or {}
     billed = max(seconds, 10.0)
     return float(row.get("per_audio_hour") or 0) * (billed / 3600)
+
+
+def shared_meter(state) -> CostMeter:
+    """One meter per app, so the chat, vision and speech clients all spend from the same budget."""
+    meter = getattr(state, "cost_meter", None)
+    if meter is None:
+        meter = state.cost_meter = CostMeter(state.settings.groq_budget_usd)
+    return meter

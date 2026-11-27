@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import httpx
 
-from app.adapters.cost import CostMeter
+from app.adapters.cost import shared_meter
 from app.adapters.groq_llm import GroqClient
 
 GROQ_BASE = "https://api.groq.com/openai/v1"
@@ -15,5 +15,5 @@ def get_llm(request):
     if getattr(state, "intake_llm", None) is None:
         settings = state.settings
         http = httpx.Client(base_url=GROQ_BASE, headers={"Authorization": f"Bearer {settings.groq_api_key}"}, timeout=60)
-        state.intake_llm = GroqClient(settings.load_models(), CostMeter(settings.groq_budget_usd), http)
+        state.intake_llm = GroqClient(settings.load_models(), shared_meter(state), http)
     return state.intake_llm

@@ -11,7 +11,7 @@ import httpx
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.adapters.cost import CostMeter
+from app.adapters.cost import shared_meter
 from app.adapters.factory import GROQ_BASE, get_llm
 from app.adapters.ocr import TesseractOCR
 from app.adapters.vision import GroqVision
@@ -111,7 +111,7 @@ def _vision(request):
         return state.evidence_vision
     settings = state.settings
     http = httpx.Client(base_url=GROQ_BASE, headers={"Authorization": f"Bearer {settings.groq_api_key}"}, timeout=90)
-    return GroqVision(settings.load_models(), CostMeter(settings.groq_budget_usd), http)
+    return GroqVision(settings.load_models(), shared_meter(state), http)
 
 
 def run_evidence(request, session: Session, user: User, case: Case, evidence: Evidence, key: bytes, event: str) -> dict:

@@ -40,10 +40,8 @@ class GroqTranscriber:
         data = {"model": model, "response_format": "verbose_json", "temperature": "0"}
         if language:
             data["language"] = language
-        response = self.client.http.post(
-            "/audio/transcriptions",
-            data=data,
-            files={"file": (filename, io.BytesIO(audio), "audio/wav")},
+        response = self.client.send(  # the file is rebuilt for every attempt, so a retry after a 429 sends the whole clip
+            lambda: self.client.http.post("/audio/transcriptions", data=data, files={"file": (filename, io.BytesIO(audio), "audio/wav")})
         )
         if response.status_code >= 400:
             raise AppError("groq_error", "Groq transcription failed", status_code=502, details={"status": response.status_code})
