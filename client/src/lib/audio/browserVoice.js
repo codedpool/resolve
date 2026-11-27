@@ -3,11 +3,11 @@ import { createPlayback } from "./playback";
 import { createVoiceClient, restCalls } from "./voiceClient";
 
 /** Wires the voice client to the real browser: microphone, audio output and WebSocket. */
-export function createBrowserVoiceClient(api) {
+export function createBrowserVoiceClient(api, role) {
   // Browser objects are looked up when the call starts, so this is safe to build while rendering on the server.
   const audioContextClass = () => window.AudioContext || window.webkitAudioContext;
   return createVoiceClient({
-    ...restCalls(api),
+    ...restCalls(api, role),
     WebSocketImpl: function BrowserSocket(url) {
       return new window.WebSocket(url);
     },

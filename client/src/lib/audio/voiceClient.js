@@ -23,9 +23,9 @@ export function buildSocketUrl(call, wsRoot = "") {
 }
 
 /** The functions that talk to the REST API, built on the app's api client. */
-export function restCalls(api) {
+export function restCalls(api, role = CALL_ROLE) {
   return {
-    requestCall: (caseId) => api.request(CALLS_PATH, { method: "POST", body: { case_id: caseId, role: CALL_ROLE } }),
+    requestCall: (caseId) => api.request(CALLS_PATH, { method: "POST", body: { case_id: caseId, role } }),
     requestEnd: (callId) => api.request(endCallPath(callId), { method: "POST" }),
   };
 }

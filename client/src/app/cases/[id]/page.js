@@ -115,6 +115,8 @@ export default function CasePage() {
       <StatusBadge status={detail.status} simulated={detail.simulated} />
       <p className="actions">
         <Link href={`/cases/${params.id}/call`}>Tell us by voice instead</Link>
+        {" · "}
+        <Link href={`/cases/${params.id}/provider-call`}>Practise a voice call as the company</Link>
       </p>
       <IntakeChat caseId={String(params.id)} onFactsChanged={reload} onEditDetails={showDetails} />
       {notice ? (
