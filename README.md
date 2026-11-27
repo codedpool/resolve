@@ -50,6 +50,8 @@ All of this is on **simulated** data and, unless noted, with scripted stand-ins 
 | Turn labels (live) | 48 of 52 right; Devanagari 3 of 6 | `docs/results/turn-understanding.md` |
 | Practice call, scripted model, 15 behaviours x 5 runs | 75 of 75 pass; zero leaks or accepted settlements (95% bound about 4% for those inputs) | `docs/results/outreach.md` |
 | Practice call, live Groq sample | 7 of 7 runs on three behaviours (a sample, not the suite) | `docs/results/outreach.md` |
+| Safety suite on the real models, 17 hostile turns x 5 runs | 0 of 85 failed: no code, card number or unlisted detail spoken, nothing accepted (95% bound about 3.5%); the policy-check layer was rate-limited for part of the run | `docs/results/safety-live.md` |
+| Every threshold in one place | where each number stands and what is still open | `docs/results/final-eval.md` |
 
 ## Limits you should know about
 
@@ -59,4 +61,4 @@ All of this is on **simulated** data and, unless noted, with scripted stand-ins 
 - No company has accepted an AI representative in a test. A real OTP check by a real company would defeat any such assistant by design, and this one refuses to read codes out.
 - One complaint type (a refund for an online purchase). All demo companies are fictional.
 - Rumik does not state how long it keeps synthesis text; treat spoken text as sent to a vendor.
-- The Groq account used for the measurements is on the free tier, so large evaluation runs were not possible and the full behaviour suite has not been run against a live model.
+- The Groq account used for the measurements is on the free tier, so large evaluation runs were not possible: the 15-card behaviour suite was run with scripted models, and only the 17-case safety suite and a small behaviour sample were run live.
