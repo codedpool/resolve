@@ -19,6 +19,7 @@ from app.db.models import (
     Approval, ApprovalKind, ApprovalStatus, Call, Case, CaseStatus, Evidence, Fact, Notification, OutreachState, Promise, PromiseStatus, User,
 )
 from app.privacy.numbers import normalize_numbers
+from app.runtime.run_service import once_in_session
 from app.services.access import record_event
 from app.services.case_store import ServerCaseStore
 from app.services.fact_service import read_value
@@ -85,18 +86,24 @@ class ServerOutreachStore:
 
     # -- case writes ------------------------------------------------------------------------------------------------
     def save_promise(self, case_id: str, call_id: str, who: str, what: str, by_when: str, reference: str, key: str) -> str:
-        due = datetime.combine(datetime.fromisoformat(by_when).date(), time(23, 59), tzinfo=timezone.utc)
-        row = Promise(
-            case_id=self.case.id, who_enc=seal_text(who, self.key),
-            what_enc=seal_text(json.dumps({"what": what, "reference": reference, "call_id": call_id}), self.key), by_when=due, status=PromiseStatus.open,
-        )
-        self.session.add(row)
-        self.session.flush()
-        record_event(self.session, self.case, self.key, "promise_recorded", {"promise_id": str(row.id), "by_when": by_when}, self._now())
-        return str(row.id)
+        made: list[str] = []
+
+        def make() -> None:
+            due = datetime.combine(datetime.fromisoformat(by_when).date(), time(23, 59), tzinfo=timezone.utc)
+            row = Promise(
+                case_id=self.case.id, who_enc=seal_text(who, self.key),
+                what_enc=seal_text(json.dumps({"what": what, "reference": reference, "call_id": call_id}), self.key), by_when=due, status=PromiseStatus.open,
+            )
+            self.session.add(row)
+            self.session.flush()
+            record_event(self.session, self.case, self.key, "promise_recorded", {"promise_id": str(row.id), "by_when": by_when}, self._now())
+            made.append(str(row.id))
+
+        once_in_session(self.session, key, make)  # the same key twice makes one promise
+        return made[0] if made else key
 
     def record_offer(self, case_id: str, call_id: str, offer: dict, key: str) -> None:
-        record_event(self.session, self.case, self.key, "offer_recorded", {"call_id": call_id, **offer}, self._now())
+        once_in_session(self.session, key, lambda: record_event(self.session, self.case, self.key, "offer_recorded", {"call_id": call_id, **offer}, self._now()))
 
     def set_status(self, case_id: str, status: str) -> None:
         self.case.status = CaseStatus(status)
@@ -170,7 +177,7 @@ def build_runner(request, session: Session, user: User, case: Case, call: Call, 
     ports = OutreachPorts(
         llm=llm, classifier=llm, screen=llm, case_store=case_store, store=ServerOutreachStore(session, case, user, call, key, now),
         approvals=ServerApprovalPort(session, case, user, key, state.master_key, now), retriever=get_retriever(request, session), guard=guard,
-        now=now, normalise=normalize_numbers,
+        now=now, normalise=normalize_numbers, backoff_watch=getattr(llm, "watch_backoff", None),
     )
     return OutreachRunner(ports)
 
