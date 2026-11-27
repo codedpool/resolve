@@ -130,3 +130,15 @@ def test_review_prompts_are_versioned_files():
     for name in ("legal_tag_chunk", "legal_review_tags", "legal_review_answer"):
         prompt = prompts.load(name)
         assert prompt.version >= 1 and len(prompt.sha) == 12 and "JSON" in prompt.text
+
+
+def test_the_config_switch_picks_the_verifier(monkeypatch):
+    from app.config import Settings
+
+    monkeypatch.delenv("LEGAL_VERIFIER", raising=False)
+    assert Settings(_env_file=None).legal_verifier == "llm"
+    monkeypatch.setenv("LEGAL_VERIFIER", "llm_web")
+    selected = Settings(_env_file=None).legal_verifier
+    assert selected == "llm_web"
+    with pytest.raises(NotConfigured, match="llm_web"):
+        build_verifier(selected, ScriptedLLM(), MODELS)

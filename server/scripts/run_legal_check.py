@@ -66,8 +66,10 @@ class Throttled:
             self._room(need)
             try:
                 parsed, usage = self.inner.structured(role, prompt_text, variables, schema, mode)
-            except AppError as exc:
-                if (exc.details or {}).get("status") == 429 and attempt < 5:
+            except (AppError, httpx.TimeoutException) as exc:
+                status = (getattr(exc, "details", None) or {}).get("status")
+                if (status == 429 or isinstance(exc, httpx.TimeoutException)) and attempt < 5:
+                    print(f"call failed ({status or 'timeout'}), waiting 25s", flush=True)
                     time.sleep(25)
                     continue
                 raise
@@ -105,8 +107,12 @@ def main() -> None:
         raise SystemExit("GROQ_API_KEY is not set")
     models = settings.load_models()
     meter = CostMeter(args.max_usd)
-    http = httpx.Client(base_url=GROQ_BASE, headers={"Authorization": f"Bearer {settings.groq_api_key}"}, timeout=90)
-    llm = Throttled(GroqClient(models, meter, http))
+    http = httpx.Client(base_url=GROQ_BASE, headers={"Authorization": f"Bearer {settings.groq_api_key}"}, timeout=60)
+    def sleeper(seconds: float) -> None:
+        print(f"rate limited, waiting {seconds:.0f}s", flush=True)
+        time.sleep(seconds)
+
+    llm = Throttled(GroqClient(models, meter, http, sleeper=sleeper))
     verifier = LlmLegalVerifier(llm, models)
 
     results = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {"chunks": {}, "answers": {}}
