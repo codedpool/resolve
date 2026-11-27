@@ -1,6 +1,7 @@
 """The voice gateway with scripted speech recognition, speech synthesis and model. No vendor is called."""
 
 import array
+import uuid
 import math
 import wave
 from pathlib import Path
@@ -289,3 +290,36 @@ def test_a_user_over_their_daily_voice_time_cannot_start_a_call(client):
         conn.execute(text("UPDATE voice_sessions SET stt_seconds = 999999"))
     blocked = client.post("/calls", json={"case_id": case_id}, headers=headers)
     assert blocked.status_code == 429 and blocked.json()["error"]["code"] == "daily_voice_limit"
+
+
+def _set_status(client, case_id, status):
+    from app.db.models import Case, CaseStatus
+
+    session = client.app.state.session_factory()
+    try:
+        session.get(Case, uuid.UUID(case_id)).status = CaseStatus(status)
+        session.commit()
+    finally:
+        session.close()
+
+
+@pytest.mark.parametrize("status,phrase", [("confirming", "still need your tap"), ("ready_for_mandate", "Everything is confirmed")])
+def test_ending_the_call_speaks_where_the_case_stands(client, status, phrase):
+    _, case_id, call = setup(client, f"close-{status}@example.com")
+    _set_status(client, case_id, status)
+    with client.websocket_connect(url(call)) as ws:
+        assert ws.receive_json()["type"] == "ready"
+        ws.send_json({"type": "end"})
+        frames, chunks = collect(ws, lambda f: f.get("type") == "closed")
+    said = " ".join(f["text"] for f in frames if f.get("who") == "agent")
+    assert phrase in said and "until you approve" in said
+    assert chunks > 0 and frames[-1]["reason"] == "ended"
+
+
+def test_ending_a_call_with_nothing_captured_says_nothing(client):
+    _, _, call = setup(client, "close-empty@example.com")
+    with client.websocket_connect(url(call)) as ws:
+        assert ws.receive_json()["type"] == "ready"
+        ws.send_json({"type": "end"})
+        frames, _ = collect(ws, lambda f: f.get("type") == "closed")
+    assert not [f for f in frames if f.get("who") == "agent"]

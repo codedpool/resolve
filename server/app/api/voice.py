@@ -38,6 +38,17 @@ router = APIRouter(tags=["voice"])
 NARRATION_PAUSE_MS = 1500
 TURN_PAUSE_MS = 700
 SILENCE_PROMPT_SECONDS = 25.0
+CLOSING = {
+    "en": {
+        "ready": "Everything is confirmed. Next you will see, on the screen, what I may share with the company and what I may not. I will not contact them until you approve it.",
+        "pending": "I have saved what you told me. A few details still need your tap on the cards on the screen. After that you can review what I may share, and I will not contact the company until you approve it.",
+    },
+    "hi": {
+        "ready": "सब कुछ पुष्ट हो गया है। अब स्क्रीन पर आप देखेंगे कि मैं कंपनी को क्या बता सकता हूँ और क्या नहीं। आपकी मंज़ूरी के बिना मैं उनसे संपर्क नहीं करूँगा।",
+        "pending": "आपने जो बताया वह मैंने सहेज लिया है। कुछ जानकारियों के लिए स्क्रीन पर कार्ड पर आपकी पुष्टि बाकी है। उसके बाद आप देख सकते हैं कि मैं क्या साझा कर सकता हूँ, और आपकी मंज़ूरी के बिना मैं कंपनी से संपर्क नहीं करूँगा।",
+    },
+}
+
 PHASES = {"narrating": "narration", "asking": "gap_filling", "confirming": "confirming"}
 CRITICAL = ("company_name", "amount", "order_id", "order_date", "desired_remedy")
 
@@ -195,6 +206,23 @@ class CallRunner:
         finally:
             session.close()
 
+    def _closing_text(self) -> str:
+        """What the assistant says when the consumer ends the call: where the case stands and that nothing is sent without approval.
+        Built from the case status, not from a model, so it cannot promise anything the mandate does not allow."""
+        session = self.app.state.session_factory()
+        try:
+            user = session.get(User, self.user_id)
+            case = owned_case(session, user, self.case_id)
+            status = case.status.value if hasattr(case.status, "value") else str(case.status)
+            lang = "hi" if user.language == "hi" else "en"
+            if status == "ready_for_mandate":
+                return CLOSING[lang]["ready"]
+            if status == "confirming":
+                return CLOSING[lang]["pending"]
+            return ""
+        finally:
+            session.close()
+
     async def step(self, event: str, text: str = "") -> None:
         out = await asyncio.to_thread(self._graph, event, text)
         phase = PHASES.get(out["phase"], self.phase)
@@ -303,6 +331,11 @@ class CallRunner:
         elif kind == "playback_flushed":
             pass
         elif kind == "end":
+            await self.wait_speech()
+            closing = await asyncio.to_thread(self._closing_text)
+            if closing:
+                self.start_speaking(closing)
+                await self.wait_speech()
             await self.close("ended")
             return True
         return False
